@@ -1,4 +1,9 @@
 class Booking < ApplicationRecord
-  belongs_to :Damage
-  belongs_to :prestataire
+  belongs_to :damage
+  belongs_to :provider
+
+  validates damage_id, presence: true
+  validates provider_id, presence: true
+  validates date, presence: true
+
 end
