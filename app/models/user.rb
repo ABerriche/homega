@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :places, dependent: :destroy
+
+  JOBS = ["Agriculteur exploitant", "Artisant commerçant", "Assistante maternelle", "Cadre", "Profession libérale", "Employé", "Enseignant", "Etudiant", "Ouvrier", "Retraité", "Sans activité professionnelle", "Autre"]
 end
