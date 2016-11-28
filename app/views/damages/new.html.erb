@@ -1,0 +1,22 @@
+<div class="wrapper">
+  <div class="container text-center features">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <div class="form-new">
+          <%= simple_form_for @damage do |f| %>
+            <%= f.input :place_id, collection: @places, label: "Bien concerné" %>
+            <%= f.input :category, label: "Catégorie" %>
+            <%= f.input :civil_responsability, label: "Responsabilité civile" %>
+            <%= f.input :responsability, label: "Responsabilité" %>
+            <%= f.input :breaking, label: "Effraction" %>
+            <%= f.input :value_thief, label: "Valeur" %>
+            <%= f.input :cat_water_damage, label: "Type de chauffage" %>
+            <%= f.input :comment, label: "Commentaires" %>
+            <%= f.button :submit, "Valider" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
