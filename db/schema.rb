@@ -10,10 +10,64 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161128113617) do
+ActiveRecord::Schema.define(version: 20161128133919) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.integer  "damage_id"
+    t.date     "date"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "provider_id"
+    t.index ["damage_id"], name: "index_bookings_on_damage_id", using: :btree
+    t.index ["provider_id"], name: "index_bookings_on_provider_id", using: :btree
+  end
+
+  create_table "damages", force: :cascade do |t|
+    t.integer  "place_id"
+    t.string   "cateogry"
+    t.boolean  "civil_responsability"
+    t.string   "responsability"
+    t.boolean  "breaking"
+    t.string   "value_thief"
+    t.string   "cat_water_damage"
+    t.string   "comment"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.index ["place_id"], name: "index_damages_on_place_id", using: :btree
+  end
+
+  create_table "places", force: :cascade do |t|
+    t.string   "categorie"
+    t.integer  "user_id"
+    t.string   "address"
+    t.string   "city"
+    t.string   "postal_code"
+    t.integer  "supperficy"
+    t.string   "heating_type"
+    t.string   "building_type"
+    t.string   "kitchen_type"
+    t.integer  "water_room"
+    t.string   "floor"
+    t.string   "status"
+    t.boolean  "chimney"
+    t.string   "trustee_reference"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["user_id"], name: "index_places_on_user_id", using: :btree
+  end
+
+  create_table "providers", force: :cascade do |t|
+    t.string   "last_name"
+    t.string   "first_name"
+    t.string   "address"
+    t.string   "category"
+    t.string   "company"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -32,4 +86,7 @@ ActiveRecord::Schema.define(version: 20161128113617) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "bookings", "damages"
+  add_foreign_key "damages", "places"
+  add_foreign_key "places", "users"
 end
