@@ -4,19 +4,20 @@
       <div class="col-xs-12 col-sm-6 col-sm-offset-3">
         <div class="form-new">
           <%= simple_form_for @place do |f| %>
-            <%= f.input :address %>
-            <%= f.input :city %>
-            <%= f.input :postal_code %>
-            <%= f.input :superficy %>
-            <%= f.input :heating_type %>
-            <%= f.input :building_type %>
-            <%= f.input :kitchen_type %>
-            <%= f.input :water_room %>
-            <%= f.input :floor %>
-            <%= f.input :status %>
-            <%= f.input :chimney %>
-            <%= f.input :trustee_reference %>
-            <%= f.button :submit %>
+            <%= f.input :address, label: "Adresse" %>
+            <%= f.input :category, label: "Catégorie", :collection => ["Maison", "Appartement", "Hotel Particulier", "Loft", "Chateau"] %>
+            <%= f.input :city, label: "Ville" %>
+            <%= f.input :postal_code, label: "Code Postal" %>
+            <%= f.input :superficy, label: "Superficie" %>
+            <%= f.input :heating_type, label: "Type de chauffage", :collection => %w[Central Individuel] %>
+            <%= f.input :building_type, label: "Type de Batiment", :collection => %w[Neuf Ancien] %>
+            <%= f.input :kitchen_type, label: "Cuisinière", :collection => %w[Gaz Electricité]%>
+            <%= f.input :water_room, label: "Nombre de pièces d'eau" %>
+            <%= f.input :floor, label: "Etage", :collection => ["RDC", "Intermédiaire", "Dernier Etage"] %>
+            <%= f.input :status, label: "Statut", :collection => ["Locataire", "Collocataire", "Propriétaire", "Propriétaire Non Occupant"] %>
+            <%= f.input :chimney, label: "Cheminée" %>
+            <%= f.input :trustee_reference, label: "Référence Syndicat" %>
+            <%= f.button :submit, "Valider" %>
           <% end %>
         </div>
       </div>
