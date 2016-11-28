@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161128133919) do
+ActiveRecord::Schema.define(version: 20161128141403) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20161128133919) do
 
   create_table "damages", force: :cascade do |t|
     t.integer  "place_id"
-    t.string   "cateogry"
+    t.string   "category"
     t.boolean  "civil_responsability"
     t.string   "responsability"
     t.boolean  "breaking"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20161128133919) do
     t.string   "address"
     t.string   "city"
     t.string   "postal_code"
-    t.integer  "supperficy"
+    t.integer  "superficy"
     t.string   "heating_type"
     t.string   "building_type"
     t.string   "kitchen_type"
