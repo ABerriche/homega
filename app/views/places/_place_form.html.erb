@@ -1,0 +1,26 @@
+<div class="wrapper">
+  <div class="container text-center features">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <div class="form-new">
+          <%= simple_form_for @place do |f| %>
+            <%= f.input :address %>
+            <%= f.input :city %>
+            <%= f.input :postal_code %>
+            <%= f.input :superficy %>
+            <%= f.input :heating_type %>
+            <%= f.input :building_type %>
+            <%= f.input :kitchen_type %>
+            <%= f.input :water_room %>
+            <%= f.input :floor %>
+            <%= f.input :status %>
+            <%= f.input :chimney %>
+            <%= f.input :trustee_reference %>
+            <%= f.button :submit %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
