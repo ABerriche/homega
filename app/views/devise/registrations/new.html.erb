@@ -9,10 +9,10 @@
     <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), placeholder: "Choisissez un mot de passe", label: false %>
     <%= f.input :password_confirmation, required: true, placeholder: "Confirmez votre mot de passe", label: false %>
     <%= f.input :email, required: true, placeholder: 'nom.prenom@exemple.com' %>
-    <%= f.input :sex, :radio_buttons, collection: ["Homme", "Femme"], required: true %>
+    <%= f.input :sex, as: :radio_buttons, collection: ["Homme", "Femme"], required: true %>
     <%= f.input :situation, collection: ["Célibtaire", "Marié", "Pacsé", "Veuf(ve)"], required: true %>
     <%= f.input :birth_date, required: true, :input_html => { :class => 'form-control datepicker' }, placeholder: "Date de naissance", label: false %>
-    <%= f.input :children, :radio_buttons, collection: ["0", "1", "2", "3", "4 ou plus"], required: true, placeholder: "Nombre d'enfant(s)", label: false %>
+    <%= f.input :nb_children, as: :radio_buttons, collection: ["0", "1", "2", "3", "4 ou plus"], required: true, placeholder: "Nombre d'enfant(s)", label: false %>
     <%= f.input :job, collection: User::JOBS, required: true, placeholder: "Profession", label: false %>
 
   </div>
