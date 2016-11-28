@@ -17,7 +17,13 @@ class PlacesController < ApplicationController
   end
 
   def edit
+    @places = Place.where.not(latitude: nil, longitude: nil)
 
+    @hash = Gmaps4rails.build_markers(@places) do |place, marker|
+      marker.lat place.latitude
+      marker.lng place.longitude
+      # marker.infowindow render_to_string(partial: "/places/map_box", locals: { place: place })
+    end
   end
 
   def update
@@ -26,6 +32,9 @@ class PlacesController < ApplicationController
   end
 
   def show
+    @place = Place.find(params[:id])
+    @place_coordinates = { lat: @place.latitude, lng: @place.longitude }
+    @alert_message = "You are viewing #{@place.name}"
   end
 
   private

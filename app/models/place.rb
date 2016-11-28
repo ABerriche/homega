@@ -1,5 +1,7 @@
 class Place < ApplicationRecord
+  geocoded_by :address
   belongs_to :user
+  after_validation :geocode, if: :address_changed?
   has_many :damages, dependent: :destroy
 
   validates :name, presence: true
