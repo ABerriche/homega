@@ -1,1 +1,9 @@
 <%= @place.address %> | <%= @place.superficy %>
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).ready(function() {
+      var coord = <%= raw @place_coordinates %>;
+      alert('Place coordinates are ' + coord.lat + ', ' + coord.lng);
+    });
+  <% end %>
+<% end %>
