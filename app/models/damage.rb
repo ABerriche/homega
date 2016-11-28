@@ -9,6 +9,5 @@ class Damage < ApplicationRecord
   validates :breaking, presence: true
   validates :value_thief, presence: true
   validates :cat_water_damage, presence: true
-  validates :comment, presence: true
 
 end

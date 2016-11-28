@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161128144823) do
+ActiveRecord::Schema.define(version: 20161128173234) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20161128144823) do
     t.boolean  "breaking"
     t.string   "value_thief"
     t.string   "cat_water_damage"
-    t.string   "comment"
+    t.text     "comment"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.index ["place_id"], name: "index_damages_on_place_id", using: :btree
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20161128144823) do
     t.string   "trustee_reference"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.string   "name"
     t.index ["user_id"], name: "index_places_on_user_id", using: :btree
   end
 
