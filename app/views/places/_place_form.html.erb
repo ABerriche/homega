@@ -4,6 +4,7 @@
       <div class="col-xs-12 col-sm-6 col-sm-offset-3">
         <div class="form-new">
           <%= simple_form_for @place do |f| %>
+            <%= f.input :name, label: "Nom du bien" %>
             <%= f.input :address, label: "Adresse" %>
             <%= f.input :category, label: "Catégorie", :collection => ["Maison", "Appartement", "Hotel Particulier", "Loft", "Chateau"] %>
             <%= f.input :city, label: "Ville" %>
