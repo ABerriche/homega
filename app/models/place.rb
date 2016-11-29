@@ -3,9 +3,10 @@ class Place < ApplicationRecord
   belongs_to :user
   after_validation :geocode, if: :address_changed?
   has_many :damages, dependent: :destroy
+  has_many :quotes, dependent: :destroy
 
   validates :name, presence: true
-  validates :category, presence: true, inclusion: {in: ["Hotel", "Appartement", "Chateau", "Loft", "Maison"]}
+  validates :category, presence: true, inclusion: {in: ["Hotel Particulier", "Appartement", "Chateau", "Loft", "Maison"]}
   validates :address, presence: true
   validates :city, presence: true
   validates :postal_code, presence: true
