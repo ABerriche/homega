@@ -31,15 +31,22 @@
   border-radius: 4px;
   font-weight: bold;
   font-size: 20px;
-  background: $primary-color: $brand-color;
+  background: $brand-color;
   transition: background 0.3s ease;
 }
 .btn-treehouse:hover {
   opacity: 1;
-  background: $hover-color: lighten($blue, 20%);
+  background: lighten($blue, 20%);
   text-decoration: none;
   color: white;
+}
 
 .hidden {
   display: none;
+}
+
+a.nav-link:link
+{
+   color: #fb3f00;
+   text-decoration: none;
 }
