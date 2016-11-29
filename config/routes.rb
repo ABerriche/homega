@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :places, only: [ :new, :create, :edit, :update, :show ] do
     resources :quotes, only: [ :new, :create ]
   end
+  resources :quotes, only: [ :show ]
   resources :damages, only: [ :new, :create, :show ] do
     resources :bookings, only: [ :new, :create ]
   end
