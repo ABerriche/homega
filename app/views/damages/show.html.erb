@@ -1,1 +1,5 @@
 <h1><%= @damage.place.name %> | <%= @damage.place.address %> | <%= @damage.category %></h1>
+
+<%if @damage.category == "Vol" && @damage.value_thief <= 1000 %>
+  <h2>You will get a payment of @damage.value_thief in the coming days...</h2>
+<% end %>
