@@ -19,7 +19,7 @@ class DamagesController < ApplicationController
   end
 
   def show
-
+    @providers = Provider.where(category: @damage.category)
   end
 
   def edit

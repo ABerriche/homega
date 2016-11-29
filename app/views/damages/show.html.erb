@@ -1,5 +1,13 @@
 <h1><%= @damage.place.name %> | <%= @damage.place.address %> | <%= @damage.category %></h1>
 
-<%if @damage.category == "Vol" && @damage.value_thief <= 1000 %>
-  <h2>You will get a payment of @damage.value_thief in the coming days...</h2>
+<%if @damage.category == "Vol" %>
+  <% if @damage.value_thief.to_i <= 1000 %>
+    <h2>You will get a payment of <%= @damage.value_thief %> euros in the coming days...</h2>
+  <% else %>
+    <h2>...</h2>
+  <% end %>
+<% elsif @damage.category == "Dégâts des eaux" %>
+  <% @providers.each do |provider| %>
+    <%= provider.first_name %> | <%= provider.last_name %> <br>
+  <% end %>
 <% end %>
