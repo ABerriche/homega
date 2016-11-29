@@ -4,8 +4,7 @@ class Damage < ApplicationRecord
 
   validates :place_id, presence: true
   validates :category, presence: true, inclusion: {in: ["Dégâts des eaux", "Vol", "Incendie", "Catastrophe naturelle"] }
-  validates :responsability, presence: true
-  validates :value_thief, presence: true
-  validates :cat_water_damage, presence: true
+  validates_presence_of :responsability, :if => lambda { |o| o.category == "Dégâts des eaux" }
+  validates_presence_of :value_thief, :if => lambda { |o| o.category == "Vol" }
 
 end
