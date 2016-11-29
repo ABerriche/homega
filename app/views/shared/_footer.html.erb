@@ -1,14 +1,27 @@
+
 <div id="footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-4">
-            <ul class="list-inline">
-              <li><a href=""><i class="fa fa-youtube"></i></a></li>
-              <li><a href=""><i class="fa fa-instagram"></i></a></li>
-              <li><a href=""><i class="fa fa-facebook"></i></a></li>
-              <li><a href=""><i class="fa fa-twitter"></i></a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
+  <div class="footer-content" style="
+    display: flex;
+    justify-content: space-between;
+">
+    <div class="footer-links" style="
+    display: flex;
+">
+      <li><a href="">FAQ</a></li>
+      <li><a href="">JOBS</a></li>
+      <li><a href="">BLOG</a></li>
     </div>
+    <div>
+   <%= link_to root_path, class: "navbar-wagon-brand" do %>
+    <%= image_tag "logo.png" %>
+      <% end %> 
+   </div>
+    <div class="footer-social"style="
+    display: flex;
+">
+      <li><a href=""><i class="fa fa-facebook"></i></a></li>
+      <li><a href=""><i class="fa fa-instagram"></i></a></li>
+      <li><a href=""><i class="fa fa-twitter"></i></a></li>
+    </div>
+  </div>
+</div>
