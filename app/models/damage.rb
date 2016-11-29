@@ -4,9 +4,7 @@ class Damage < ApplicationRecord
 
   validates :place_id, presence: true
   validates :category, presence: true
-  validates :civil_responsability, presence: true
   validates :responsability, presence: true
-  validates :breaking, presence: true
   validates :value_thief, presence: true
   validates :cat_water_damage, presence: true
 

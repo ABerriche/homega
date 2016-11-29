@@ -1,6 +1,6 @@
 class DamagesController < ApplicationController
 
-  before_action :set_damage, only: [:show]
+  before_action :set_damage, only: [:show, :edit]
 
   def new
     @places = current_user.places.map { |place| place.name }
@@ -8,7 +8,9 @@ class DamagesController < ApplicationController
   end
 
   def create
-    @damage = Damage.new
+    place_id = current_user.places.where(name: params[:damage][:place_id]).as_json[0]["id"]
+    @damage = Damage.new(damage_params)
+    @damage.place_id = place_id
     if @damage.save
       redirect_to damage_path(@damage)
     else
@@ -20,6 +22,10 @@ class DamagesController < ApplicationController
 
   end
 
+  def edit
+
+  end
+
   private
 
   def set_damage
@@ -27,7 +33,7 @@ class DamagesController < ApplicationController
   end
 
   def damage_params
-    require.params(:damage).permit(:category, :civil_responsablity, :responsability, :breaking, :value_thief, :cat_water_damage, :comment)
+    params.require(:damage).permit(:place_id, :category, :civil_responsability, :responsability, :breaking, :value_thief, :cat_water_damage, :comment)
   end
 
 end
