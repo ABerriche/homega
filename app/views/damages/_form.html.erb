@@ -1,8 +1,10 @@
 <div class="wrapper">
-  <div class="container text-center features">
+  <div class="container">
     <div class="row">
-      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-        <div class="form-new">
+      <div class="col-sm-6 col-sm-offset-3">
+
+        <h2>Déclarez un sinistre</h2>
+
           <%= simple_form_for @damage do |f| %>
             <%= f.input :place_id, collection: @places, label: "Bien concerné" %>
             <%= f.input :category, label: "Catégorie", :collection => ["Dégâts des eaux", "Vol", "Incendie", "Catastrophe naturelle"] %>
@@ -21,7 +23,7 @@
             <%= f.input :comment, label: "Commentaires" %>
             <%= f.button :submit, "Valider" %>
           <% end %>
-        </div>
+
       </div>
     </div>
   </div>

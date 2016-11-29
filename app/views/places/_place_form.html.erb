@@ -1,8 +1,10 @@
 <div class="wrapper">
-  <div class="container text-center features">
+  <div class="container">
     <div class="row">
-      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-        <div class="form-new">
+      <div class="col-sm-6 col-sm-offset-3">
+
+        <h2>Votre logement</h2>
+
           <%= simple_form_for @place do |f| %>
             <%= f.input :name, label: "Nom du bien" %>
             <%= f.input :address, label: "Adresse" %>
@@ -21,7 +23,6 @@
             <%= f.button :submit, "Valider" %>
           <% end %>
         </div>
-      </div>
     </div>
   </div>
 </div>

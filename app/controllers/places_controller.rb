@@ -10,7 +10,7 @@ class PlacesController < ApplicationController
     @place = Place.new(place_params)
     @place.user = current_user
     if @place.save
-      redirect_to place_path(@place)
+      redirect_to new_place_quote_path(@place)
     else
       render :new
     end

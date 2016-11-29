@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: "registrations" }
   root to: 'pages#home'
   resources :users, only: [ :show, :edit, :update ]
-  resources :places, only: [ :new, :create, :edit, :update, :show ]
+  resources :places, only: [ :new, :create, :edit, :update, :show ] do
+    resources :quotes, only: [ :new, :create ]
+  end
   resources :damages, only: [ :new, :create, :show ] do
     resources :bookings, only: [ :new, :create ]
   end
