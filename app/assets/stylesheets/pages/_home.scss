@@ -39,4 +39,7 @@
   background: $hover-color: lighten($blue, 20%);
   text-decoration: none;
   color: white;
+
+.hidden {
+  display: none;
 }
