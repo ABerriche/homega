@@ -5,12 +5,11 @@
         <div class="form-new">
           <%= simple_form_for @damage do |f| %>
             <%= f.input :place_id, collection: @places, label: "Bien concerné" %>
-            <%= f.input :category, label: "Catégorie" %>
+            <%= f.input :category, label: "Catégorie", :collection => ["Dégâts des eaux", "Vol", "Incendie", "Catastrophe naturelle"] %>
             <%= f.input :civil_responsability, label: "Responsabilité civile" %>
-            <%= f.input :responsability, label: "Responsabilité" %>
+            <%= f.input :responsability, label: "Responsabilité", :collection => ["L'origine du sinistre provient de chez moi", "L'origine du sinistre ne provient pas de chez moi", "Je ne sais pas"] %>
             <%= f.input :breaking, label: "Effraction" %>
-            <%= f.input :value_thief, label: "Valeur" %>
-            <%= f.input :cat_water_damage, label: "Type de chauffage" %>
+            <%= f.input :value_thief, label: "Valeur des biens volés" %>
             <%= f.input :comment, label: "Commentaires" %>
             <%= f.button :submit, "Valider" %>
           <% end %>
@@ -20,3 +19,33 @@
   </div>
 </div>
 
+
+<script>
+  $(document).ready(function(){
+
+        $(".damage_breaking").hide();
+        $(".damage_value_thief").hide();
+        $(".damage_responsability").hide();
+        $(".damage_civil_responsability").hide();
+
+
+    $('select').change(function () {
+     if($('#damage_category').val() == "Vol"){
+        $(".damage_breaking").show();
+        $(".damage_value_thief").show();
+        $(".damage_responsability").hide();
+        $(".damage_civil_responsability").hide();
+      } else if ($('#damage_category').val() == "Dégâts des eaux"){
+        $(".damage_breaking").hide();
+        $(".damage_value_thief").hide();
+        $(".damage_responsability").show();
+        $(".damage_civil_responsability").show();
+      } else {
+        $(".damage_breaking").hide();
+        $(".damage_value_thief").hide();
+        $(".damage_responsability").hide();
+        $(".damage_civil_responsability").hide();
+      }
+    });
+  });
+</script>
