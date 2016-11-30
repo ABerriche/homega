@@ -1,6 +1,6 @@
 <div class="wrapper-new">
   <div class="wrapper-page-new-quot">
-    <div class="container">
+    <div class="container quotes-container">
       <div class="row">
         <div class="col-xs-12 new-quote-left">
             <h1>Votre devis en ligne</h1>
@@ -88,69 +88,69 @@
 </div>
 
 <% content_for(:after_js) do %>
-<script>
-$(document).ready(function() {
-//  $("#ex7").slider()
-//  .on('slideStop', function() {
-//    $.ajax({
-//      type: 'POST',
-//      url: < qqch_path %>.js,
-//      data: { value: $("#ex7").val() }
-//    });
-//  });;
+  <script>
+    $(document).ready(function() {
+    //  $("#ex7").slider()
+    //  .on('slideStop', function() {
+    //    $.ajax({
+    //      type: 'POST',
+    //      url: < qqch_path %>.js,
+    //      data: { value: $("#ex7").val() }
+    //    });
+    //  });;
 
-  $("#ex7-enabled").click(function() {
-    if(this.checked) {
-      // With JQuery
-      $("#ex7").slider("enable");
-    }
-    else {
-      // With JQuery
-      $("#ex7").slider("disable");
-    }
-  });
+      $("#ex7-enabled").click(function() {
+        if(this.checked) {
+          // With JQuery
+          $("#ex7").slider("enable");
+        }
+        else {
+          // With JQuery
+          $("#ex7").slider("disable");
+        }
+      });
 
-  $(".nb-global-step").on("click", function(e){
-    // Change active tab
-    $(".nb-global-step").removeClass("active");
-    $(".underline").removeClass("active");
-    $(this).addClass("active");
-    $(this).children().addClass("active");
-    // Hide all tab-content (use class="hidden")
-    $(".sub-new-quote-content").addClass("hidden");
-    // Show target tab-content (use class="hidden")
-    tabSelector = $(this).data("target");
-    $(tabSelector).removeClass("hidden");
-  });
+      $(".nb-global-step").on("click", function(e){
+        // Change active tab
+        $(".nb-global-step").removeClass("active");
+        $(".underline").removeClass("active");
+        $(this).addClass("active");
+        $(this).children().addClass("active");
+        // Hide all tab-content (use class="hidden")
+        $(".sub-new-quote-content").addClass("hidden");
+        // Show target tab-content (use class="hidden")
+        tabSelector = $(this).data("target");
+        $(tabSelector).removeClass("hidden");
+      });
 
-  // STEP 1 TO STEP 2
-  $("#nb-next-button-1").on("click", function(e){
-    $(".nb-global-step").removeClass("active");
-    $(".underline").removeClass("active");
-    $("#underline-2").addClass("active");
-    $(".sub-new-quote-content").addClass("hidden");
-    $("#step-2-description").removeClass("hidden");
-  });
+      // STEP 1 TO STEP 2
+      $("#nb-next-button-1").on("click", function(e){
+        $(".nb-global-step").removeClass("active");
+        $(".underline").removeClass("active");
+        $("#underline-2").addClass("active");
+        $(".sub-new-quote-content").addClass("hidden");
+        $("#step-2-description").removeClass("hidden");
+      });
 
-  // STEP 2 TO STEP 3
-  $("#nb-next-button-2").on("click", function(e){
-    $(".nb-global-step").removeClass("active");
-    $(".underline").removeClass("active");
-    $("#underline-3").addClass("active");
-    $(".sub-new-quote-content").addClass("hidden");
-    $("#step-3-infos").removeClass("hidden");
-  });
+      // STEP 2 TO STEP 3
+      $("#nb-next-button-2").on("click", function(e){
+        $(".nb-global-step").removeClass("active");
+        $(".underline").removeClass("active");
+        $("#underline-3").addClass("active");
+        $(".sub-new-quote-content").addClass("hidden");
+        $("#step-3-infos").removeClass("hidden");
+      });
 
-  // STEP 3 TO STEP 4
-  $("#nb-next-button-3").on("click", function(e){
-    $(".nb-global-step").removeClass("active");
-    $(".underline").removeClass("active");
-    $("#underline-4").addClass("active");
-    $(".sub-new-quote-content").addClass("hidden");
-    $("#step-4-bank").removeClass("hidden");
-  });
-});
-</script>
+      // STEP 3 TO STEP 4
+      $("#nb-next-button-3").on("click", function(e){
+        $(".nb-global-step").removeClass("active");
+        $(".underline").removeClass("active");
+        $("#underline-4").addClass("active");
+        $(".sub-new-quote-content").addClass("hidden");
+        $("#step-4-bank").removeClass("hidden");
+      });
+    });
+  </script>
 <% end %>
 
 
