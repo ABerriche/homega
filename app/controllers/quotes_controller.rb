@@ -6,6 +6,7 @@ class QuotesController < ApplicationController
   def new
     @quote = Quote.new
     create
+    authorize @quote
   end
 
   def create
