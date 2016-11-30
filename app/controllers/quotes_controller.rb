@@ -1,12 +1,12 @@
 class QuotesController < ApplicationController
 
   before_action :set_place, only: [:new, :create]
-  before_action :set_quote, only: [:show, :finalization]
+  before_action :set_quote, only: [:show, :insure]
 
   def new
     @quote = Quote.new
     create
-    authorize @quote
+    #authorize @quote
   end
 
   def create
@@ -71,7 +71,7 @@ class QuotesController < ApplicationController
     #@quote = Quote.find(params[:id])
   end
 
-  def finalization
+  def insure
 
   end
 
