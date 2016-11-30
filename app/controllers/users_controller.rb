@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :infos]
+  before_action :set_user, only: [:show, :edit, :update, :infos, :insure]
 
   def show
   end
@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
   def update
     @user.update(user_params)
-    if params['user']
+    if params['user']['next']
       redirect_to new_place_path
     else
       redirect_to user_path(@user)
@@ -17,7 +17,13 @@ class UsersController < ApplicationController
   end
 
   def infos
-    #@user = current_user
+
+  end
+
+  def insure
+    @user.insured = true
+    @user.save
+    redirect_to root_path
   end
 
 
@@ -28,7 +34,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :sex, :situation, :birth_date, :children, :job)
+    params.require(:user).permit(:first_name, :last_name, :email, :sex, :situation, :birth_date, :nb_children, :job)
   end
 
 end
