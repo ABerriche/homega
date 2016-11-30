@@ -1,6 +1,6 @@
 <div class="wrapper-new">
-  <div class="wrapper-page-new-bloom">
-    <div class="col-xs-3 new-bloomer-left">
+  <div class="wrapper-page-new-quot">
+    <div class="col-xs-3 new-quote-left">
       <div class="steps">
         <h1>Votre devis en ligne</h1>
         <!-- STEP 1 - Déja une assurance habitation? -->
@@ -29,27 +29,29 @@
         </div>
       </div>
     </div>
-    <div class="col-xs-9 new-bloomer-right">
+    <div class="col-xs-9 new-quote-right">
       <!-- Begining of simple form -->
-      <div class="sub-new-bloomer-content" id="step-1-name">
+      <div class="sub-new-quote-content" id="step-1-name">
         <%= simple_form_for(@quote) do |f| %>
         <%= f.error_notification %>
+        <%= f.input :home_insurance, label: 'Avez-vous déja une assurance habitation?' %>
         <div class="nb-next-button" id="nb-next-button-1"><h4><span>SUIVANT</span> ></h4></div>
       </div>
       <!-- MAIN DESCRIPTION -->
-      <div class="sub-new-bloomer-content hidden" id="step-2-description">
-        <div class="nb-title-sub-content"><h2>Décrivez votre structure</h2></div>
+      <div class="sub-new-quote-content hidden" id="step-2-description">
+        <div class="nb-title-sub-content"><h2>Choisissez votre date de début</h2></div>
         <div class="nb-sub-content">
           <div class="col-xs-12 col-sm-6">
-          </div>
+         <%= f.input :start_date, label: 'Date de début', order: [:day, :month, :year] %>          
+         </div>
           <div class="col-xs-12 col-sm-6">
             <div class="nb-next-button" id="nb-next-button-2"><h4><span>SUIVANT</span> ></h4></div>
           </div>
         </div>
       </div>
       <!-- INFO -->
-      <div class="sub-new-bloomer-content hidden" id="step-3-infos">
-      <div class="nb-title-sub-content"><h2>Informations pratiques</h2></div>
+      <div class="sub-new-quote-content hidden" id="step-3-infos">
+      <div class="nb-title-sub-content"><h2>Devis en ligne</h2></div>
         <div class="col-xs-12 col-sm-6">
 Tarif annuel : <%= @quote.price %> euros <br>
 Montant couvert : <%= @quote.covered_amount %> euros
@@ -61,11 +63,10 @@ Montant couvert : <%= @quote.covered_amount %> euros
         </div>
       </div>
       <!-- SOCIAL bank -->
-      <div class="sub-new-bloomer-content hidden" id="step-4-bank">
+      <div class="sub-new-quote-content hidden" id="step-4-bank">
       <div class="nb-title-sub-content"><h2>Vos coordonnés bancaires</h2></div>
       <div class="col-xs-12 col-sm-6">
-
-
+      <%= f.input :rib, label: 'Votre RIB:' %>
       </div>
       <div class="col-xs-12 col-sm-6">
         <span class="nb-next-button"><%= f.button :submit, "Voir et signer les documents" %></span>
@@ -88,7 +89,7 @@ $(document).ready(function() {
     $(this).addClass("active");
     $(this).children().addClass("active");
     // Hide all tab-content (use class="hidden")
-    $(".sub-new-bloomer-content").addClass("hidden");
+    $(".sub-new-quote-content").addClass("hidden");
     // Show target tab-content (use class="hidden")
     tabSelector = $(this).data("target");
     $(tabSelector).removeClass("hidden");
@@ -99,7 +100,7 @@ $(document).ready(function() {
     $(".nb-global-step").removeClass("active");
     $(".circle").removeClass("active");
     $("#circle-2").addClass("active");
-    $(".sub-new-bloomer-content").addClass("hidden");
+    $(".sub-new-quote-content").addClass("hidden");
     $("#step-2-description").removeClass("hidden");
   });
 
@@ -108,7 +109,7 @@ $(document).ready(function() {
     $(".nb-global-step").removeClass("active");
     $(".circle").removeClass("active");
     $("#circle-3").addClass("active");
-    $(".sub-new-bloomer-content").addClass("hidden");
+    $(".sub-new-quote-content").addClass("hidden");
     $("#step-3-infos").removeClass("hidden");
   });
 
@@ -117,7 +118,7 @@ $(document).ready(function() {
     $(".nb-global-step").removeClass("active");
     $(".circle").removeClass("active");
     $("#circle-4").addClass("active");
-    $(".sub-new-bloomer-content").addClass("hidden");
+    $(".sub-new-quote-content").addClass("hidden");
     $("#step-4-bank").removeClass("hidden");
   });
 });
