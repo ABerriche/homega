@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_restaurant, only: [:show, :edit, :update]
+  before_action :set_user, only: [:show, :edit, :update, :infos]
 
   def show
   end
@@ -9,7 +9,15 @@ class UsersController < ApplicationController
 
   def update
     @user.update(user_params)
-    redirect_to user_path(@user)
+    if params['user']
+      redirect_to new_place_path
+    else
+      redirect_to user_path(@user)
+    end
+  end
+
+  def infos
+    #@user = current_user
   end
 
 
