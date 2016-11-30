@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 20161129160138) do
   create_table "quotes", force: :cascade do |t|
     t.integer  "place_id"
     t.integer  "price"
+    t.
     t.integer  "covered_amount"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
