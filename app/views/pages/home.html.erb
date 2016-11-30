@@ -1,3 +1,8 @@
+<% if signed_in? %>
+  <%= link_to "Créer un logement", new_place_path %> | <%= link_to "Déclarer un sinistre", new_damage_path %>
+
+<% else %>
+
     <div class="banner" style="background: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path('banner.jpg') %>');">
       <div class="banner-content">
         <h1>HOMEGA</h1>
@@ -31,7 +36,7 @@
       </div>
 
 
-
-<% if signed_in? %>
-  <%= link_to "Créer un logement", new_place_path %> | <%= link_to "Déclarer un sinistre", new_damage_path %>
 <% end %>
+
+
+
