@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
   def update
     @user.update(user_params)
-    if params['user']
+    if params['user']['next']
       redirect_to new_place_path
     else
       redirect_to user_path(@user)
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :sex, :situation, :birth_date, :children, :job)
+    params.require(:user).permit(:first_name, :last_name, :email, :sex, :situation, :birth_date, :nb_children, :job)
   end
 
 end

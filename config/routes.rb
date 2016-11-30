@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   end
   resources :providers, only: [ :show, :index ]
   get '/users/:id/infos' => 'users#infos', as: 'user_info'
+  get '/quotes/:id/finalize' => 'quotes#finalization', as: 'finalize_quote'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

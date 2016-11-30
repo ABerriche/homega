@@ -1,6 +1,7 @@
 class QuotesController < ApplicationController
 
   before_action :set_place, only: [:new, :create]
+  before_action :set_quote, only: [:show, :finalization]
 
   def new
     @quote = Quote.new
@@ -66,13 +67,21 @@ class QuotesController < ApplicationController
   end
 
   def show
-    @quote = Quote.find(params[:id])
+    #@quote = Quote.find(params[:id])
+  end
+
+  def finalization
+
   end
 
   private
 
   def set_place
     @place = Place.find(params[:place_id])
+  end
+
+  def set_quote
+    @quote = Quote.find(params[:id])
   end
 
   def quote_params
