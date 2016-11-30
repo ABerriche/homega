@@ -1,0 +1,39 @@
+
+<div class="header">
+  <div class="container header-homega">
+    <h1><span class = "h-homega">H</span>omega</h1>
+  </div>
+</div>
+
+
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4 col-sm-offset-4 cat-info">
+          <h2>1. Informations personnelles</h2>
+
+
+        <%= simple_form_for(@user) do |f| %>
+          <%= f.error_notification %>
+
+          <h3><%= @user.email %></h3>
+
+          <div class="form-inputs">
+            <%= f.input :first_name, required: true, autofocus: true, label: "Prénom:" %>
+            <%= f.input :last_name, required: true, label: "Nom de famille:" %>
+            <%= f.input :sex, as: :radio_buttons, collection: ["Homme", "Femme"], required: true, label: "Sexe:", item_label_class: "radio-inline", item_wrapper_tag: false %>
+            <%= f.input :situation, collection: ["Célibataire", "Marié(e)", "Pacsé(e)", "Veuf(ve)"], required: true, label: "Situation matrimoniale:" %>
+            <%= f.input :birth_date, required: true, :input_html => { :class => 'form-control datepicker' }, label: "Date de naissance:" %>
+            <%= f.input :nb_children, collection: ["0", "1", "2", "3", "4+"], required: true, label: "Nombre d'enfant(s):" %>
+            <%= f.input :job, collection: User::JOBS, required: true, label: "Profession:" %>
+            <%= f.hidden_field :next, value: "logement" %>
+          </div>
+
+          <div class="form-actions">
+            <div class= "btn btn-primary"> <%= f.button :submit, "Continuer", method: :patch %> </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

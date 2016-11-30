@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161129160138) do
+ActiveRecord::Schema.define(version: 20161130150614) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,22 +78,25 @@ ActiveRecord::Schema.define(version: 20161129160138) do
     t.integer  "covered_amount"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.date     "start_date"
+    t.boolean  "home_insurance"
+    t.string   "rib"
     t.index ["place_id"], name: "index_quotes_on_place_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.string   "first_name"
     t.string   "last_name"
     t.string   "sex"
@@ -101,6 +104,7 @@ ActiveRecord::Schema.define(version: 20161129160138) do
     t.date     "birth_date"
     t.integer  "nb_children"
     t.string   "job"
+    t.boolean  "insured",                default: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

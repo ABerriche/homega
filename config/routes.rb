@@ -10,5 +10,8 @@ Rails.application.routes.draw do
     resources :bookings, only: [ :new, :create ]
   end
   resources :providers, only: [ :show, :index ]
+  get '/users/:id/infos' => 'users#infos', as: 'user_info'
+  get '/quotes/:id/insure' => 'quotes#insure', as: 'insure'
+  get '/users/:id/insure' => 'users#insure', as: 'insured'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
