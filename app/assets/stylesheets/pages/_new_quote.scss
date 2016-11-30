@@ -1,0 +1,203 @@
+.wrapper-new {
+  background-color: #F1F1F1;
+  height:100vh;
+}
+
+.wrapper-page-new-quot {
+  padding:40px;
+  background-color: #F1F1F1;
+}
+
+// COLONNE avec la bar de progression
+
+.new-quote-left {
+  width: 15%;
+  margin:0px;
+  padding:0 40px 0 0;
+  text-align:center;
+  background-color: #F1F1F1;
+}
+
+.new-quote-left h1 {
+  font-family: 'Helvetica', cursive;
+  font-weight: lighter;
+  font-size: 22px;
+  color: #1DA1F2;
+  margin:0 0 15px 0;
+  padding:0;
+}
+
+.step p {
+  font-family: 'Helvetica', sans-serif;
+  font-weight: regular;
+  font-size: 14px;
+  color: #8C8C8C;
+  margin:0;
+  padding:0;
+  justify-content: center;
+}
+
+.step p span {
+  font-size: 10px;
+}
+
+.steps {
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.line-box {
+  justify-content:center;
+  margin:5px 0 5px 0;
+}
+
+.grey-line {
+  height:40px;
+  width:1px;
+  border: 1px solid rgba(151,151,151,0.50);
+}
+
+// .step { 
+//   flex: 0 0 33%;
+// }
+
+.circle.active {
+  background-color: #04667C;
+  box-shadow: 0px 0px 0px 5px rgba(4,103,125,0.20);
+}
+
+.circle {
+  background-color: #FEC300;
+  box-shadow: 0px 0px 0px 5px rgba(254,195,0,0.20);
+  margin:12px;
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  margin-left:10px;
+  margin-right:10px;
+}
+
+.new-quot-wrapper hr {
+  height:30px;
+  border: 0.5px solid rgba(151,151,151,0.50);
+  margin:5px;
+  padding:0;
+}
+
+.tab-new-quote {
+  padding:0px;
+  justify-content:center;
+  margin:0px
+}
+
+// COLONNE 2 - CONTENU DE LA FORM
+
+.new-quote-right {
+  width: 85%;
+  margin:0px;
+  padding:40px;
+  text-align:center;
+  background-color: white;
+  border-radius:6px;
+  height:85vh;
+  position:relative;
+}
+
+.nb-global-step {
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nb-title-sub-content h2 {
+  font-family: 'Helvetica', sans-serif;
+  font-weight:light;
+  font-size: 20px;
+  color: #1DA1F2;
+  padding:0 0 60px 0;
+  margin:0px
+}
+
+.nb-row-sub-content {
+  margin:0px;
+  padding:0;
+}
+
+.nb-next-button {
+  cursor:pointer;
+}
+
+.nb-next-button h4 {
+  font-family: 'Helvetica';
+  font-weight:bolder;
+  font-size: 16px;
+  color: #1DA1F2;
+}
+
+.nb-next-button h4 span {
+  text-decoration:underline;
+}
+
+// colonne 1 - step-1-name
+
+#step-1-name {
+  width:60%;
+  margin:auto;
+}
+
+// COLONN2 - STEP 2 - Description
+
+.form-group {
+  text-align:left;
+  font-family: 'Helvetica', cursive;
+  font-size: 14px;
+  color: #8C8C8C;
+  text-transform: uppercase;
+  padding-bottom:20px
+}
+
+.label {
+  font-weight: lighter;
+}
+
+.form-control{
+  box-shadow:none;
+  border-radius:none;
+  border:none;
+  border-bottom: 3px solid #FEC300;
+  color: #04667C;
+  font-size:20px;
+  font-family: 'Helvetica', sans-serif;
+  padding-left:0px;
+  background: rgba(254,195,0, 0.03);
+}
+
+
+// STEP 4
+
+
+// //
+
+// .wrapper-new-quote body {
+//   font-family: 'Helvetica', sans-serif;
+// }
+
+// .wrapper-new-quote h1, h2 {
+//   font-family: 'Helvetica', cursive;
+// }
+
+// .wrapper-new-quote p {
+//   font-family: 'Helvetica', sans-serif;
+// }
+
+// .wrapper-new-quote h3 {
+//   font-family: 'Helvetica', sans-serif;
+//   font-size: 20px;
+//   color: #8C8C8C;
+//   text-align:center;
+//   margin-bottom: 30px;
+// }
+// //
