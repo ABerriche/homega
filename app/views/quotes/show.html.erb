@@ -68,7 +68,7 @@ Montant couvert : <%= @quote.covered_amount %> euros
 
       </div>
       <div class="col-xs-12 col-sm-6">
-        <span class="nb-next-button"><%= f.button :submit, "Voir et signer les documents" %></span>
+        <span class="nb-next-button"><%= link_to "Voir et signer les documents", insure_path(@quote) %></span>
         <% end %>
       </div>
       <!-- SUBMIT -->
