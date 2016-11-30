@@ -6,26 +6,26 @@
         <!-- STEP 1 - Déja une assurance habitation? -->
         <div class="nb-global-step active" data-target="#step-1-name">
           <div class="circle active" data-target="#step-1-name"></div>
-          <div class="step"><p><span>Etape 1</span><br>Déja une assurance habitation?</p></div>
+          <div class="step"><p><br>Déja une assurance habitation?</p></div>
         </div>
         <!-- Step 2 - Date de début -->
         <div class="line-box"><div class="grey-line"></div></div>
         <div class="nb-global-step" data-target="#step-2-description">
           <div class="circle" id="circle-2"></div>
-          <div class="step"><p><span>Etape 2</span><br>Date de début</p></div>
+          <div class="step"><p><br>Date de début</p></div>
         </div>
         <!-- Step 3 - info pratiques -->
         <div class="line-box"><div class="grey-line"></div></div>
         <div class="nb-global-step" data-target="#step-3-infos">
           <div class="circle" id="circle-3"></div>
-          <div class="step"><p><span>Etape 3</span><br>Devis en ligne</p></div>
+          <div class="step"><p><br>Devis en ligne</p></div>
 
         </div>
         <!-- Step 4 - bank -->
         <div class="line-box"><div class="grey-line"></div></div>
         <div class="nb-global-step" data-target="#step-4-bank">
           <div class="circle" id="circle-4"></div>
-          <div class="step"><p><span>Etape 4</span><br>Coordonnées bancaires</p></div>
+          <div class="step"><p><br>Coordonnées bancaires</p></div>
         </div>
       </div>
     </div>
@@ -53,13 +53,16 @@
       <div class="sub-new-quote-content hidden" id="step-3-infos">
       <div class="nb-title-sub-content"><h2>Devis en ligne</h2></div>
         <div class="col-xs-12 col-sm-6">
-Tarif annuel : <%= @quote.price %> euros <br>
-Montant couvert : <%= @quote.covered_amount %> euros
-
+          Tarif annuel : <%= @quote.price %> euros <br>
+          Montant couvert : <%= @quote.covered_amount %> euros
+          <input id="ex7" type="text" data-slider-min="10000" data-slider-max="40000" data-slider-step="2000" data-slider-value="<%= @quote.covered_amount %>" data-slider-enabled="false">
+          <input id="ex7-enabled" type="checkbox"> Enabled
         </div>
         <div class="col-xs-12 col-sm-6">
 
-          <div class="nb-next-button" id="nb-next-button-3"><h4><span>SUIVANT</span> ></h4></div>
+          <div class="nb-next-button" id="nb-next-button-3">
+            <h4><span>SUIVANT</span> ></h4>
+          </div>
         </div>
       </div>
       <!-- SOCIAL bank -->
@@ -80,8 +83,28 @@ Montant couvert : <%= @quote.covered_amount %> euros
 </div>
 
 <% content_for(:after_js) do %>
-  <%= javascript_tag do %>
+<script>
 $(document).ready(function() {
+  $("#ex7").slider()
+  .on('slideStop', function() {
+    $.ajax({
+      type: 'POST',
+      url: "<%= qqch_path %>.js",
+      data: { value: $("#ex7").val() }
+    });
+  });;
+
+  $("#ex7-enabled").click(function() {
+    if(this.checked) {
+      // With JQuery
+      $("#ex7").slider("enable");
+    }
+    else {
+      // With JQuery
+      $("#ex7").slider("disable");
+    }
+  });
+
   $(".nb-global-step").on("click", function(e){
     // Change active tab
     $(".nb-global-step").removeClass("active");
@@ -122,7 +145,7 @@ $(document).ready(function() {
     $("#step-4-bank").removeClass("hidden");
   });
 });
-  <% end %>
+</script>
 <% end %>
 
 

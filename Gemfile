@@ -9,6 +9,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'devise'
 gem 'redis'
 gem "geocoder"
+gem 'bootstrap-slider-rails'
 
 
 gem 'sass-rails'
