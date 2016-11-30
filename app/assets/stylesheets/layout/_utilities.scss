@@ -5,6 +5,14 @@
  * ------------------------------------- */
 
 // Paddings
+.padded-top {
+  padding-top: 60px;
+}
+
+.home-margin-top {
+  margin-top: 70px;
+}
+
 .padded {
   padding-top: 5em;
   padding-bottom: 5em;
@@ -22,4 +30,26 @@
 }
 .bg-dark-blue {
   background: #3b5998;
+}
+
+.content {
+  position:relative;
+  background-color: white;
+  min-height: 600px;
+  border-radius: 3px;
+  box-shadow: 1px 1px #cecece;
+}
+
+.home-sidebar {
+  position: absolute;
+  top: 20px;
+
+}
+
+.home-sidebar-info {
+  padding: 20px 0px;
+}
+
+.home-sidebar-info:hover {
+  background-color: blue;
 }
