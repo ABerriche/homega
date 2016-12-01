@@ -5,6 +5,7 @@
 .wrapper-page-new-quote {
   padding: 40px;
   background-color: #F1F1F1;
+  min-height: 100vh;
 }
 
 // COLONNE avec la bar de progression
@@ -101,7 +102,7 @@
   background-color: white;
   box-shadow: 1px 1px #d6d6d6;
   border-radius:6px;
-  height:65vh;
+  //height:65vh;
   position:relative;
 }
 

@@ -96,8 +96,7 @@
                       <%= link_to "Ajouter" %>
                     </div>
                     <div class="damage-details">
-                      <strong>Catégorie:</strong> <%= damage.category %><br>
-                      Date : <%= damage.created_at.strftime('%d-%m-%Y') %><br>
+                      <strong>Catégorie:</strong> <%= damage.category %> (<%= damage.created_at.strftime('%d-%m-%Y') %>)<br>
                       <%= damage.place.name %><br>
                       <%= damage.place.address %> <%= damage.place.postal_code %> <%= damage.place.city %><br>
                     </div>
