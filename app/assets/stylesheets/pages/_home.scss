@@ -3,7 +3,7 @@
  * (margin/padding adjustments)
  * ------------------------------------- */
 .wrapper-home-connected {
-  background-color: #F1F1F1;
+  background-color: $gray;
   //height: 100vh;
 }
 
@@ -21,28 +21,29 @@
   font-size: 50px;
   font-weight: bold;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  padding-top: 100px;
+  padding-bottom: 10px;
 }
 .banner p {
   font-size: 25px;
   font-weight: lighter;
   color: rgba(255, 255, 255, 0.8);
-  margin-bottom: 50px;
+  padding-bottom: 20px;
 }
 .banner .btn {
-  margin-top: 20px;
+  font-size: 28px;
 }
-.btn-treehouse {
+.btn-homega {
   color: white;
-  padding: 25px 35px;
-  border-radius: 4px;
-  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 7px;
   font-size: 20px;
   background: $brand-color;
   transition: background 0.3s ease;
 }
-.btn-treehouse:hover {
+.btn-homega:hover {
   opacity: 1;
-  background: lighten($blue, 20%);
+  background: lighten($brand-color, 20%);
   text-decoration: none;
   color: white;
 }
@@ -93,4 +94,20 @@ a.nav-link:link
   width: 90%;
   margin: auto;
   padding: 40px 0 40px 0;
+}
+
+.homega-orange {
+  color: $brand-color;
+}
+
+.card {
+}
+
+.card:hover {
+  border: 1px solid $brand-color;
+}
+
+.wrapper-symbols img {
+  width: 100px;
+  height: 100px;
 }
