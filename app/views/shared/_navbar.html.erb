@@ -1,4 +1,4 @@
-<div class="navbar-wagon navbar-wagon-fixed">
+<div class="navbar-wagon">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
     <%= image_tag "logo.png" %>
@@ -9,7 +9,7 @@
 
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
-
+<h3 class="title-omega-signin"><span class="homega-orange">H</span>OMEGA</h3>
       <!-- Profile picture and dropdown -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
@@ -35,7 +35,7 @@
       </div>
 
     <% else %>
-
+      <h3 class="title-omega display-none"><span class="homega-orange">H</span>OMEGA</h3>
       <!-- Login text link -->
       <%= link_to t(".sign_in", default: "Me connecter"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
 
@@ -58,3 +58,35 @@
   </div>
 </div>
 
+<% content_for(:after_js) do %>
+  <script>
+    $(document).ready(function() {
+      var navbar = $('.navbar-wagon');
+      var navbarHeight = $('.navbar-wagon').height();
+      var titleOmega = $('.title-omega');
+      <% if signed_in? %>
+        $(window).on("scroll", function(e) {
+          var scroll = $(window).scrollTop();
+          if (scroll > navbarHeight) {
+            navbar.addClass("navbar-wagon-fixed");
+          } else {
+            navbar.removeClass("navbar-wagon-fixed");
+          }
+        });
+      <% else %>
+        $(window).on("scroll", function(e) {
+          var scroll = $(window).scrollTop();
+          if (scroll > navbarHeight + 220) {
+            navbar.addClass("navbar-wagon-fixed");
+            titleOmega.removeClass("display-none");
+          //} else if (scroll > navbarHeight) {
+          //  navbar.addClass("navbar-wagon-fixed");
+          } else {
+            navbar.removeClass("navbar-wagon-fixed");
+            titleOmega.addClass("display-none");
+          }
+        });
+      <% end %>
+    });
+  </script>
+<% end %>
