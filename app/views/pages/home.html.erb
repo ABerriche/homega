@@ -91,9 +91,9 @@
             <div class="nb-title-sub-content"><h2 class="text-center">Historique de vos sinistres</h2></div>
                 <% @damages.each do |damage| %>
                   <div class="row-damage">
-                    <div class="damage-picture">
+                    <div class="damage-picture text-center">
                       <%= image_tag("no_picture.jpg", :alt => "rss feed", :height =>"70", :width => "100") %>
-                      <%= link_to "Ajouter" %>
+                      <small><%= link_to "Ajouter photos" %></small>
                     </div>
                     <div class="damage-details">
                       <strong>Catégorie:</strong> <%= damage.category %> (<%= damage.created_at.strftime('%d-%m-%Y') %>)<br>
