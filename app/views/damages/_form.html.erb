@@ -1,7 +1,7 @@
-<div class="wrapper">
+<div class="wrapper-page-new-quote">
   <div class="container">
     <div class="row">
-      <div class="col-sm-6 col-sm-offset-3">
+      <div class="col-sm-6 col-sm-offset-3 background-form">
 
         <h2>Déclarez un sinistre</h2>
 
@@ -29,26 +29,27 @@
   </div>
 </div>
 
-
-<script>
-  $(document).ready(function(){
-    $('select').change(function () {
-     if($('#damage_category').val() == "Vol"){
-        $("#effraction").removeClass('hidden');
-        $("#valeur_bien").removeClass('hidden');
-        $("#responsabilite").addClass('hidden');
-        $("#responsabilite_civile").addClass('hidden');
-      } else if ($('#damage_category').val() == "Dégâts des eaux"){
-        $("#effraction").addClass('hidden');
-        $("#valeur_bien").addClass('hidden');
-        $("#responsabilite").removeClass('hidden');
-        $("#responsabilite_civile").removeClass('hidden');
-      } else {
-        $("#effraction").addClass('hidden');
-        $("#valeur_bien").addClass('hidden');
-        $("#responsabilite").addClass('hidden');
-        $("#responsabilite_civile").addClass('hidden');
-      }
+<% content_for(:after_js) do %>
+  <script>
+    $(document).ready(function(){
+      $('select').change(function () {
+       if($('#damage_category').val() == "Vol"){
+          $("#effraction").removeClass('hidden');
+          $("#valeur_bien").removeClass('hidden');
+          $("#responsabilite").addClass('hidden');
+          $("#responsabilite_civile").addClass('hidden');
+        } else if ($('#damage_category').val() == "Dégâts des eaux"){
+          $("#effraction").addClass('hidden');
+          $("#valeur_bien").addClass('hidden');
+          $("#responsabilite").removeClass('hidden');
+          $("#responsabilite_civile").removeClass('hidden');
+        } else {
+          $("#effraction").addClass('hidden');
+          $("#valeur_bien").addClass('hidden');
+          $("#responsabilite").addClass('hidden');
+          $("#responsabilite_civile").addClass('hidden');
+        }
+      });
     });
-  });
-</script>
+  </script>
+<% end %>

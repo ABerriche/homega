@@ -23,10 +23,11 @@
             <h1>Dashboard</h1>
             <div class="steps">
               <!-- STEP 1 - Déja une assurance habitation? -->
-              <div class="nb-global-step active" data-target="#step-1-info-perso">
-                <div class="step"><p><br>Mes informations personnelles</p></div>
-                <div class="underline active" data-target="#step-1-info-perso"></div>
+              <div class="nb-global-step active" data-target="#step-1-contrat">
+                <div class="step"><p><br>Mes contrats</p></div>
+                <div class="underline active" id="underline-4"></div>
               </div>
+
               <!-- Step 2 - Date de début -->
               <div class="line-box"><div class="grey-line"></div></div>
               <div class="nb-global-step" data-target="#step-2-logement">
@@ -41,9 +42,9 @@
               </div>
               <!-- Step 4 - bank -->
               <div class="line-box"><div class="grey-line"></div></div>
-              <div class="nb-global-step" data-target="#step-4-contrat">
-                <div class="step"><p><br>Mes contrats</p></div>
-                <div class="underline" id="underline-4"></div>
+              <div class="nb-global-step" data-target="#step-4-info-perso">
+                <div class="step"><p><br>Mes informations personnelles</p></div>
+                <div class="underline" data-target="#step-4-info-perso"></div>
               </div>
             </div>
           </div>
@@ -52,7 +53,7 @@
         <div class="row">
           <div class="col-xs-12 new-quote-right">
 
-            <div class="sub-new-quote-content col-xs-12 col-sm-6 col-sm-offset-3" id="step-1-info-perso">
+            <div class="sub-new-quote-content hidden col-xs-12 col-sm-6 col-sm-offset-3" id="step-4-info-perso">
 
               <%= simple_form_for(current_user) do |f| %>
                 <%= f.error_notification %>
@@ -81,10 +82,19 @@
             <div class="sub-new-quote-content hidden" id="step-2-logement">
               <div class="nb-title-sub-content"><h2 class="text-center">Logements</h2></div>
               <div class="nb-sub-content">
-                <% current_user.places.each do |place| %>
-                  <%= place.name %> | Adresse: <%= place.address %> <%= place.postal_code %> <%= place.city %> <br>
-                  <div class="col-xs-12 col-sm-6 col-md-4">
-                    <div id="map" style="width: 100%; height: 600px;"></div>
+                <div class="col-xs-12 col-sm-6">
+                  <% current_user.places.each do |place| %>
+                    <%= link_to place_path(place) do %>
+                      <div class="row-place">
+                        <h4><%= place.name %></h4>
+                        <p><small><%= place.address %> <%= place.postal_code %> <%= place.city %></small></p> <br>
+                      </div>
+                    <% end %>
+                  <% end %>
+                </div>
+
+                <div class="col-xs-12 col-sm-6">
+                  <div id="map" style="width: 100%; height: 600px;"></div>
                   <% content_for(:after_js) do %>
                     <%= javascript_tag do %>
                       $(document).ready(function() {
@@ -103,7 +113,6 @@
                     <% end %>
                   <% end %>
                 </div>
-                <% end %>
               </div>
             </div>
 
@@ -128,7 +137,7 @@
                 <% end %>
             </div>
 
-            <div class="sub-new-quote-content hidden" id="step-4-contrat">
+            <div class="sub-new-quote-content" id="step-1-contrat">
             <div class="nb-title-sub-content"><h2 class="text-center">Contrats souscrits</h2></div>
                 <% @quotes.each do |quote| %>
                   <%= quote.place.name %> | Prix mensuel: <%= quote.price %> | Montant couvert: <%= quote.covered_amount %> <br>
