@@ -29,15 +29,15 @@ $h2-height: 44px;
  * Colors
  * ------------------------------------- */
 // Scheme
-$brand-color: #1DA1F2;
+$brand-color: #E87E00;
 
 $blue: #1DA1F2;
 $yellow: #FDB631;
-$orange: #E67E22;
+$orange: #E87E00;
 $green: #26A65B;
-$gray: #232323;
+$gray: #717171;
 $red: #96281B;
 
 $primary-color: $brand-color;
-$hover-color: lighten($blue, 20%);
-$gray-background: #F1F1F1;
+$hover-color: lighten(#E87E00, 20%);
+$gray-background: #F4F4F4;

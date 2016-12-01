@@ -171,35 +171,35 @@
 
 <div class="banner" style="background: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path('banner.jpg') %>');">
   <div class="banner-content">
-    <h1>HOMEGA</h1>
-    <p>La première assurance habitation incluant la gestion des sinistres sans avance de frais et 100% en ligne</p>
-    <%= link_to "Inscrivez vous", new_user_registration_path, class: "btn-treehouse btn-lg" %>
+    <h1><span class="homega-orange">H</span>OMEGA</h1>
+    <p>L'assurance habitation <span class="homega-orange"><strong>Simple</strong></span> et <span class="homega-orange"><strong>Pratique</strong></span>.</p>
+    <%= link_to "M'inscrire", new_user_registration_path, class: "btn-homega btn" %>
   </div>
 </div>
 
 
-<div class="wrapper-home">
-  <div class="container-home">
+<div class="wrapper-symbols">
+  <div class="container-symbols">
     <div class="row">
       <div class="col-xs-12 col-sm-4">
-        <div class="whatwedo text-center">
-          <h2><b>100% en ligne</b></h2>
-          <%= image_tag("digital-icon.png") %>
-          <p style="font-size: 14px">Inscription, déclaration de sinistre et prise de rendez-vous avec les prestataire: tout se fait en quelques clics sur notre platedforme</p>
+        <div class="card whatwedo text-center">
+          <h2>Transparence</h2>
+          <div class="symbols"><%= image_tag("transparent.png") %></div>
+          <p style="font-size: 14px">Obtenez votre devis en 2 minutes</p>
         </div>
       </div>
       <div class="col-xs-12 col-sm-4">
-        <div class="whatwedo text-center">
-          <h2><b>100% intégré</b></h2>
-          <%= image_tag("full-stack.png") %>
-          <p style="font-size: 14px">Pas besoin de trouver un prestataire ni d'avancer l'argent: nous gérons toutes les formalités pour vous</p>
+        <div class="card whatwedo text-center">
+          <h2>En ligne</h2>
+          <div class="symbols"><%= image_tag("enligne.png") %></div>
+          <p style="font-size: 14px">100% en ligne, 0% papier</p>
         </div>
       </div>
       <div class="col-xs-12 col-sm-4">
-        <div class="whatwedo text-center">
-          <h2><b>Sans engagement</b></h2>
-          <%= image_tag("sans-engagement.png") %>
-          <p style="font-size: 14px">Vous n'êtes pas engagé: à tout moment vous pouvez résilier votre contrat en quelques clics et sans frais</p>
+        <div class="card whatwedo text-center">
+          <h2>Liberté</h2>
+          <div class="symbols"><%= image_tag("liberte.png") %></div>
+          <p style="font-size: 14px">Partez à tout moment</p>
         </div>
       </div>
     </div>
@@ -209,23 +209,23 @@
 <div class="wrapper-home">
   <div class="container-home">
     <div class="row">
-      <div class="title text-center "> <h1> <b>Le meilleur rapport qualité/prix du marché</b></h1>
+      <div class="title text-center "> <h1> Le meilleur rapport qualité/prix du marché</h1>
       </div>
       <div class="col-xs-12 col-sm-6">
         <div class="whatwedo text-center">
-          <h2><b>Assurance locataire</b></h2>
+          <h2>Assurance locataire</h2>
           <p text-center>A partir de</p>
-          <h1 text-center><b>5 € / mois</b>  </h1>
-          <div class="button text-center"> <%= link_to "Souscrire", new_user_registration_path, class: "btn-treehouse btn-lg" %>
+          <h1 text-center>5 € / mois  </h1>
+          <div class="button text-center"> <%= link_to "Souscrire", new_user_registration_path, class: "btn-homega btn" %>
           </div>
         </div>
       </div>
       <div class="col-xs-12 col-sm-6">
         <div class="whatwedo text-center">
-          <h2><b>Assurance propriétaire</b></h2>
+          <h2>Assurance propriétaire</h2>
           <p text-center>A partir de</p>
-          <h1 text-center><b>15 € / mois</b></h1>
-          <div class="button text-center"> <%= link_to "Souscrire", new_user_registration_path, class: "btn-treehouse btn-lg" %>
+          <h1 text-center>15 € / mois</h1>
+          <div class="button text-center"> <%= link_to "Souscrire", new_user_registration_path, class: "btn-homega btn" %>
           </div>
         </div>
       </div>
@@ -236,24 +236,24 @@
 <div class="wrapper-home">
   <div class="container-home">
     <div class="row">
-      <div class="title text-center "> <h1> <b>Déjà assuré?<br>  Passez à Homega en quelques clics et sans frais</b></h1>
+      <div class="title text-center "> <h1> Déjà assuré?<br>  Passez à Homega en quelques clics et sans frais</h1>
       </div>
         <div class="col-xs-12 col-sm-6">
           <div class="whatwedo text-center">
-            <h2><b>On s'occupe de tout</b></h2>
+            <h2>On s'occupe de tout</h2>
             <%= image_tag("formalité-administrative.png") %>
             <p style="font-size: 14px">Nous analysons votre contrat. Nous rédigeons votre lettre de résiliation, vous la signez en ligne puis nous l'envoyons pour vous.</p>
           </div>
         </div>
         <div class="col-xs-12 col-sm-6">
           <div class="whatwedo text-center">
-            <h2><b>Vous ne payez rien</b></h2>
+            <h2>Vous ne payez rien</h2>
             <%= image_tag("gratuit.gif") %>
             <p style="font-size: 14px">Aucun frais sur votre résiliation. Vous payez le mois en cours avec votre assurance actuelle puis vous passez à Homega le mois suivant </p>
           </div>
         </div>
     </div>
-        <div class="button text-center"> <%= link_to "Changez maintenant", new_user_registration_path, class: "btn-treehouse btn-lg" %>
+        <div class="button text-center"> <%= link_to "Changez maintenant", new_user_registration_path, class: "btn-homega btn" %>
         </div>
   </div>
 </div>
@@ -262,13 +262,13 @@
   <div class="container-home">
     <div class="row">
       <div class="col-xs-12 col-sm-6 value-proposition text-center whatwedo">
-        <h2><b>100% en ligne</b></h2>
+        <h2>100% en ligne</h2>
         <%= image_tag("digital-icon.png") %>
       </div>
       <div class="col-xs-12 col-sm-6 value-proposition-content whatwedo">
         <div class="row">
           <div class="col-xs-12 col-sm-4">
-            <h3><b>Souscription en ligne</b></h3>
+            <h3>Souscription en ligne</h3>
             <%= image_tag("register-online.png") %>
           </div>
           <div class="col-xs-12 col-sm-8">
@@ -283,7 +283,7 @@
         </div>
         <div class="row">
           <div class="col-xs-12 col-sm-4">
-            <h3><b>Declaration de sinistre en ligne</b></h3>
+            <h3>Declaration de sinistre en ligne</h3>
             <%= image_tag("declaration.png") %>
           </div>
           <div class="col-xs-12 col-sm-8">
@@ -298,7 +298,7 @@
         </div>
         <div class="row">
           <div class="col-xs-12 col-sm-4">
-            <h3><b>Service post sinistre en ligne</b></h3>
+            <h3>Service post sinistre en ligne</h3>
             <%= image_tag("chat.png") %>
           </div>
           <div class="col-xs-12 col-sm-8">
@@ -319,13 +319,13 @@
   <div class="container-home">
     <div class="row">
       <div class="col-xs-12 col-sm-6 value-proposition text-center whatwedo">
-        <h2><b>100% intégré</b></h2>
+        <h2>100% intégré</h2>
         <%= image_tag("digital-icon.png") %>
       </div>
       <div class="col-xs-12 col-sm-6 value-proposition-content whatwedo">
         <div class="row">
           <div class="col-xs-12 col-sm-4">
-            <h3><b>La recherche et prise de RDV avec prestataire</b></h3>
+            <h3>La recherche et prise de RDV avec prestataire</h3>
             <%= image_tag("booking-online.png") %>
           </div>
           <div class="col-xs-12 col-sm-8">
@@ -339,7 +339,7 @@
         </div>
         <div class="row">
           <div class="col-xs-12 col-sm-4">
-            <h3><b>Pas d'avance de frais: tout est gratuit pour vous</b></h3>
+            <h3>Pas d'avance de frais: tout est gratuit pour vous</h3>
             <%= image_tag("gratuit (1).gif") %>
           </div>
           <div class="col-xs-12 col-sm-8">
@@ -352,7 +352,7 @@
         </div>
         <div class="row">
           <div class="col-xs-12 col-sm-4">
-            <h3><b>Des partenaires agrées et évaluez par nos clients</b></h3>
+            <h3>Des partenaires agrées et évaluez par nos clients</h3>
             <%= image_tag("partenaires.jpg") %>
           </div>
           <div class="col-xs-12 col-sm-8">
@@ -372,13 +372,13 @@
   <div class="container-home">
     <div class="row">
       <div class="col-xs-12 col-sm-6 value-proposition text-center whatwedo">
-        <h2><b>Sans Engagement</b></h2>
+        <h2>Sans Engagement</h2>
         <%= image_tag("digital-icon.png") %>
       </div>
       <div class="col-xs-12 col-sm-6 value-proposition-content whatwedo">
         <div class="row">
           <div class="col-xs-12 col-sm-4">
-            <h3><b>A tout moment, vous pouvez résilier votre assurance</b></h3>
+            <h3>A tout moment, vous pouvez résilier votre assurance</h3>
             <%= image_tag("break-free.png") %>
           </div>
           <div class="col-xs-12 col-sm-8">
