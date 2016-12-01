@@ -11,7 +11,7 @@
 // COLONNE avec la bar de progression
 
 .new-quote-left {
-  width: 15%;
+  //width: 15%;
   margin:0px;
   padding:0 40px 0 0;
   text-align:center;
@@ -43,7 +43,7 @@
 
 .steps {
   display:flex;
-  flex-direction: column;
+  //flex-direction: column;
   justify-content: space-between;
   align-items: center;
 }
@@ -59,24 +59,24 @@
   border: 1px solid rgba(151,151,151,0.50);
 }
 
-// .step { 
+// .step {
 //   flex: 0 0 33%;
 // }
 
-.circle.active {
+.underline.active {
   background-color: #04667C;
   box-shadow: 0px 0px 0px 5px rgba(4,103,125,0.20);
 }
 
-.circle {
+.underline {
   background-color: #FEC300;
   box-shadow: 0px 0px 0px 5px rgba(254,195,0,0.20);
-  margin:12px;
-  width: 10px;
-  height: 10px;
-  border-radius: 100%;
-  margin-left:10px;
-  margin-right:10px;
+  margin: 12px 12px 18px 12px;
+  width: 220px;
+  height: 3px;
+  border-radius: 1px;
+  margin-left: 30px;
+  //margin-right:10px;
 }
 
 .new-quot-wrapper hr {
@@ -95,20 +95,22 @@
 // COLONNE 2 - CONTENU DE LA FORM
 
 .new-quote-right {
-  width: 85%;
+  //width: 85%;
   margin:0px;
   padding:40px;
   text-align:center;
   background-color: white;
+  box-shadow: 1px 1px #d6d6d6;
   border-radius:6px;
-  height:85vh;
+  height:65vh;
   position:relative;
 }
 
 .nb-global-step {
-  display:flex;
-  flex-direction: column;
-  justify-content: space-between;
+  //display:flex;
+  //flex-direction: column;
+  //justify-content: space-between;
+  flex: 0 0 25%;
   align-items: center;
 }
 
