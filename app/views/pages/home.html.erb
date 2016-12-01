@@ -1,6 +1,6 @@
 <% if signed_in? %>
 
-  <div class="wrapper-home">
+  <div class="wrapper-home-connected">
     <div class="container padded-top">
       <div class="row">
         <div class="col-xs-12 col-sm-6 col-sm-offset-3">
@@ -12,23 +12,122 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="container home-margin-top content">
-      <div class="row">
-        <div class="col-xs-12 col-sm-2 home-sidebar">
+    </div><br><br><br>
 
-              <div class="home-sidebar-info text-center">Infos personnelles</div>
-              <div class="home-sidebar-info text-center">Logements</div>
-              <div class="home-sidebar-info text-center">Sinistres</div>
-              <div class="home-sidebar-info text-center">Contrats</div>
 
+  <div class="wrapper-newz">
+    <div class="wrapper-page-new-quote">
+      <div class="container quotes-container">
+        <div class="row">
+          <div class="col-xs-12 new-quote-left">
+            <h1>Dashboard</h1>
+            <div class="steps">
+              <!-- STEP 1 - Déja une assurance habitation? -->
+              <div class="nb-global-step active" data-target="#step-1-info-perso">
+                <div class="step"><p><br>Mes informations personnelles</p></div>
+                <div class="underline active" data-target="#step-1-info-perso"></div>
+              </div>
+              <!-- Step 2 - Date de début -->
+              <div class="line-box"><div class="grey-line"></div></div>
+              <div class="nb-global-step" data-target="#step-2-logement">
+                <div class="step"><p><br>Mes logements</p></div>
+                <div class="underline" id="underline-2"></div>
+              </div>
+              <!-- Step 3 - info pratiques -->
+              <div class="line-box"><div class="grey-line"></div></div>
+              <div class="nb-global-step" data-target="#step-3-sinistre">
+                <div class="step"><p><br>Mes sinistres</p></div>
+                <div class="underline" id="underline-3"></div>
+              </div>
+              <!-- Step 4 - bank -->
+              <div class="line-box"><div class="grey-line"></div></div>
+              <div class="nb-global-step" data-target="#step-4-contrat">
+                <div class="step"><p><br>Mes contrats</p></div>
+                <div class="underline" id="underline-4"></div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col-xs-12 col-sm-10">
 
+        <div class="row">
+          <div class="col-xs-12 new-quote-right">
+
+            <div class="sub-new-quote-content col-xs-12 col-sm-6 col-sm-offset-3" id="step-1-info-perso">
+
+              <%= simple_form_for(current_user) do |f| %>
+                <%= f.error_notification %>
+
+                <h3><%= current_user.email %></h3>
+
+                <div class="form-inputs">
+                  <%= f.input :first_name, required: true, autofocus: true, label: "Prénom:" %>
+                  <%= f.input :last_name, required: true, label: "Nom de famille:" %>
+                  <%= f.input :sex, as: :radio_buttons, collection: ["Homme", "Femme"], required: true, label: "Sexe:", item_label_class: "radio-inline", item_wrapper_tag: false %>
+                  <%= f.input :situation, collection: ["Célibataire", "Marié(e)", "Pacsé(e)", "Veuf(ve)"], required: true, label: "Situation matrimoniale:" %>
+                  <%= f.input :birth_date, required: true, label: "Date de naissance" , as: :string, input_html: { class: "datepicker", value: Time.now.strftime('%d-%m-%Y') } %>
+                  <%= f.input :nb_children, collection: ["0", "1", "2", "3", "4+"], required: true, label: "Nombre d'enfant(s):" %>
+                  <%= f.input :job, collection: User::JOBS, required: true, label: "Profession:" %>
+                </div>
+
+                <div class="form-actions">
+                  <div class= "btn btn-primary"> <%= f.button :submit, "Mettre à jour", method: :patch %> </div>
+                </div>
+              <% end %>
+
+
+
+            </div>
+
+            <div class="sub-new-quote-content hidden" id="step-2-logement">
+              <div class="nb-title-sub-content"><h2 class="text-center">Logements</h2></div>
+              <div class="nb-sub-content">
+                <% current_user.places.each do |place| %>
+                  <%= place.name %> | Adresse: <%= place.address %> <%= place.postal_code %> <%= place.city %> <br>
+                <% end %>
+              </div>
+            </div>
+
+            <div class="sub-new-quote-content hidden" id="step-3-sinistre">
+            <div class="nb-title-sub-content"><h2 class="text-center">Historique de vos sinistres</h2></div>
+                <% @damages.each do |damage| %>
+                  <div class="row-damage">
+                    <div class="damage-picture">
+                      <%= image_tag("no_picture.jpg", :alt => "rss feed", :height =>"70", :width => "100") %>
+                      <%= link_to "Ajouter" %>
+                    </div>
+                    <div class="damage-details">
+                      <strong>Catégorie:</strong> <%= damage.category %><br>
+                      Date : <%= damage.created_at.strftime('%d-%m-%Y') %><br>
+                      <%= damage.place.name %><br>
+                      <%= damage.place.address %> <%= damage.place.postal_code %> <%= damage.place.city %><br>
+                    </div>
+                  </div>
+
+
+
+                <% end %>
+            </div>
+
+            <div class="sub-new-quote-content hidden" id="step-4-contrat">
+            <div class="nb-title-sub-content"><h2 class="text-center">Contrats souscrits</h2></div>
+                <% @quotes.each do |quote| %>
+                  <%= quote.place.name %> | Prix mensuel: <%= quote.price %> | Montant couvert: <%= quote.covered_amount %> <br>
+                <% end %>
+            </div>
+
+          </div>
         </div>
+
+
+
       </div>
     </div>
   </div>
+
+
+
+
+
 
 <% else %>
 
@@ -167,5 +266,42 @@
 
 <% end %>
 
+<% content_for(:after_js) do %>
+  <script>
+    $(document).ready(function() {
+    //  $("#ex7").slider()
+    //  .on('slideStop', function() {
+    //    $.ajax({
+    //      type: 'POST',
+    //      url: < qqch_path %>.js,
+    //      data: { value: $("#ex7").val() }
+    //    });
+    //  });;
 
+      $("#ex7-enabled").click(function() {
+        if(this.checked) {
+          // With JQuery
+          $("#ex7").slider("enable");
+        }
+        else {
+          // With JQuery
+          $("#ex7").slider("disable");
+        }
+      });
+
+      $(".nb-global-step").on("click", function(e){
+        // Change active tab
+        $(".nb-global-step").removeClass("active");
+        $(".underline").removeClass("active");
+        $(this).addClass("active");
+        $(this).children().addClass("active");
+        // Hide all tab-content (use class="hidden")
+        $(".sub-new-quote-content").addClass("hidden");
+        // Show target tab-content (use class="hidden")
+        tabSelector = $(this).data("target");
+        $(tabSelector).removeClass("hidden");
+      });
+    });
+  </script>
+<% end %>
 
