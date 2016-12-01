@@ -203,3 +203,17 @@
 //   margin-bottom: 30px;
 // }
 // //
+
+.place_building_type {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  margin-bottom: 10px;
+  padding-bottom: 0px;
+  label.radio_buttons {
+    width: 100%;
+  }
+  span.radio {
+    margin-right: 25px;
+  }
+}
