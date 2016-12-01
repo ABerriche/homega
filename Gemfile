@@ -12,6 +12,7 @@ gem "geocoder"
 gem 'bootstrap-slider-rails'
 
 
+
 gem 'sass-rails'
 gem 'jquery-rails'
 gem 'uglifier'
