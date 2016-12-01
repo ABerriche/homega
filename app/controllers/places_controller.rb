@@ -1,4 +1,4 @@
-require 'typeform'
+#require 'typeform'
 
 class PlacesController < ApplicationController
 
@@ -9,15 +9,6 @@ class PlacesController < ApplicationController
   end
 
   def create
-    Typeform.api_key = ENV['TYPEFORM_API_KEY']
-    typeform_id = "xG5yPv"
-    form = Typeform::Form.new(typeform_id)
-    all_entries = form.all_entries
-    incomplete_entries = form.incomplete_entries
-    complete_entries = form.complete_entries
-    raise
-    # @address = all_entries.to_hash.
-    "xG5yPv"
     @place = Place.new(place_params)
     @place.user = current_user
     if @place.save
