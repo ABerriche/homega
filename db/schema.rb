@@ -56,9 +56,9 @@ ActiveRecord::Schema.define(version: 20161130150614) do
     t.string   "trustee_reference"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
-    t.string   "name"
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "name"
     t.index ["user_id"], name: "index_places_on_user_id", using: :btree
   end
 
@@ -70,7 +70,6 @@ ActiveRecord::Schema.define(version: 20161130150614) do
     t.string   "company"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "speciality"
   end
 
   create_table "quotes", force: :cascade do |t|
