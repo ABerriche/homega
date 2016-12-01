@@ -1,11 +1,11 @@
 .wrapper-new {
   background-color: #F1F1F1;
-  height:100vh;
 }
 
-.wrapper-page-new-quot {
-  padding:40px;
+.wrapper-page-new-quote {
+  padding: 40px;
   background-color: #F1F1F1;
+  min-height: 100vh;
 }
 
 // COLONNE avec la bar de progression
@@ -98,11 +98,11 @@
   //width: 85%;
   margin:0px;
   padding:40px;
-  text-align:center;
+  //text-align:center;
   background-color: white;
   box-shadow: 1px 1px #d6d6d6;
   border-radius:6px;
-  height:65vh;
+  //height:65vh;
   position:relative;
 }
 
