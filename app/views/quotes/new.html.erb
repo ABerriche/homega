@@ -1,1 +1,159 @@
-new.html.erb
+<div class="wrapper-new">
+  <div class="wrapper-page-new-quot">
+    <div class="container quotes-container">
+      <div class="row">
+        <div class="col-xs-12 new-quote-left">
+            <h1>Votre devis en ligne</h1>
+          <div class="steps">
+            <!-- STEP 1 - Déja une assurance habitation? -->
+            <div class="nb-global-step active" data-target="#step-1-name">
+              <div class="step"><p><br>1. Déja une assurance habitation?</p></div>
+              <div class="underline active" data-target="#step-1-name"></div>
+            </div>
+            <!-- Step 2 - Date de début -->
+            <div class="line-box"><div class="grey-line"></div></div>
+            <div class="nb-global-step" data-target="#step-2-description">
+              <div class="step"><p><br>2. Date de début</p></div>
+              <div class="underline" id="underline-2"></div>
+            </div>
+            <!-- Step 3 - info pratiques -->
+            <div class="line-box"><div class="grey-line"></div></div>
+            <div class="nb-global-step" data-target="#step-3-infos">
+              <div class="step"><p><br>3. Devis en ligne</p></div>
+              <div class="underline" id="underline-3"></div>
+            </div>
+            <!-- Step 4 - bank -->
+            <div class="line-box"><div class="grey-line"></div></div>
+            <div class="nb-global-step" data-target="#step-4-bank">
+              <div class="step"><p><br>4. Coordonnées bancaires</p></div>
+              <div class="underline" id="underline-4"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 new-quote-right">
+          <!-- Begining of simple form -->
+          <div class="sub-new-quote-content" id="step-1-name">
+            <%= simple_form_for([@place, @quote]) do |f| %>
+            <%= f.error_notification %>
+            <%= f.input :home_insurance, label: 'Avez-vous déja une assurance habitation?', as: :radio_buttons %>
+
+            <div class="nb-next-button" id="nb-next-button-1"><h4><span>SUIVANT</span> ></h4></div>
+          </div>
+          <!-- MAIN DESCRIPTION -->
+          <div class="sub-new-quote-content hidden" id="step-2-description">
+            <div class="nb-title-sub-content"><h2>Choisissez votre date de début</h2></div>
+            <div class="nb-sub-content">
+              <div class="col-xs-12 col-sm-6">
+             <%= f.input :start_date, label: 'Date de début', as: :string, input_html: { class: "datepicker", value: Time.now.strftime('%d-%m-%Y') } %>
+             </div>
+              <div class="col-xs-12 col-sm-6">
+                <div class="nb-next-button" id="nb-next-button-2"><h4><span>SUIVANT</span> ></h4></div>
+              </div>
+            </div>
+          </div>
+          <!-- INFO -->
+          <div class="sub-new-quote-content hidden" id="step-3-infos">
+          <div class="nb-title-sub-content"><h2>Devis en ligne</h2></div>
+            <div class="col-xs-12 col-sm-6">
+              Tarif annuel : <%= @quote.price %> euros <br>
+              Montant couvert : <%= @quote.covered_amount %> euros
+              <input id="ex7" type="text" data-slider-min="10000" data-slider-max="40000" data-slider-step="2000" data-slider-value="<%= @quote.covered_amount %>" data-slider-enabled="false">
+              <input id="ex7-enabled" type="checkbox"> Enabled
+            </div>
+            <div class="col-xs-12 col-sm-6">
+
+              <div class="nb-next-button" id="nb-next-button-3">
+                <h4><span>SUIVANT</span> ></h4>
+              </div>
+            </div>
+          </div>
+          <!-- SOCIAL bank -->
+          <div class="sub-new-quote-content hidden" id="step-4-bank">
+          <div class="nb-title-sub-content"><h2>Vos coordonnées bancaires</h2></div>
+          <div class="col-xs-12 col-sm-6">
+          <%= f.input :rib, label: 'Votre RIB:' %>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            <span class="nb-next-button">
+            <%= f.button :submit, "Voir et signer les documents" %></span>
+            <% end %>
+          </div>
+          <!-- SUBMIT -->
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% content_for(:after_js) do %>
+  <script>
+    $(document).ready(function() {
+    //  $("#ex7").slider()
+    //  .on('slideStop', function() {
+    //    $.ajax({
+    //      type: 'POST',
+    //      url: < qqch_path %>.js,
+    //      data: { value: $("#ex7").val() }
+    //    });
+    //  });;
+
+      $("#ex7-enabled").click(function() {
+        if(this.checked) {
+          // With JQuery
+          $("#ex7").slider("enable");
+        }
+        else {
+          // With JQuery
+          $("#ex7").slider("disable");
+        }
+      });
+
+      $(".nb-global-step").on("click", function(e){
+        // Change active tab
+        $(".nb-global-step").removeClass("active");
+        $(".underline").removeClass("active");
+        $(this).addClass("active");
+        $(this).children().addClass("active");
+        // Hide all tab-content (use class="hidden")
+        $(".sub-new-quote-content").addClass("hidden");
+        // Show target tab-content (use class="hidden")
+        tabSelector = $(this).data("target");
+        $(tabSelector).removeClass("hidden");
+      });
+
+      // STEP 1 TO STEP 2
+      $("#nb-next-button-1").on("click", function(e){
+        $(".nb-global-step").removeClass("active");
+        $(".underline").removeClass("active");
+        $("#underline-2").addClass("active");
+        $(".sub-new-quote-content").addClass("hidden");
+        $("#step-2-description").removeClass("hidden");
+      });
+
+      // STEP 2 TO STEP 3
+      $("#nb-next-button-2").on("click", function(e){
+        $(".nb-global-step").removeClass("active");
+        $(".underline").removeClass("active");
+        $("#underline-3").addClass("active");
+        $(".sub-new-quote-content").addClass("hidden");
+        $("#step-3-infos").removeClass("hidden");
+      });
+
+      // STEP 3 TO STEP 4
+      $("#nb-next-button-3").on("click", function(e){
+        $(".nb-global-step").removeClass("active");
+        $(".underline").removeClass("active");
+        $("#underline-4").addClass("active");
+        $(".sub-new-quote-content").addClass("hidden");
+        $("#step-4-bank").removeClass("hidden");
+      });
+    });
+  </script>
+<% end %>
+
+
+
