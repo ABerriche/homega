@@ -90,17 +90,18 @@
             <div class="sub-new-quote-content hidden" id="step-3-sinistre">
             <div class="nb-title-sub-content"><h2 class="text-center">Historique de vos sinistres</h2></div>
                 <% @damages.each do |damage| %>
-                  <div class="row-damage">
-                    <div class="damage-picture text-center">
-                      <%= image_tag("no_picture.jpg", :alt => "rss feed", :height =>"70", :width => "100") %>
-                      <small><%= link_to "Ajouter photos" %></small>
+                  <%= link_to damage_path(damage) do %>
+                    <div class="row-damage">
+                      <div class="damage-picture text-center">
+                        <%= image_tag("no_picture.jpg", :alt => "rss feed", :height =>"80", :width => "120") %>
+                      </div>
+                      <div class="damage-details">
+                        <strong>Catégorie:</strong> <%= damage.category %> (<%= damage.created_at.strftime('%d-%m-%Y') %>)<br>
+                        <%= damage.place.name %><br>
+                        <%= damage.place.address %> <%= damage.place.postal_code %> <%= damage.place.city %><br>
+                      </div>
                     </div>
-                    <div class="damage-details">
-                      <strong>Catégorie:</strong> <%= damage.category %> (<%= damage.created_at.strftime('%d-%m-%Y') %>)<br>
-                      <%= damage.place.name %><br>
-                      <%= damage.place.address %> <%= damage.place.postal_code %> <%= damage.place.city %><br>
-                    </div>
-                  </div>
+                  <% end %>
 
 
 
