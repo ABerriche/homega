@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :infos, :insure]
-  after_create :send_welcome_email
 
   def show
   end
@@ -37,7 +36,5 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :sex, :situation, :birth_date, :nb_children, :job)
   end
-   def send_welcome_email
-    UserMailer.welcome(self).deliver_now
-  end
+
 end
