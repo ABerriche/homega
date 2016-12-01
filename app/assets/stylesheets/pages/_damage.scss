@@ -2,7 +2,11 @@
   height: 100px;
   //display: flex;
   position: relative;
-  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.row-damage:hover {
+  background-color: #f7f7f7;
 }
 
 .damage-picture {
@@ -17,8 +21,15 @@
   color: black !important;
 }
 
-.damage-details:hover {
-  color: black;
+.row-place {
+  color: black !important;
+  text-decoration: none;
 }
 
+.background-form {
+  padding: 40px 120px;
+  background-color: white;
+  box-shadow: 1px 1px #d6d6d6;
+  border-radius:6px;
+}
 

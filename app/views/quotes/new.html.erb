@@ -1,5 +1,5 @@
 <div class="wrapper-new">
-  <div class="wrapper-page-new-quot">
+  <div class="wrapper-page-new-quote">
     <div class="container quotes-container">
       <div class="row">
         <div class="col-xs-12 new-quote-left">
@@ -77,6 +77,8 @@
           </div>
           <div class="col-xs-12 col-sm-6">
             <span class="nb-next-button">
+            <%= f.hidden_field :price, value: @quote.price %>
+            <%= f.hidden_field :covered_amount, value: @quote.covered_amount %>
             <%= f.button :submit, "Voir et signer les documents" %></span>
             <% end %>
           </div>

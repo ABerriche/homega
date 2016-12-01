@@ -83,7 +83,12 @@
               <div class="nb-title-sub-content"><h2 class="text-center">Logements</h2></div>
               <div class="nb-sub-content">
                 <% current_user.places.each do |place| %>
-                  <%= place.name %> | Adresse: <%= place.address %> <%= place.postal_code %> <%= place.city %> <br>
+                  <%= link_to place_path(place) do %>
+                    <div class="row-place">
+                      <h4><%= place.name %></h4>
+                      <p><small><%= place.address %> <%= place.postal_code %> <%= place.city %></small></p> <br>
+                    </div>
+                  <% end %>
                 <% end %>
               </div>
             </div>
