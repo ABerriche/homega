@@ -2,10 +2,16 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
+.wrapper-home-connected {
+  background-color: #F1F1F1;
+  //height: 100vh;
+}
+
+
 .banner {
   color: white;
   text-align: center;
-  height: 100vh;
+  height: 80vh;
   background-size: cover !important;
   display: flex;
   align-items: center;
@@ -64,4 +70,27 @@ a.nav-link:link
   font-size: 14px;
   line-height: 1.42857143;
   color: #333;
+}
+
+.title {
+  text-align: text-center;
+}
+
+.button {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+
+
+// NEW CSS
+
+.wrapper-home {
+  background-color:white;
+}
+
+.container-home {
+  width: 90%;
+  margin: auto;
+  padding: 40px 0 40px 0;
 }

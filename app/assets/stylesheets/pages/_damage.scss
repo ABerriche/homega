@@ -1,0 +1,35 @@
+.row-damage {
+  height: 100px;
+  //display: flex;
+  position: relative;
+  padding: 10px;
+}
+
+.row-damage:hover {
+  background-color: #f7f7f7;
+}
+
+.damage-picture {
+  width: 100px;
+  position: absolute;
+  //flex: 0 0 20%;
+}
+
+.damage-details {
+  position: absolute;
+  left: 150px;
+  color: black !important;
+}
+
+.row-place {
+  color: black !important;
+  text-decoration: none;
+}
+
+.background-form {
+  padding: 40px 120px;
+  background-color: white;
+  box-shadow: 1px 1px #d6d6d6;
+  border-radius:6px;
+}
+

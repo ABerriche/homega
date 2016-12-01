@@ -5,13 +5,7 @@ class QuotesController < ApplicationController
 
   def new
     @quote = Quote.new
-    create
-    #authorize @quote
-  end
-
-  def create
-    @quote = Quote.new #(quote_params)
-    if @place.superficy < 30
+      if @place.superficy < 30
       @quote.price = 100
       @quote.covered_amount = 10000
     elsif @place.superficy < 55
@@ -60,10 +54,18 @@ class QuotesController < ApplicationController
       @quote.price = 250
       @quote.covered_amount = 40000
     end
+    #authorize @quote
+  end
+
+  def create
+    @quote = Quote.new(quote_params)
+    @quote.price = params['quote']['price']
+    @quote.covered_amount = params['quote']['covered_amount']
     @quote.place = @place
     if @quote.save
-      redirect_to quote_path(id: @quote.id)
+      redirect_to insure_path(@quote)
     else
+      render :new
     end
   end
 
@@ -86,6 +88,6 @@ class QuotesController < ApplicationController
   end
 
   def quote_params
-    params.require(:quote).permit(:place_id, :price, :covered_amount)
+    params.require(:quote).permit(:place_id, :price, :covered_amount, :start_date, :rib, :home_insurance)
   end
 end

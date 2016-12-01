@@ -1,27 +1,36 @@
 
-<div id="footer">
-  <div class="footer-content" style="
-    display: flex;
-    justify-content: space-between;
-">
-    <div class="footer-links" style="
-    display: flex;
-">
-      <li><a href="">FAQ</a></li>
-      <li><a href="">JOBS</a></li>
-      <li><a href="">BLOG</a></li>
-    </div>
-    <div>
-   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "logo.png" %>
-      <% end %> 
-   </div>
-    <div class="footer-social"style="
-    display: flex;
-">
-      <li><a href=""><i class="fa fa-facebook"></i></a></li>
-      <li><a href=""><i class="fa fa-instagram"></i></a></li>
-      <li><a href=""><i class="fa fa-twitter"></i></a></li>
-    </div>
-  </div>
-</div>
+    <footer class="footer-distributed">
+
+      <div class="footer-left">
+
+        <p class="footer-links">
+          <a href="#">Home</a>
+          ·
+          <a href="#">Blog</a>
+          ·
+          <a href="#">A propos</a>
+          ·
+          <a href="#">Faq</a>
+          ·
+          <a href="#">Contactez-nous</a>
+        </p>
+
+        <p class="footer-company-name">HOMEGA &copy; 2016</p>
+
+      </div>
+
+      <div class="footer-right">
+
+        <form method="get" action="#">
+          <input placeholder="Chercher dans le site" name="search" />
+          <i class="fa fa-search"></i>
+        </form>
+
+      </div>
+
+    </footer>
+
+  </body>
+
+</html>
+
