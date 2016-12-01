@@ -59,10 +59,13 @@ class QuotesController < ApplicationController
 
   def create
     @quote = Quote.new(quote_params)
+    @quote.price = params['quote']['price']
+    @quote.covered_amount = params['quote']['covered_amount']
     @quote.place = @place
     if @quote.save
       redirect_to insure_path(@quote)
     else
+      render :new
     end
   end
 
