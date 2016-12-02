@@ -3,10 +3,14 @@
   <div class="container background-form-place-show">
     <div class="row">
       <div class="col-xs-12 col-sm-5">
+        <div class="button-right">
+          <%= link_to "Déclarer un sinistre", new_damage_path(place_id: @place), class: "default-button btn" %>
+        </div>
         <div class="row-place">
           <h2><%= @place.name %></h2>
           <p><small><%= @place.address %> <%= @place.postal_code %> <%= @place.city %></small></p> <br>
         </div>
+
 
         <h4>Historique des sinistres</h4>
         <% @place.damages.each do |damage| %>

@@ -4,6 +4,10 @@ class DamagesController < ApplicationController
 
   def new
     @places = current_user.places.map { |place| place.name }
+    @place_id = params['place_id']
+    if @place_id
+      @place = Place.find(@place_id)
+    end
     @damage = Damage.new
   end
 
