@@ -17,3 +17,6 @@
 @import "vendor/index";
 @import "devise/index";
 
+.global-wrapper {
+  min-height: calc(100vh - 70px - 154px);
+}
