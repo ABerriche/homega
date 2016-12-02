@@ -6,7 +6,11 @@
         <h2>Déclarez un sinistre</h2>
 
           <%= simple_form_for @damage do |f| %>
-            <%= f.input :place_id, collection: @places, label: "Bien concerné" %>
+            <% if @place_id %>
+              <%= f.input :place_id, collection: @places, selected: @place_id.to_i, label: "Bien concerné" %>
+            <% else %>
+              <%= f.input :place_id, collection: @places, label: "Bien concerné" %>
+            <% end %>
             <%= f.input :category, label: "Catégorie", :collection => ["Dégâts des eaux", "Vol", "Incendie", "Catastrophe naturelle"] %>
             <div class="hidden" id="responsabilite_civile">
               <%= f.input :civil_responsability, label: "Responsabilité civile" %>
