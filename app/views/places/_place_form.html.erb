@@ -9,8 +9,6 @@
             <%= f.input :name, label: "Nom du bien", placeholder: 'Exemple: Résidence Principale'  %>
             <%= f.input :category, label: "Catégorie", :collection => ["Appartement", "Maison"], as: :radio_buttons %>
             <%= f.input :address, label: "Adresse", placeholder: 'Indiquez votre adresse'  %>
-            <%= f.input :city, label: "Ville", placeholder: 'Indiquez votre ville'  %>
-            <%= f.input :postal_code, label: "Code Postal", placeholder: 'Indiquez votre code postal'  %>
             <%= f.input :superficy, label: "Superficie" %>
             <%= f.input :heating_type, label: "Type de chauffage", :collection => %w[Central Individuel], as: :radio_buttons %>
             <%= f.input :building_type, label: "Type de Batiment", :collection => %w[Neuf Ancien], as: :radio_buttons %>              
