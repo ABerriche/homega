@@ -5,11 +5,19 @@
   <% end %>
 
   <!-- Right Navigation -->
+    <% if user_signed_in? %>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-2 col-sm-offset-5">
+            <h3 class="title-omega-signin"><span class="homega-orange">H</span>OMEGA</h3>
+          </div>
+        </div>
+      </div>
+    <% end %>
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
-<h3 class="title-omega-signin"><span class="homega-orange">H</span>OMEGA</h3>
       <!-- Profile picture and dropdown -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
@@ -35,7 +43,6 @@
       </div>
 
     <% else %>
-      <h3 class="title-omega display-none"><span class="homega-orange">H</span>OMEGA</h3>
       <!-- Login text link -->
       <%= link_to t(".sign_in", default: "Me connecter"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
 
