@@ -39,8 +39,8 @@
             <%= f.error_notification %>
             <%= f.input :home_insurance, label: 'Avez-vous déja une assurance habitation?', as: :radio_buttons %>
 
-            <div class="nb-next-button" id="nb-next-button-1"><h4><span>SUIVANT</span> ></h4></div>
-          </div>
+            <div class='btn default-button' id="nb-next-button-1"> SUIVANT</div>           
+        </div>
           <!-- MAIN DESCRIPTION -->
           <div class="sub-new-quote-content hidden" id="step-2-description">
             <div class="nb-title-sub-content"><h2>Choisissez votre date de début</h2></div>
@@ -49,7 +49,8 @@
              <%= f.input :start_date, label: 'Date de début', as: :string, input_html: { class: "datepicker", value: Time.now.strftime('%d-%m-%Y') } %>
              </div>
               <div class="col-xs-12 col-sm-6">
-                <div class="nb-next-button" id="nb-next-button-2"><h4><span>SUIVANT</span> ></h4></div>
+            <div class='btn default-button' id="nb-next-button-2"> SUIVANT</div>           
+
               </div>
             </div>
           </div>
@@ -64,9 +65,8 @@
             </div>
             <div class="col-xs-12 col-sm-6">
 
-              <div class="nb-next-button" id="nb-next-button-3">
-                <h4><span>SUIVANT</span> ></h4>
-              </div>
+            <div class='btn default-button' id="nb-next-button-3"> SUIVANT</div>           
+
             </div>
           </div>
           <!-- SOCIAL bank -->
@@ -79,7 +79,7 @@
             <span class="nb-next-button">
             <%= f.hidden_field :price, value: @quote.price %>
             <%= f.hidden_field :covered_amount, value: @quote.covered_amount %>
-            <%= f.button :submit, "Voir et signer les documents" %></span>
+            <%= f.button :submit, "Voir et signer les documents", class: "default-button btn" %></span>
             <% end %>
           </div>
           <!-- SUBMIT -->
