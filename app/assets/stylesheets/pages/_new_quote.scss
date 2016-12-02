@@ -217,3 +217,59 @@
     margin-right: 25px;
   }
 }
+
+.place_heating_type {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  margin-bottom: 10px;
+  padding-bottom: 0px;
+  label.radio_buttons {
+    width: 100%;
+  }
+  span.radio {
+    margin-right: 25px;
+  }
+}
+
+.place_kitchen_type {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  margin-bottom: 10px;
+  padding-bottom: 0px;
+  label.radio_buttons {
+    width: 100%;
+  }
+  span.radio {
+    margin-right: 25px;
+  }
+}
+
+.place_water_room {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  margin-bottom: 10px;
+  padding-bottom: 0px;
+  label.radio_buttons {
+    width: 100%;
+  }
+  span.radio {
+    margin-right: 25px;
+  }
+}
+
+.place_category {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  margin-bottom: 10px;
+  padding-bottom: 0px;
+  label.radio_buttons {
+    width: 100%;
+  }
+  span.radio {
+    margin-right: 25px;
+  }
+}
