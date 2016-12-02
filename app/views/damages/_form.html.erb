@@ -7,7 +7,7 @@
 
           <%= simple_form_for @damage do |f| %>
             <% if @place_id %>
-              <%= f.input :place_id, collection: @places, selected: @place_id.to_i, label: "Bien concerné" %>
+              <%= f.input :place_id, collection: @places, selected: @place.name, label: "Bien concerné" %>
             <% else %>
               <%= f.input :place_id, collection: @places, label: "Bien concerné" %>
             <% end %>
