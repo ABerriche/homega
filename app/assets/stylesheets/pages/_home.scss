@@ -114,6 +114,11 @@ a.nav-link:link
   padding: 10px;
 }
 
+.homega-orange-bigger {
+  font-size: 80px !important;
+  transition: ease 0.3s;
+}
+
 .symbols:hover {
   border: 1px solid $brand-color;
   border-radius: 5px;
@@ -128,6 +133,7 @@ a.nav-link:link
   width: 100px;
   height: 100px;
 }
+
 .features h2 {
   font-size: 20px;
   margin-bottom: 10px;
@@ -137,7 +143,16 @@ a.nav-link:link
   font-weight: lighter;
 }
 
-.flexbox {
-  display: flex;
-  justify-content: space-around;
+
+.title-omega {
+  //padding-right: 585px;
+
+}
+
+.title-omega-signin {
+  //padding-right: 808px;
+}
+
+.display-none {
+  display: none;
 }

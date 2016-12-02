@@ -18,6 +18,7 @@
 .damage-details {
   position: absolute;
   left: 150px;
+  padding-top: 7px;
   color: black !important;
 }
 
@@ -28,6 +29,13 @@
 
 .background-form {
   padding: 40px 120px;
+  background-color: white;
+  box-shadow: 1px 1px #d6d6d6;
+  border-radius:6px;
+}
+
+.background-form-place-show {
+  padding: 40px;
   background-color: white;
   box-shadow: 1px 1px #d6d6d6;
   border-radius:6px;

@@ -61,8 +61,8 @@
                 <h3><%= current_user.email %></h3>
 
                 <div class="form-inputs">
-                  <%= f.input :first_name, required: true, autofocus: true, label: "Prénom:" %>
-                  <%= f.input :last_name, required: true, label: "Nom de famille:" %>
+                  <%= f.input :first_name, required: true, autofocus: true, label: "Prénom:", placeholder: 'Indiquez votre prénom' %>
+                  <%= f.input :last_name, required: true, label: "Nom de famille:", placeholder: 'Indiquez votre nom de famille'  %>
                   <%= f.input :sex, as: :radio_buttons, collection: ["Homme", "Femme"], required: true, label: "Sexe:", item_label_class: "radio-inline", item_wrapper_tag: false %>
                   <%= f.input :situation, collection: ["Célibataire", "Marié(e)", "Pacsé(e)", "Veuf(ve)"], required: true, label: "Situation matrimoniale:" %>
                   <%= f.input :birth_date, required: true, label: "Date de naissance" , as: :string, input_html: { class: "datepicker", value: Time.now.strftime('%d-%m-%Y') } %>
@@ -96,21 +96,11 @@
                 <div class="col-xs-12 col-sm-6">
                   <div id="map" style="width: 100%; height: 600px;"></div>
                   <% content_for(:after_js) do %>
-                    <%= javascript_tag do %>
+                    <script>
                       $(document).ready(function() {
-                        var handler = Gmaps.build('Google');
-                        handler.buildMap({ internal: { id: 'map' } }, function() {
-                          markers = handler.addMarkers(<%= raw @hash.to_json %>);
-                          handler.bounds.extendWith(markers);
-                          handler.fitMapToBounds();
-                          if (markers.length == 0) {
-                            handler.getMap().setZoom(2);
-                          } else if (markers.length == 1) {
-                            handler.getMap().setZoom(14);
-                          }
-                        });
+
                       });
-                    <% end %>
+                    </script>
                   <% end %>
                 </div>
               </div>
@@ -140,7 +130,10 @@
             <div class="sub-new-quote-content" id="step-1-contrat">
             <div class="nb-title-sub-content"><h2 class="text-center">Contrats souscrits</h2></div>
                 <% @quotes.each do |quote| %>
-                  <%= quote.place.name %> | Prix mensuel: <%= quote.price %> | Montant couvert: <%= quote.covered_amount %> <br>
+                  <div class="row-quote">
+                    <i class="fa fa-file-o" aria-hidden="true"></i>
+                    <%= quote.place.name %> | Prix mensuel: <%= quote.price %> | Montant couvert: <%= quote.covered_amount %> <br>
+                  </div>
                 <% end %>
             </div>
 
@@ -420,6 +413,18 @@
         // Show target tab-content (use class="hidden")
         tabSelector = $(this).data("target");
         $(tabSelector).removeClass("hidden");
+        var handler = Gmaps.build('Google');
+        handler.buildMap({ internal: { id: 'map' } }, function() {
+          markers = handler.addMarkers(<%= raw @hash.to_json %>);
+          handler.bounds.extendWith(markers);
+          handler.fitMapToBounds();
+          if (markers.length == 0) {
+            handler.getMap().setZoom(2);
+          } else if (markers.length == 1) {
+            handler.getMap().setZoom(14);
+          }
+        });
+         // google.maps.event.trigger(map, 'resize');
       });
     });
   </script>

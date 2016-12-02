@@ -6,21 +6,19 @@
         <h2>Votre logement</h2>
 
           <%= simple_form_for @place do |f| %>
-            <%= f.input :name, label: "Nom du bien" %>
-            <%= f.input :address, label: "Adresse" %>
-            <%= f.input :category, label: "Catégorie", :collection => ["Maison", "Appartement", "Hotel Particulier", "Loft", "Chateau"], as: :radio_buttons %>
-            <%= f.input :city, label: "Ville" %>
-            <%= f.input :postal_code, label: "Code Postal" %>
+            <%= f.input :name, label: "Nom du bien", placeholder: 'Exemple: Résidence Principale'  %>
+            <%= f.input :category, label: "Catégorie", :collection => ["Appartement", "Maison"], as: :radio_buttons %>
+            <%= f.input :address, label: "Adresse", placeholder: 'Indiquez votre adresse'  %>
             <%= f.input :superficy, label: "Superficie" %>
-            <%= f.input :heating_type, label: "Type de chauffage", :collection => %w[Central Individuel] %>
+            <%= f.input :heating_type, label: "Type de chauffage", :collection => %w[Central Individuel], as: :radio_buttons %>
             <%= f.input :building_type, label: "Type de Batiment", :collection => %w[Neuf Ancien], as: :radio_buttons %>              
             <%= f.input :kitchen_type, label: "Cuisinière", :collection => %w[Gaz Electricité], as: :radio_buttons%>
             <%= f.input :water_room, label: "Nombre de pièces d'eau" %>
             <%= f.input :floor, label: "Etage", :collection => ["RDC", "Intermédiaire", "Dernier Etage"], as: :radio_buttons %>
             <%= f.input :status, label: "Statut", :collection => ["Locataire", "Collocataire", "Propriétaire", "Propriétaire Non Occupant"], as: :radio_buttons %>
             <%= f.input :chimney, label: "Cheminée" %>
-            <%= f.input :trustee_reference, label: "Référence Syndicat" %>
-            <%= f.button :submit, "Valider" %>
+<!--             <%= f.input :trustee_reference, label: "Référence Syndicat" %>
+ -->            <%= f.button :submit, "Valider" %>
           <% end %>
         </div>
     </div>
