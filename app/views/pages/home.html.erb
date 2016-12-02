@@ -167,31 +167,27 @@
   </div>
 </div>
 
-
-<div class="wrapper-symbols">
-  <div class="container-symbols">
-    <div class="row">
-      <div class="col-xs-12 col-sm-4">
-        <div class="card whatwedo text-center">
-          <h2>Transparence</h2>
-          <div class="symbols"><%= image_tag("transparent.png") %></div>
-          <p style="font-size: 14px">Obtenez votre devis en 2 minutes</p>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card whatwedo text-center">
-          <h2>En ligne</h2>
-          <div class="symbols"><%= image_tag("enligne.png") %></div>
-          <p style="font-size: 14px">100% en ligne, 0% papier</p>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card whatwedo text-center">
-          <h2>Liberté</h2>
-          <div class="symbols"><%= image_tag("liberte.png") %></div>
-          <p style="font-size: 14px">Partez à tout moment</p>
-        </div>
-      </div>
+<div class="container text-center features">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-3 symbols">
+      <h2>Prix imbattables</h2>
+      <p>Meilleur rapport qualité/prix</p>
+      <%= image_tag("cheap.png") %>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-3 symbols">
+      <h2>100% en ligne</h2>
+      <p>La fin de la paperasse</p>
+      <%= image_tag("enligne.png") %>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-3 symbols">
+      <h2>Restez zen</h2>
+      <p>Des prestataires à vos petits soins</p>
+      <%= image_tag("confortable.png") %>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-3 symbols">
+      <h2>Sans engagement</h2>
+      <p>Partez à tout moment</p>
+      <%= image_tag("liberte.png") %>
     </div>
   </div>
 </div>
@@ -202,20 +198,20 @@
       <div class="title text-center "> <h1> Le meilleur rapport qualité/prix du marché</h1>
       </div>
       <div class="col-xs-12 col-sm-6">
-        <div class="whatwedo text-center">
-          <h2>Assurance locataire</h2>
+        <div class="card card-grey text-center">
+          <h2>Locataire</h2>
           <p text-center>A partir de</p>
-          <h1 text-center>5 € / mois  </h1>
-          <div class="button text-center"> <%= link_to "Souscrire", new_user_registration_path, class: "default-button btn" %>
+          <h1 text-center>5€/mois</h1>
+          <div class="button text-center"> <%= link_to "J'obtiens mon devis", new_user_registration_path, class: "btn-homega btn" %>
           </div>
         </div>
       </div>
       <div class="col-xs-12 col-sm-6">
-        <div class="whatwedo text-center">
-          <h2>Assurance propriétaire</h2>
+        <div class="card card-grey text-center">
+          <h2>Propriétaire</h2>
           <p text-center>A partir de</p>
-          <h1 text-center>15 € / mois</h1>
-          <div class="button text-center"> <%= link_to "Souscrire", new_user_registration_path, class: "default-button btn" %>
+          <h1 text-center>15€/mois</h1>
+          <div class="button text-center"> <%= link_to "J'obtiens mon devis", new_user_registration_path, class: "btn-homega btn" %>
           </div>
         </div>
       </div>
@@ -229,14 +225,14 @@
       <div class="title text-center "> <h1> Déjà assuré?<br>  Passez à Homega en quelques clics et sans frais</h1>
       </div>
         <div class="col-xs-12 col-sm-6">
-          <div class="whatwedo text-center">
+          <div class="card card-g text-center">
             <h2>On s'occupe de tout</h2>
             <%= image_tag("formalité-administrative.png") %>
             <p style="font-size: 14px">Nous analysons votre contrat. Nous rédigeons votre lettre de résiliation, vous la signez en ligne puis nous l'envoyons pour vous.</p>
           </div>
         </div>
         <div class="col-xs-12 col-sm-6">
-          <div class="whatwedo text-center">
+          <div class="card text-center">
             <h2>Vous ne payez rien</h2>
             <%= image_tag("gratuit.gif") %>
             <p style="font-size: 14px">Aucun frais sur votre résiliation. Vous payez le mois en cours avec votre assurance actuelle puis vous passez à Homega le mois suivant </p>
