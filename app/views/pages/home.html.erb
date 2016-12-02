@@ -169,12 +169,14 @@
 
 <div class="container text-center features">
   <div class="row">
-    <div class="col-xs-12 col-sm-6 col-md-3 symbols">
+    <div class="col-xs-12 col-sm-6 col-md-3 symbols", data-target="price">
+      <%= link_to "", "#price", class: "card-link" %>
       <h2>Prix imbattables</h2>
       <p>Meilleur rapport qualité/prix</p>
       <%= image_tag("cheap.png") %>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-3 symbols">
+      <%= link_to "", "#digital", class: "card-link" %>
       <h2>100% en ligne</h2>
       <p>La fin de la paperasse</p>
       <%= image_tag("enligne.png") %>
@@ -192,66 +194,55 @@
   </div>
 </div>
 
+<div class="navbar-size" id="price"></div>
+
 <div class="wrapper-home">
-  <div class="container-home">
+  <div class="container">
     <div class="row">
-      <div class="title text-center "> <h1> Le meilleur rapport qualité/prix du marché</h1>
+      <div class="title text-center"> <h1> Le meilleur rapport qualité/prix du marché</h1>
       </div>
-      <div class="col-xs-12 col-sm-6">
+      <div class="col-xs-12 col-sm-3 col-sm-offset-3">
         <div class="card card-grey text-center">
           <h2>Locataire</h2>
-          <p text-center>A partir de</p>
-          <h1 text-center>5€/mois</h1>
-          <div class="button text-center"> <%= link_to "J'obtiens mon devis", new_user_registration_path, class: "btn-homega btn" %>
-          </div>
+          <p>A partir de</p>
+          <h1>5€/mois</h1>
         </div>
       </div>
-      <div class="col-xs-12 col-sm-6">
+      <div class="col-xs-12 col-sm-3">
         <div class="card card-grey text-center">
           <h2>Propriétaire</h2>
-          <p text-center>A partir de</p>
-          <h1 text-center>15€/mois</h1>
-          <div class="button text-center"> <%= link_to "J'obtiens mon devis", new_user_registration_path, class: "btn-homega btn" %>
-          </div>
+          <p>A partir de</p>
+          <h1>15€/mois</h1>
+        </div>
+      </div>
+    </div>
+    <div class="button text-center"> <%= link_to "J'obtiens mon devis", new_user_registration_path, class: "btn-homega btn" %>
+    </div>
+    <div class="text-center"> <p> Déjà assuré ? Nous nous occupons de résilier votre assurance pour vous.</p>
+    </div>
+  </div>
+</div>
+
+<div class="navbar-size" id="digital"></div>
+
+<div class="wrapper-home">
+  <div class="container">
+    <div class="row">
+      <div class="title text-center"> <h1> L'assurance habitation 100% en ligne</h1>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <div class="card card-grey text-center">
+          <h2>Dites adieu à la paperasse</h2>
+          <p>Souscription en ligne</p>
+          <p>Toutes les démarches se font depuis votre espace personnel</p>
+          <p>Gestion des sinistres en ligne</p>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<div class="wrapper-home">
-  <div class="container-home">
-    <div class="row">
-      <div class="title text-center "> <h1> Déjà assuré?<br>  Passez à Homega en quelques clics et sans frais</h1>
-      </div>
-        <div class="col-xs-12 col-sm-6">
-          <div class="card card-g text-center">
-            <h2>On s'occupe de tout</h2>
-            <%= image_tag("formalité-administrative.png") %>
-            <p style="font-size: 14px">Nous analysons votre contrat. Nous rédigeons votre lettre de résiliation, vous la signez en ligne puis nous l'envoyons pour vous.</p>
-          </div>
-        </div>
-        <div class="col-xs-12 col-sm-6">
-          <div class="card text-center">
-            <h2>Vous ne payez rien</h2>
-            <%= image_tag("gratuit.gif") %>
-            <p style="font-size: 14px">Aucun frais sur votre résiliation. Vous payez le mois en cours avec votre assurance actuelle puis vous passez à Homega le mois suivant </p>
-          </div>
-        </div>
-    </div>
-        <div class="button text-center"> <%= link_to "Changez maintenant", new_user_registration_path, class: "default-button btn" %>
-        </div>
-  </div>
-</div>
-
-<div class="wrapper-home">
-  <div class="container-home">
-    <div class="row">
-      <div class="col-xs-12 col-sm-6 value-proposition text-center whatwedo">
-        <h2>100% en ligne</h2>
-        <%= image_tag("digital-icon.png") %>
-      </div>
-      <div class="col-xs-12 col-sm-6 value-proposition-content whatwedo">
+  <!--     <div class="col-xs-12 col-sm-6 value-proposition-content whatwedo">
         <div class="row">
           <div class="col-xs-12 col-sm-4">
             <h3>Souscription en ligne</h3>
@@ -297,9 +288,8 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
+    </div> -->
+
 
 <div class="wrapper-home">
   <div class="container-home">

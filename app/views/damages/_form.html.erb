@@ -12,6 +12,7 @@
               <%= f.input :place_id, collection: @places, label: "Bien concerné" %>
             <% end %>
             <%= f.input :category, label: "Catégorie", :collection => ["Dégâts des eaux", "Vol", "Incendie", "Catastrophe naturelle"] %>
+
             <div class="hidden" id="responsabilite_civile">
               <%= f.input :civil_responsability, label: "Responsabilité civile" %>
             </div>
@@ -25,7 +26,10 @@
               <%= f.input :value_thief, label: "Valeur des biens volés" %>
             </div>
             <%= f.input :comment, label: "Commentaires" %>
-          <div> <%= f.button :submit, "Continuer", class: 'btn default-button' %> </div>
+            <%= f.input :photos, as: :attachinary %>
+            <div>
+            <%= f.button :submit, "Continuer", class: 'btn default-button' %>
+            </div>
           <% end %>
 
       </div>
