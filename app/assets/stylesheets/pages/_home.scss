@@ -100,6 +100,11 @@ a.nav-link:link
   color: $brand-color;
 }
 
+.homega-orange-bigger {
+  font-size: 80px !important;
+  transition: ease 0.3s;
+}
+
 .card {
 }
 
@@ -110,4 +115,17 @@ a.nav-link:link
 .wrapper-symbols img {
   width: 100px;
   height: 100px;
+}
+
+.title-omega {
+  //padding-right: 585px;
+
+}
+
+.title-omega-signin {
+  //padding-right: 808px;
+}
+
+.display-none {
+  display: none;
 }

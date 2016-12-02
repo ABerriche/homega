@@ -140,7 +140,10 @@
             <div class="sub-new-quote-content" id="step-1-contrat">
             <div class="nb-title-sub-content"><h2 class="text-center">Contrats souscrits</h2></div>
                 <% @quotes.each do |quote| %>
-                  <%= quote.place.name %> | Prix mensuel: <%= quote.price %> | Montant couvert: <%= quote.covered_amount %> <br>
+                  <div class="row-quote">
+                    <i class="fa fa-file-o" aria-hidden="true"></i>
+                    <%= quote.place.name %> | Prix mensuel: <%= quote.price %> | Montant couvert: <%= quote.covered_amount %> <br>
+                  </div>
                 <% end %>
             </div>
 
