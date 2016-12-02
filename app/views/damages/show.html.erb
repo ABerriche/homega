@@ -1,22 +1,18 @@
 <div class="wrapper-page-new-quote">
-
-<h1><%= @damage.place.name %> | <%= @damage.place.address %> | <%= @damage.category %></h1>
-
-<%if @damage.category == "Vol" %>
-  <% if @damage.value_thief.to_i <= 1000 %>
-    <h2>You will get a payment of <%= @damage.value_thief %> euros in the coming days...</h2>
-  <% else %>
-    <h2>...</h2>
+  <h1><%= @damage.place.name %> | <%= @damage.place.address %> | <%= @damage.category %></h1>
+  <%if @damage.category == "Vol" %>
+    <% if @damage.value_thief.to_i <= 1000 %>
+      <h2>You will get a payment of <%= @damage.value_thief %> euros in the coming days...</h2>
+    <% else %>
+      <h2>...</h2>
+    <% end %>
+  <% elsif @damage.category == "Dégâts des eaux" %>
+    <h3>Nos prestataires</h3>
+    <% @providers.each do |provider| %>
+      <%= provider.first_name %> | <%= provider.last_name %> | <%= provider.speciality %> <br>
+    <% end %>
   <% end %>
-<% elsif @damage.category == "Dégâts des eaux" %>
-
-  <h3>Nos prestataires</h3>
-  <% @providers.each do |provider| %>
-    <%= provider.first_name %> | <%= provider.last_name %> | <%= provider.speciality %> <br>
+  <% @damage.photos.each do |photo| %>
+    <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
   <% end %>
-<% end %>
-
-<% @damage.photos.each do |photo| %>
-  <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
-<% end %>
 </div>
