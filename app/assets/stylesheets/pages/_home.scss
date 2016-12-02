@@ -7,6 +7,9 @@
   //height: 100vh;
 }
 
+h2 {
+  font-size: 28px;
+}
 
 .banner {
   color: white;
@@ -63,7 +66,8 @@ a.nav-link:link
   max-height: 100px;
 }
 
-.whatwedo {
+.card {
+  height: 300px;
   padding-right: 20px;
   padding-left: 20px;
   text-align: center;
@@ -71,6 +75,11 @@ a.nav-link:link
   font-size: 14px;
   line-height: 1.42857143;
   color: #333;
+}
+
+.card-grey {
+  background: $gray-background;
+  border-radius: 5px;
 }
 
 .title {
@@ -90,6 +99,7 @@ a.nav-link:link
   background-color:white;
 }
 
+
 .container-home {
   width: 90%;
   margin: auto;
@@ -100,14 +110,34 @@ a.nav-link:link
   color: $brand-color;
 }
 
-.card {
+.symbols {
+  padding: 10px;
 }
 
-.card:hover {
+.symbols:hover {
   border: 1px solid $brand-color;
+  border-radius: 5px;
+  padding: 10px;
 }
 
-.wrapper-symbols img {
+.features {
+  padding-top: 10px;
+}
+
+.features img {
   width: 100px;
   height: 100px;
+}
+.features h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.features p {
+  font-size: 15px;
+  font-weight: lighter;
+}
+
+.flexbox {
+  display: flex;
+  justify-content: space-around;
 }
