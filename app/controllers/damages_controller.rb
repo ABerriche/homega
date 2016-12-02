@@ -33,7 +33,7 @@ class DamagesController < ApplicationController
   end
 
   def damage_params
-    params.require(:damage).permit(:place_id, :category, :civil_responsability, :responsability, :breaking, :value_thief, :cat_water_damage, :comment)
+    params.require(:damage).permit(:place_id, :category, :civil_responsability, :responsability, :breaking, :value_thief, :cat_water_damage, :comment, photos: [])
   end
 
 end
