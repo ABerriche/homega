@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     if params['user']['next']
       redirect_to new_place_path
     else
-      redirect_to user_path(@user)
+      redirect_to root_path
     end
   end
 
