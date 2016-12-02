@@ -8,8 +8,8 @@ class Place < ApplicationRecord
   validates :name, presence: true
   validates :category, presence: true, inclusion: {in: ["Hotel Particulier", "Appartement", "Chateau", "Loft", "Maison"]}
   validates :address, presence: true
-  validates :city, presence: true
-  validates :postal_code, presence: true
+  # validates :city, presence: true
+  # validates :postal_code, presence: true
   validates :superficy, presence: true, numericality:{ only_integer: true }
   validates :heating_type, presence: true
   validates :building_type, presence: true
