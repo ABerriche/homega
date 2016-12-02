@@ -18,7 +18,9 @@
             <%= f.input :status, label: "Statut", :collection => ["Locataire", "Collocataire", "Propriétaire", "Propriétaire Non Occupant"], as: :radio_buttons %>
             <%= f.input :chimney, label: "Cheminée" %>
 <!--             <%= f.input :trustee_reference, label: "Référence Syndicat" %>
- -->            <%= f.button :submit, "Valider" %>
+ -->        
+             <div> <%= f.button :submit, "Valider", class: 'btn default-button' %> </div>
+
           <% end %>
         </div>
     </div>
