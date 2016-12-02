@@ -10,7 +10,12 @@ class PlacesController < ApplicationController
     @place = Place.new(place_params)
     @place.user = current_user
     if @place.save
-      redirect_to new_place_quote_path(@place)
+      if @place.latitude.nil? 
+        flash[:alert] = "Merci de saisir une adresse proposée dans les..."
+        render :new
+      else
+        redirect_to new_place_quote_path(@place)
+      end
     else
       render :new
     end
@@ -44,7 +49,7 @@ class PlacesController < ApplicationController
   end
 
   def place_params
-    params.require(:place).permit(:name, :category, :address, :postal_code, :city, :superficy, :heating_type, :building_type, :kitchen_type, :water_room, :floor, :status, :chimney, :trustee_reference)
+    params.require(:place).permit(:name, :category, :address, :postal_code, :city, :superficy, :heating_type, :building_type, :kitchen_type, :water_room, :floor, :status, :chimney)
   end
 end
 
