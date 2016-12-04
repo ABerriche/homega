@@ -1,5 +1,5 @@
 .conversational-form {
-  box-shadow: 1px 1px 3px #CCCCCC;
+  box-shadow: 1px 1px 3px #FFB766;
   border-radius: 5px;
   width: 600px !important;
   height: 500px !important;
@@ -9,6 +9,7 @@
 
 text {
   color: black; //#9C9C9C;
+  background-color: yellow;
 }
 
 f-input input {
@@ -31,5 +32,24 @@ f-input input {
   color: $orange;
   font-family: Museo;
   font-weight: lighter;
+}
+
+cf-chat-response.show text[value-added] {
+  background-color: #ffb766;
+}
+
+cf-chat-response:nth-of-type(2n+2) text {
+  background: #66ffc4 !important;
+}
+
+cf-input.animate-in input {
+  color: black;
+}
+
+.sign-doc {
+  margin-top: 60px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 

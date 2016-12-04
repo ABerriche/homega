@@ -6,8 +6,11 @@
 
       <form cf-form-element action="/places" method="post">
 
-      <div class="col-xs-12 col-sm-5 place-form-designation">
-          <h2 class="text-center">Quelques informations concernant votre logement...</h2>
+      <div class="col-xs-12 col-sm-5">
+            <p class="text-center">Etape 1 sur 3</p>
+          <div class="row place-form-designation">
+            <h2 class="text-center">Quelques informations concernant votre logement...</h2>
+          </div>
       </div>
 
       <div class="col-xs-12 col-sm-6 form-place">
@@ -16,29 +19,38 @@
 
             <%= f.label :name, "Donnez un nom à votre logement" %>
             <%= f.text_field :name %>
+
             <%= f.label :category, "Quel est le type de ce logement?" %>
             <%= f.select :category, ["Appartement", "Maison", "Hotel Particulier", "Chateau", "Loft"] %>
             <%= f.label :address, "A quelle adresse se situe-t-il?" %>
             <%= f.text_field :address %>
+
             <%= f.label :superficy, "Quelle est la superficie en m²?" %>
             <%= f.text_field :superficy %>
+
             <%= f.label :heating_type, "Quel est le type de chauffage?" %>
             <%= f.select :heating_type, ["Central", "Individuel"] %>
+
             <%= f.label :building_type, "Quel est le type de bâtiment?" %>
             <%= f.select :building_type, ["Neuf", "Ancien"] %>
+
             <%= f.label :kitchen_type, "Quel est le type de cuisinière?" %>
             <%= f.select :kitchen_type, ["Gaz", "Electricité"] %>
+
             <%= f.label :water_room, "Combien y a-t-il de pièces d'eau?" %>
             <%= f.text_field :water_room %>
+
             <%= f.label :floor, "A quel étage se situe le logement?" %>
             <%= f.select :floor, ["RDC", "Intermédiaire", "Dernier Etage"] %>
+
             <%= f.label :chimney, "Avez-vous une cheminée" %>
             <%= f.select :chimney, ["Oui", "Non"] %>
+
             <%= f.label :status, "Quel est votre statut?" %>
             <%= f.select :status, ["Locataire", "Co-locataire", "Propriétaire", "Propriétaire Non Occupant"] %>
+
             <%= f.label :trustee_reference, "Nom et adresse votre Syndic" %>
             <%= f.text_field :trustee_reference %>
-
 
             <%= f.submit :submit %>
 
