@@ -1,0 +1,72 @@
+          <form id="conversational" action="/places" method="post">
+             <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+            <div class="form-group">
+              <label for="name">Nom du logement</label>
+              <input type="text" cf-questions="Donnez un nom à votre logement" name="name">
+            </div>
+            <div class="form-group">
+              <label for="category">Categorie</label>
+              <select cf-questions="Quel est le type de ce logement?" name="category">
+                <option>Maison</option>
+                <option>Appartement</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="address">Adresse</label>
+              <input type="text" cf-questions="A quelle adresse se situe-t-il?" name="address">
+            </div>
+            <div class="form-group">
+              <label for="superficy">Superficie</label>
+              <input type="text" cf-questions="Quelle est la superficie (en m²)?" name="superficy">
+            </div>
+            <div class="form-group">
+              <label for="heating_type">Type de chauffage</label>
+              <select cf-questions="Quel est le type de chauffage?" name="heating_type">
+                <option>Central</option>
+                <option>Individuel</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="building_type">Type de bâtiment</label>
+              <select cf-questions="Quel est le type de bâtiment?" name="building_type">
+                <option>Neuf</option>
+                <option>Ancien</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="kitchen_type">Cuisinière</label>
+              <select cf-questions="Quel est le type de cuisinière?" name="kitchen_type">
+                <option>Gaz</option>
+                <option>Electricité</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="water_room">Nombre de pièces d'eau</label>
+              <input type="text" cf-questions="Combien de pièces d'eau y a-t-il?" name="water_room">
+            </div>
+            <div class="form-group">
+              <label for="floor">Etage</label>
+              <select cf-questions="A quel étage se situe le logement?" name="floor">
+                <option>RDC</option>
+                <option>Intermédiaire</option>
+                <option>Dernier étage</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="status">Statut</label>
+              <select cf-questions="Vous êtes..." name="status">
+                <option>Locataire</option>
+                <option>Collocataire</option>
+                <option>Propriétaire</option>
+                <option>Propriétaire Non Occupant</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="chimney">Cheminée</label>
+              <select cf-questions="Avez-vous une cheminée?" name="chimney">
+                <option>true</option>
+                <option>false</option>
+              </select>
+            </div>
+            <button type="submit">Soumettre</button>
+          </form>

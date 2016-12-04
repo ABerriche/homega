@@ -18,4 +18,5 @@ class Place < ApplicationRecord
   validates :floor, presence: true
   validates :status, presence: true
 
+
 end
