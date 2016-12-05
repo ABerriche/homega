@@ -31,6 +31,8 @@ f-input input {
   flex: 0 0 1;
   color: $orange;
   font-weight: lighter;
+  font-size: 25px;
+  margin-top: -20px;
 }
 
 cf-chat-response.show text[value-added] {
