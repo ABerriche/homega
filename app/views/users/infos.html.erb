@@ -1,39 +1,49 @@
-
-<div class="header">
-  <div class="container header-homega">
-    <h1><span class = "h-homega">H</span>omega</h1>
-  </div>
-</div>
-
-
-<div class="wrapper">
+<div class="wrapper-page-new-quote">
   <div class="container">
-    <div class="row">
-      <div class="col-sm-4 col-sm-offset-4 cat-info">
-          <h2>1. Informations personnelles</h2>
+    <div class="row new-quote-right">
 
+      <form cf-form-element action="/users/<%= @user.id %>/edit" method="patch">
 
-        <%= simple_form_for(@user) do |f| %>
-          <%= f.error_notification %>
-
-          <h3><%= @user.email %></h3>
-
-          <div class="form-inputs">
-            <%= f.input :first_name, required: true, autofocus: true, label: "Prénom:" %>
-            <%= f.input :last_name, required: true, label: "Nom de famille:" %>
-            <%= f.input :sex, as: :radio_buttons, collection: ["Homme", "Femme"], required: true, label: "Sexe:", item_label_class: "radio-inline", item_wrapper_tag: false %>
-            <%= f.input :situation, collection: ["Célibataire", "Marié(e)", "Pacsé(e)", "Veuf(ve)"], required: true, label: "Situation matrimoniale:" %>
-            <%= f.input :birth_date, required: true, label: "Date de naissance" , as: :string, input_html: { class: "datepicker", value: Time.now.strftime('%d-%m-%Y') } %>
-            <%= f.input :nb_children, collection: ["0", "1", "2", "3", "4+"], required: true, label: "Nombre d'enfant(s):" %>
-            <%= f.input :job, collection: User::JOBS, required: true, label: "Profession:" %>
-            <%= f.hidden_field :next, value: "logement" %>
+      <div class="col-xs-12 col-sm-5">
+          <div class="row place-form-designation">
+            <h2 class="text-center">Faisons connaissance...</h2>
           </div>
-
-          <div class="form-actions">
-            <div> <%= f.button :submit, "Continuer", class: 'btn default-button', method: :patch %> </div>
-          </div>
-        <% end %>
       </div>
+
+      <div class="col-xs-12 col-sm-6 form-place">
+
+          <%= form_for @user, method: :patch do |f|  %>
+
+            <%= f.label :sex, "Vous êtes un(e)s" %>
+            <%= f.select :sex, ["Homme", "Femme"] %>
+
+            <%= f.label :last_name, "Quel est votre nom de famille?" %>
+            <%= f.text_field :last_name %>
+
+            <%= f.label :first_name, "Quel est votre prénom?" %>
+            <%= f.text_field :first_name %>
+
+            <%= f.label :situation, "Vous êtes..." %>
+            <%= f.select :situation, ["Célibataire", "Marié(e)", "Pacsé(e)", "Veuf(ve)"] %>
+
+            <%= f.label :birth_date, "Quelle est votre date de naissance? (YYYY-MM-DD)" %>
+            <%= f.date_field :birth_date %>
+
+            <%= f.label :nb_children, "Combien d'enfants avez-vous?" %>
+            <%= f.select :nb_children, ["0", "1", "2", "3", "4+"] %>
+
+            <%= f.label :job, "Quelle est votre profession?" %>
+            <%= f.select :job, ["Agriculteur exploitant", "Artisant commerçant", "Assistante maternelle", "Cadre", "Profession libérale", "Employé", "Enseignant", "Etudiant", "Ouvrier", "Retraité", "Sans activité professionnelle", "Autre"] %>
+
+            <%= f.label :already_insured, "Avez-vous déjà une assurance habitation?" %>
+            <%= f.select :already_insured, ["Oui", "Non"] %>
+
+            <%#= f.hidden_field :next, value: "logement" %>
+
+            <%= f.submit :submit %>
+
+          <% end %>
+        </div>
     </div>
   </div>
 </div>
