@@ -10,15 +10,15 @@ class UsersController < ApplicationController
   end
 
   def update
-    if params['user']['already_insured'] == "Oui"
+    if params[:user][:already_insured] == "Oui"
       @user.already_insured = true
-      @user.update(user_params)
       #redirect_to une page où on peut uploader le contrat assurance
-    elsif params['user']['already_insured'] == "Non"
+    elsif params[:user][:already_insured] == "Non"
       @user.already_insured = false
-      @user.update(user_params)
       #redirect_to une page de devis
     end
+    #@user.birth_date = params[:user][:birth_date].strftime('%Y-%m-%d')
+    @user.update(user_params)
     redirect_to root_path
   end
 
