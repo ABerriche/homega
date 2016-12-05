@@ -15,10 +15,11 @@ class DamagesController < ApplicationController
     place_id = current_user.places.where(name: params[:damage][:place_id]).as_json[0]["id"]
     @damage = Damage.new(damage_params)
     @damage.place_id = place_id
+    #raise
     if @damage.save
       redirect_to damage_path(@damage)
-    else
-      render :new
+    #else
+    #  render :new
     end
   end
 
