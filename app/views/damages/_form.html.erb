@@ -5,47 +5,53 @@
       <form cf-form-element action="/damages" method="post">
 
       <div class="col-xs-12 col-sm-5">
-          <div class="row place-form-designation">
-            <h2 class="text-center">Déclarez un sinistre</h2>
-
+          <div class="row damage-form-designation text-center">
+            <h2 class="text-center">Déclarez un sinistre</h2><br><br><br>
+            <%= link_to "Dégâts des eaux", new_damage_path(type: "degats"), class: "damage-button" %>
+            <%= link_to "Vol", new_damage_path(type: "vol"), class: "damage-button" %><br><br><br>
+            <%= link_to "Incendie", new_damage_path(type: "incendie"), class: "damage-button" %>
+            <%= link_to "Catastrophe naturelle", new_damage_path(type: "catastrophe"), class: "damage-button" %>
           </div>
       </div>
 
       <div class="col-xs-12 col-sm-6 form-place">
 
+        <%= form_for @damage do |f| %>
 
-          <%= form_for @damage do |f| %>
+          <%= f.label :place_id, "Quel est le bien concerné par le sinistre?" %>
+          <%= f.select :place_id, @places %>
 
-            <%= f.label :place_id, "Quel est le bien concerné par le sinistre?" %>
-            <%= f.select :place_id, @places %>
+          <% if params[:type] == "incendie" %>
+            <%= f.hidden_field :category, value: "Incendie" %>
+          <% end %>
+          <% if params[:type] == "catastrophe" %>
+            <%= f.hidden_field :category, value: "Catastrophe naturelle" %>
+          <% end %>
+          <% if params[:type] == "degats" %>
 
-            <%= f.label :category, "De quel type de sinistre s'agit-il?" %>
-            <%= f.select :category, ["Dégâts des eaux", "Vol", "Incendie", "Catastrophe naturelle"] %>
+            <%= f.hidden_field :category, value: "Dégâts des eaux" %>
 
-            <div class="hidden" id="responsabilite_civile">
-              <%= f.label :civil_responsability, "Responsabilité civile?" %>
-              <%= f.select :civil_responsability, ["Oui", "Non"] %>
-            </div>
+            <%= f.label :civil_responsability, "Responsabilité civile?" %>
+            <%= f.select :civil_responsability, ["Oui", "Non"] %>
 
-            <div class="hidden" id="responsabilite">
-              <%= f.label :responsability, "De quel type de sinistre s'agit-il?" %>
-              <%= f.select :responsability, ["L'origine du sinistre provient de chez moi", "L'origine du sinistre ne provient pas de chez moi", "Je ne sais pas"] %>
-            </div>
+            <%= f.label :responsability, "D'où provient le sinistre?" %>
+            <%= f.select :responsability, ["L'origine du sinistre provient de chez moi", "L'origine du sinistre ne provient pas de chez moi", "Je ne sais pas"] %>
 
-            <div class="hidden" id="effraction">
-              <%= f.label :breaking, "Y a-t-il eu effraction?" %>
-              <%= f.select :breaking, ["Oui", "Non"] %>
-            </div>
+          <% end %>
+          <% if params[:type] == "vol" %>
 
-            <div class="hidden" id="valeur_bien">
-              <%= f.label :value_thief, "Quelle est la valeur des biens volés?" %>
-              <%= f.text_field :value_thief %>
-            </div>
+            <%= f.hidden_field :category, value: "Vol" %>
+
+            <%= f.label :breaking, "Y a-t-il eu effraction?" %>
+            <%= f.select :breaking, ["Oui", "Non"] %>
+
+            <%= f.label :value_thief, "Quelle est la valeur des biens volés?" %>
+            <%= f.text_field :value_thief %>
+
+           <% end %>
 
             <%= f.label :comment, "Ajoutez des commentaires si vous le souhaitez..." %>
             <%= f.text_field :comment %>
-
-            <%#= f.file_field :photos, as: :attachinary %>
 
             <%= f.submit :submit %>
 

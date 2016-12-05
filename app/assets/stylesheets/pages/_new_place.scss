@@ -5,6 +5,7 @@
   height: 500px !important;
   bottom: 160px !important;
   left: 500px !important;
+  top: 50px !important;
 }
 
 text {
@@ -18,6 +19,11 @@ f-input input {
 
 .form-place {
   opacity: 0;
+}
+
+.damage-form-designation {
+  min-height: 450px;
+  border-right: 1px solid #CCCCCC;
 }
 
 .place-form-designation {
