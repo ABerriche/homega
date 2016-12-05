@@ -1,0 +1,27 @@
+<div class="wrapper-page-new-quote">
+  <div class="container">
+    <div class="row new-quote-right">
+
+      <div class="col-xs-12 col-sm-5">
+            <h2 class="text-center">Etape 4 sur 5</h2>
+          <div class="row place-form-designation">
+            <h2 class="text-center">Donnez nous du flouss<br> Choukran khoya</h2>
+          </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-7 right">
+        <div class="row">
+          <h2 class="text-center">Mes coordonnées bancaires</h2>
+            <%= f.label :rib, "Merci de nous fournir votre IBAN (FRXX XXXX XXXX XXXX XXXX XXXX XXX" %>
+            <%= f.text_field :rib %>
+          <p>Transmettez-nous votre contract d'assurance habitation afin que nous puissions effectuer les procédures de résiliation à votre place.</p>
+        </div>
+        <div class="row">
+          <div class="text-center">
+              <%= link_to "Finaliser mon inscription", insured_path(current_user), class: "btn default-button" %>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
   resources :quotes, only: [ :show, :update ] do
     get '/insured' => "quotes#insured"
+    get '/payment' => "quotes#payment"
   end
   resources :damages, only: [ :new, :create, :show ] do
     resources :bookings, only: [ :new, :create ]
