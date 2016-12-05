@@ -39,17 +39,27 @@
   padding: 0 20px;
 }
 
-// /* Navbar standard link */
-// .navbar-wagon-link {
-//   color: #616668;
-//   font-size: 14px;
-// }
-// .navbar-wagon-link:hover {
-//   color: #da552f;
-//   text-decoration: none;
-// }
+ /* Navbar standard link */
+.navbar-wagon-link {
+  color: $gray;
+  font-size: 18px;
+  padding: 3px 0;
+}
+
+.navbar-wagon-link:hover {
+  color: $brand-color;
+  text-decoration: none;
+  padding: 3px 0;
+}
 
 /* Navbar right button */
+
+.navbar-wagon-button {
+  color: white;
+  background: $hover-color;
+  border-color: white;
+  padding-right: 10px
+}
 
 .navbar-wagon-button:hover {
   color: white;

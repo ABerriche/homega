@@ -1,0 +1,54 @@
+<div class="wrapper-page-new-quote">
+  <div class="container">
+    <div class="row new-quote-right">
+
+      <div class="col-xs-12 col-sm-5">
+            <h2 class="text-center">Changement de contrat</h2>
+          <div class="row place-form-designation">
+            <h2 class="text-center">Transférer nous votre contrat actuel,<br> nous gérons la résiliation pour vous</h2>
+          </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-7 right">
+        <div class="row">
+          <h2>Confiez nous la résiliation de votre contrat*</h2>
+          <p>Transmettez-nous votre contract d'assurance habitation afin que nous puissions effectuer les procédures de résiliation à votre place.</p>
+          <p>Une fois reçu, nous analyserons votre contrat actuel, rédigerons la lettre de résiliation et l’enverrons pour vous. Vous n’aurez qu’à signer en ligne.</p>
+        </div>
+        <div class="row">
+          <div class="text-center">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn default-button" data-toggle="modal" data-target="#myModal">
+              Transférer mon contrat
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" labelledby="mySmallModalLabel">
+              <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Transférer mon contrat ct</h4>
+                  </div>
+                  <div class="modal-body">
+                    <%= simple_form_for @quote do |f| %>
+                      <div>
+                        <%= f.input :contract, as: :attachinary %>
+                      </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    <button type="submit" class="btn btn-orange">Ajouter</button>
+                  </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+          <p class="hamon"><em>* Depuis le 17 mars 2014, la loi Hamon vous permet de résilier votre assurance habitation à tout moment après la première année d'engagement.</p></em>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -43,11 +43,11 @@
       </div>
 
     <% else %>
+
+      <%= link_to t(".sign_in", default: "M'inscrire"), new_user_registration_path, class: "navbar-wagon-item default-button btn display-none", id:"navbar-sign-up" %>
+
       <!-- Login text link -->
-      <%= link_to t(".sign_in", default: "Me connecter"), new_user_session_path, class: "navbar-wagon-item default-button btn" %>
-
-      <%= link_to t(".sign_in", default: "M'inscrire"), new_user_registration_path, class: "navbar-wagon-item default-button btn" %>
-
+      <%= link_to t(".sign_in", default: "Me connecter"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link", id:"navbar-sign-in" %>
     <% end %>
 
   </div>
@@ -71,6 +71,9 @@
       var navbar = $('.navbar-wagon');
       var navbarHeight = $('.navbar-wagon').height();
       var titleOmega = $('.title-omega');
+      var navSignIn = $("#navbar-sign-in");
+      var navSignUp = $("#navbar-sign-up");
+
       <% if signed_in? %>
         $(window).on("scroll", function(e) {
           var scroll = $(window).scrollTop();
@@ -82,15 +85,20 @@
         });
       <% else %>
         $(window).on("scroll", function(e) {
+
           var scroll = $(window).scrollTop();
           if (scroll > navbarHeight + 220) {
             navbar.addClass("navbar-wagon-fixed");
             titleOmega.removeClass("display-none");
+            navSignUp.removeClass("display-none");
+            navSignIn.addClass("display-none");
           //} else if (scroll > navbarHeight) {
           //  navbar.addClass("navbar-wagon-fixed");
           } else {
             navbar.removeClass("navbar-wagon-fixed");
             titleOmega.addClass("display-none");
+            navSignUp.addClass("display-none");
+            navSignIn.removeClass("display-none");
           }
         });
       <% end %>

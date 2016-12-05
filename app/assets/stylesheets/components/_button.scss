@@ -1,13 +1,23 @@
 .default-button {
   margin-left: 10px;
-  padding: 10px 25px;
+  padding: 15px 15px;
   border-radius: 10px;
-  line-height: 40px;
   background-color: $brand-color;
   color: white;
-  font-size: 18px;
+  font-size: 15px;
 
  &:hover {
   box-shadow: 0 5px 13px 0 rgba(0, 0, 0, 0.25)
  }
 }
+
+.default-button-sm {
+  margin-left: 10px;
+  padding: 10px 10px;
+  border-radius: 7px;
+  background-color: $brand-color;
+  color: white;
+  font-size: 15px;
+}
+
+
