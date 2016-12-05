@@ -48,7 +48,7 @@
                     <%= f.input :situation, collection: ["Célibataire", "Marié(e)", "Pacsé(e)", "Veuf(ve)"], required: true, label: "Situation matrimoniale:" %>
                     <i class="fa fa-caret-down"></i>
                   </div>
-                  <%= f.input :birth_date, required: true, label: "Date de naissance" , as: :string, input_html: { class: "datepicker", value: Time.now.strftime('%d-%m-%Y') } %>
+                  <%= f.input :birth_date, required: true, label: "Date de naissance" , as: :string, input_html: { class: "datepicker", value: current_user.birth_date.strftime('%d-%m-%Y') } %>
                   <div class="select-input">
                     <%= f.input :nb_children, collection: ["0", "1", "2", "3", "4+"], required: true, label: "Nombre d'enfant(s):" %>
                     <i class="fa fa-caret-down"></i>
