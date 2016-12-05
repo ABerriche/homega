@@ -54,6 +54,13 @@
 
 /* Navbar right button */
 
+.navbar-wagon-button {
+  color: white;
+  background: $hover-color;
+  border-color: white;
+  padding-right: 10px
+}
+
 .navbar-wagon-button:hover {
   color: white;
   background: $hover-color;
