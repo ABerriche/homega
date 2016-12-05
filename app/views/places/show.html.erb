@@ -1,16 +1,22 @@
 <div class="wrapper-page-new-quote">
 
   <div class="container background-form-place-show">
-    <div class="row">
-      <div class="col-xs-12 col-sm-5">
-        <div class="button-right">
-          <%= link_to "Déclarer un sinistre", new_damage_path(place_id: @place), class: "default-button btn" %>
-        </div>
+    <div class="row text-center">
+    <% if @place.category == "Maison" %>
+    <%= image_tag "maison.png" %>
+    <% elsif @place.category == "appartement" %>
+    <%= image_tag "appartement.png" %>
+    <% end %>
+    </div>
+
+      <div class="col-xs-12 col-sm-7  ">
         <div class="row-place">
           <h2><%= @place.name %></h2>
           <p><small><%= @place.address %> <%= @place.postal_code %> <%= @place.city %></small></p> <br>
         </div>
-
+         <div class="button-right text-right">
+          <%= link_to "Editer", new_damage_path(place_id: @place), class: "default-button btn" %>
+        </div>
 
         <h4>Historique des sinistres</h4>
         <% @place.damages.each do |damage| %>
@@ -18,27 +24,10 @@
             <%= damage.created_at.strftime('%d-%m-%Y') %> : <%= damage.category %> <br>
           <% end %>
         <% end %>
-      </div>
-
-      <div class="col-xs-12 col-sm-7">
-        <div id="map" style="width: 100%; height: 600px;"></div>
-        <% content_for(:after_js) do %>
-          <%= javascript_tag do %>
-            $(document).ready(function() {
-              var handler = Gmaps.build('Google');
-              handler.buildMap({ internal: { id: 'map' } }, function() {
-                markers = handler.addMarkers(<%= raw @hash.to_json %>);
-                handler.bounds.extendWith(markers);
-                handler.fitMapToBounds();
-                if (markers.length == 0) {
-                  handler.getMap().setZoom(2);
-                } else if (markers.length == 1) {
-                  handler.getMap().setZoom(14);
-                }
-              });
-            });
-          <% end %>
-        <% end %>
+         <h4>Mon Contrat</h4>
+        <div class="button-right text-right">
+          <%= link_to "Déclarer un sinistre", new_damage_path(place_id: @place), class: "default-button btn" %>
+        </div>
       </div>
     </div>
   </div>

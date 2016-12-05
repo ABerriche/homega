@@ -30,8 +30,9 @@ f-input input {
 .place-form-designation h2 {
   flex: 0 0 1;
   color: $orange;
-  font-family: Museo;
   font-weight: lighter;
+  font-size: 25px;
+  margin-top: -20px;
 }
 
 cf-chat-response.show text[value-added] {

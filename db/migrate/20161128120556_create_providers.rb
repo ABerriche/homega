@@ -6,6 +6,7 @@ class CreateProviders < ActiveRecord::Migration[5.0]
       t.string :address
       t.string :category
       t.string :company
+      t.string :speciality
 
       t.timestamps
     end
