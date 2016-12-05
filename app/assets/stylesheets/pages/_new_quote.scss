@@ -1,9 +1,10 @@
-.wrapper-new {
+.wrapper-newz {
   background-color: #F1F1F1;
+  margin-top: -56px;
 }
 
 .wrapper-page-new-quote {
-  padding: 40px;
+  padding: 70px;
   background-color: #F1F1F1;
   min-height: 685px;
 }
@@ -34,7 +35,13 @@
   color: #8C8C8C;
   margin:0;
   padding:0;
+  -webkit-box-pack: center;
   justify-content: center;
+    background: white;
+    padding: 18px;
+    margin: 0;
+
+    color: $brand-color;
 }
 
 .step p span {
@@ -42,10 +49,12 @@
 }
 
 .steps {
-  display:flex;
-  //flex-direction: column;
-  justify-content: space-between;
+  display: flex;
+  justify-content: center;
   align-items: center;
+  transform: translateY(-50%);
+  width: 78%;
+  margin: auto;
 }
 
 .line-box {
@@ -119,13 +128,13 @@
   font-weight:light;
   font-size: 20px;
   color: #1DA1F2;
-  padding:0 0 60px 0;
-  margin:0px
+  padding: 0 0 60px 0;
+  margin: 0px;
 }
 
 .nb-row-sub-content {
   margin:0px;
-  padding:0;
+  padding: 0;
 }
 
 .nb-next-button {
@@ -158,7 +167,7 @@
   font-size: 14px;
   color: #8C8C8C;
   text-transform: uppercase;
-  padding-bottom:20px
+  padding-bottom:20px;
 }
 
 .label {
@@ -251,6 +260,7 @@
   align-items: baseline;
   margin-bottom: 10px;
   padding-bottom: 0px;
+
   label.radio_buttons {
     width: 100%;
   }
