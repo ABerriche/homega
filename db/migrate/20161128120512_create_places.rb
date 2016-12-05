@@ -14,7 +14,7 @@ class CreatePlaces < ActiveRecord::Migration[5.0]
       t.string :floor
       t.string :status
       t.boolean :chimney
-      # t.string :trustee_reference
+      t.string :trustee_reference
 
       t.timestamps
     end
