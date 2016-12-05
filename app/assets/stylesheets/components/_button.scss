@@ -23,12 +23,14 @@
 .damage-button {
   padding: 10px;
   border-radius: 15px;
-  border: 2px solid #ffb766;
+  border: 1px solid #ffb766;
   text-decoration: none !important;
   color: #b7b7b7;
 
   &:hover {
     background-color: #ffdfbf;
+    color: #b7b7b7;
+    text-decoration: none !important;
    }
 }
 
