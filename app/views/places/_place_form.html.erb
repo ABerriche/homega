@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row new-quote-right">
 
-      <form cf-form-element action="/places" method="post">
+      <form cf-form-element action="/places" method="put">
 
       <div class="col-xs-12 col-sm-5">
             <p class="text-center">Etape 1 sur 3</p>
@@ -48,8 +48,8 @@
             <%= f.label :status, "Quel est votre statut?" %>
             <%= f.select :status, ["Locataire", "Co-locataire", "Propriétaire", "Propriétaire Non Occupant"] %>
 
-            <%= f.label :trustee_reference, "Nom et adresse votre Syndic" %>
-            <%= f.text_field :trustee_reference %>
+            <%#= f.label :trustee_reference, "Nom et adresse votre Syndic" %>
+            <%#= f.text_field :trustee_reference %>
 
             <%= f.submit :submit %>
 
