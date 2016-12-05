@@ -1,11 +1,11 @@
 .hamon {
-  font-size: 8px;
+  font-size: 12px;
   padding-top: 5px;
 }
 
-.right h2 {
-  padding: 10px;
-
+.right p, h2 {
+  padding-left: 10px;
+  margin-top: 20px;
 }
 
 .title-left {
@@ -22,4 +22,4 @@
   line-height: 1.42857143;
   border-radius: 2px;
   background-color: $brand-color;
-
+}
