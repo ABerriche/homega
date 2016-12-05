@@ -65,7 +65,7 @@
                   <%= f.input :last_name, required: true, label: "Nom de famille:", placeholder: 'Indiquez votre nom de famille'  %>
                   <%= f.input :sex, as: :radio_buttons, collection: ["Homme", "Femme"], required: true, label: "Sexe:", item_label_class: "radio-inline", item_wrapper_tag: false %>
                   <%= f.input :situation, collection: ["Célibataire", "Marié(e)", "Pacsé(e)", "Veuf(ve)"], required: true, label: "Situation matrimoniale:" %>
-                  <%= f.input :birth_date, required: true, label: "Date de naissance" , as: :string, input_html: { class: "datepicker", value: Time.now.strftime('%d-%m-%Y') } %>
+                  <%= f.input :birth_date, required: true, label: "Date de naissance" , as: :string, input_html: { class: "datepicker", value: current_user.birth_date.strftime('%d-%m-%Y') } %>
                   <%= f.input :nb_children, collection: ["0", "1", "2", "3", "4+"], required: true, label: "Nombre d'enfant(s):" %>
                   <%= f.input :job, collection: User::JOBS, required: true, label: "Profession:" %>
                 </div>
