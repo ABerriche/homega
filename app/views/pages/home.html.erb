@@ -1,60 +1,42 @@
 <% if signed_in? %>
 
-  <div class="wrapper-home-connected">
+<div class="wrapper-home-connected">
     <div class="container padded-top">
       <div class="row">
         <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-          <div class="col-xs-12 col-sm-6 text-center">
-            <%= link_to "Créer un logement", new_place_path, class: "default-button btn" %>
-          </div>
-          <div class="col-xs-12 col-sm-6 text-center">
-            <%= link_to "Déclarer un sinistre", new_damage_path, class: "default-button btn" %>
-          </div>
         </div>
       </div>
     </div><br><br><br>
+  </div>
 
+  <div class="steps">
+    <!-- STEP 1 - Déja une assurance habitation? -->
+    <div class="nb-global-step active" data-target="#step-1-contrat">
+      <div class="step"><p>Mes contrats</p></div>
+    </div>
+
+    <!-- Step 2 - Date de début -->
+    <div class="nb-global-step" data-target="#step-2-logement">
+      <div class="step"><p>Mes logements</p></div>
+    </div>
+    <!-- Step 3 - info pratiques -->
+    <div class="nb-global-step" data-target="#step-3-sinistre">
+      <div class="step"><p>Mes sinistres</p></div>
+    </div>
+    <!-- Step 4 - bank -->
+    <div class="nb-global-step" data-target="#step-4-info-perso">
+      <div class="step"><p>Mes informations personnelles</p></div>
+    </div>
+  </div>
 
   <div class="wrapper-newz">
     <div class="wrapper-page-new-quote">
       <div class="container quotes-container">
-        <div class="row">
-          <div class="col-xs-12 new-quote-left">
-            <h1>Dashboard</h1>
-            <div class="steps">
-              <!-- STEP 1 - Déja une assurance habitation? -->
-              <div class="nb-global-step active" data-target="#step-1-contrat">
-                <div class="step"><p><br>Mes contrats</p></div>
-                <div class="underline active" id="underline-4"></div>
-              </div>
-
-              <!-- Step 2 - Date de début -->
-              <div class="line-box"><div class="grey-line"></div></div>
-              <div class="nb-global-step" data-target="#step-2-logement">
-                <div class="step"><p><br>Mes logements</p></div>
-                <div class="underline" id="underline-2"></div>
-              </div>
-              <!-- Step 3 - info pratiques -->
-              <div class="line-box"><div class="grey-line"></div></div>
-              <div class="nb-global-step" data-target="#step-3-sinistre">
-                <div class="step"><p><br>Mes sinistres</p></div>
-                <div class="underline" id="underline-3"></div>
-              </div>
-              <!-- Step 4 - bank -->
-              <div class="line-box"><div class="grey-line"></div></div>
-              <div class="nb-global-step" data-target="#step-4-info-perso">
-                <div class="step"><p><br>Mes informations personnelles</p></div>
-                <div class="underline" data-target="#step-4-info-perso"></div>
-              </div>
-            </div>
-          </div>
-        </div>
 
         <div class="row">
           <div class="col-xs-12 new-quote-right">
 
             <div class="sub-new-quote-content hidden col-xs-12 col-sm-6 col-sm-offset-3" id="step-4-info-perso">
-
               <%= simple_form_for(current_user) do |f| %>
                 <%= f.error_notification %>
 
@@ -74,9 +56,6 @@
                   <div> <%= f.button :submit, "Mettre à jour", method: :patch, class: 'btn default-button' %> </div>
                 </div>
               <% end %>
-
-
-
             </div>
 
             <div class="sub-new-quote-content hidden" id="step-2-logement">
@@ -107,34 +86,35 @@
             </div>
 
             <div class="sub-new-quote-content hidden" id="step-3-sinistre">
-            <div class="nb-title-sub-content"><h2 class="text-center">Historique de vos sinistres</h2></div>
-                <% @damages.each do |damage| %>
-                  <%= link_to damage_path(damage) do %>
-                    <div class="row-damage">
-                      <div class="damage-picture text-center">
-                        <%= image_tag("no_picture.jpg", :alt => "rss feed", :height =>"80", :width => "120") %>
-                      </div>
-                      <div class="damage-details">
-                        <strong>Catégorie:</strong> <%= damage.category %> (<%= damage.created_at.strftime('%d-%m-%Y') %>)<br>
-                        <%= damage.place.name %><br>
-                        <%= damage.place.address %> <%= damage.place.postal_code %> <%= damage.place.city %><br>
-                      </div>
+              <div class="nb-title-sub-content">
+                <h2 class="text-center">Historique de vos sinistres</h2>
+              </div>
+              <% @damages.each do |damage| %>
+                <%= link_to damage_path(damage) do %>
+                  <div class="row-damage">
+                    <div class="damage-picture text-center">
+                      <%= image_tag("no_picture.jpg", :alt => "rss feed", :height =>"80", :width => "120") %>
                     </div>
-                  <% end %>
-
-
-
+                    <div class="damage-details">
+                      <strong>Catégorie:</strong> <%= damage.category %> (<%= damage.created_at.strftime('%d-%m-%Y') %>)<br>
+                      <%= damage.place.name %><br>
+                      <%= damage.place.address %> <%= damage.place.postal_code %> <%= damage.place.city %><br>
+                    </div>
+                  </div>
                 <% end %>
+              <% end %>
             </div>
 
             <div class="sub-new-quote-content" id="step-1-contrat">
-            <div class="nb-title-sub-content"><h2 class="text-center">Contrats souscrits</h2></div>
-                <% @quotes.each do |quote| %>
-                  <div class="row-quote">
-                    <i class="fa fa-file-o" aria-hidden="true"></i>
-                    <%= quote.place.name %> | Prix mensuel: <%= quote.price %> | Montant couvert: <%= quote.covered_amount %> <br>
-                  </div>
-                <% end %>
+              <div class="nb-title-sub-content">
+                <h2 class="text-center">Contrats souscrits</h2>
+              </div>
+              <% @quotes.each do |quote| %>
+                <div class="row-quote">
+                  <i class="fa fa-file-o" aria-hidden="true"></i>
+                  <%= quote.place.name %> | Prix mensuel: <%= quote.price %> | Montant couvert: <%= quote.covered_amount %> <br>
+                </div>
+              <% end %>
             </div>
 
           </div>
@@ -153,218 +133,212 @@
 
 <% else %>
 
-
-
-
-
-
-
-<div class="banner" style="background: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path('banner.jpg') %>');">
-  <div class="banner-content">
-    <h1><span class="homega-orange">H</span>OMEGA</h1>
-    <p>L'assurance habitation <span class="homega-orange"><strong>Simple</strong></span> et <span class="homega-orange"><strong>Pratique</strong></span>.</p>
-    <%= link_to "M'inscrire", new_user_registration_path, class: "default-button btn" %>
-  </div>
-</div>
-
-<div class="container text-center features">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-md-3 symbols", data-target="price">
-      <%= link_to "", "#price", class: "card-link" %>
-      <h2>Prix imbattables</h2>
-      <p>Meilleur rapport qualité/prix</p>
-      <%= image_tag("cheap.png") %>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-3 symbols">
-      <%= link_to "", "#digital", class: "card-link" %>
-      <h2>100% en ligne</h2>
-      <p>La fin de la paperasse</p>
-      <%= image_tag("enligne.png") %>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-3 symbols">
-      <h2>Restez zen</h2>
-      <p>Des prestataires à vos petits soins</p>
-      <%= image_tag("confortable.png") %>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-3 symbols">
-      <h2>Sans engagement</h2>
-      <p>Partez à tout moment</p>
-      <%= image_tag("liberte.png") %>
+  <div class="banner" style="background: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path('banner.jpg') %>');">
+    <div class="banner-content">
+      <h1><span class="homega-orange">H</span>OMEGA</h1>
+      <p>L'assurance habitation <span class="homega-orange"><strong>Simple</strong></span> et <span class="homega-orange"><strong>Pratique</strong></span>.</p>
+      <%= link_to "M'inscrire", new_user_registration_path, class: "default-button btn" %>
     </div>
   </div>
-</div>
 
-<div class="navbar-size" id="price"></div>
-
-<div class="wrapper-home">
-  <div class="container">
+  <div class="container text-center features">
     <div class="row">
-      <div class="title text-center"> <h1> Le meilleur rapport qualité/prix du marché</h1>
+      <div class="col-xs-12 col-sm-6 col-md-3 symbols", data-target="price">
+        <%= link_to "", "#price", class: "card-link" %>
+        <h2>Prix imbattables</h2>
+        <p>Meilleur rapport qualité/prix</p>
+        <%= image_tag("cheap.png") %>
       </div>
-      <div class="col-xs-12 col-sm-3 col-sm-offset-3">
-        <div class="card card-grey text-center">
-          <h2>Locataire</h2>
-          <p>A partir de</p>
-          <h1>5€/mois</h1>
-        </div>
+      <div class="col-xs-12 col-sm-6 col-md-3 symbols">
+        <%= link_to "", "#digital", class: "card-link" %>
+        <h2>100% en ligne</h2>
+        <p>La fin de la paperasse</p>
+        <%= image_tag("enligne.png") %>
       </div>
-      <div class="col-xs-12 col-sm-3">
-        <div class="card card-grey text-center">
-          <h2>Propriétaire</h2>
-          <p>A partir de</p>
-          <h1>15€/mois</h1>
-        </div>
+      <div class="col-xs-12 col-sm-6 col-md-3 symbols">
+        <h2>Restez zen</h2>
+        <p>Des prestataires à vos petits soins</p>
+        <%= image_tag("confortable.png") %>
       </div>
-    </div>
-    <div class="button text-center"> <%= link_to "J'obtiens mon devis", new_user_registration_path, class: "btn-homega btn" %>
-    </div>
-    <div class="text-center"> <p> Déjà assuré ? Nous nous occupons de résilier votre assurance pour vous.</p>
-    </div>
-  </div>
-</div>
-
-<div class="navbar-size" id="digital"></div>
-
-<div class="wrapper-home">
-  <div class="container">
-    <div class="row">
-      <div class="title text-center"> <h1> L'assurance habitation 100% en ligne</h1>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-        <div class="card card-grey text-center">
-          <h2>Dites adieu à la paperasse</h2>
-          <p>Souscription en ligne</p>
-          <p>Toutes les démarches se font depuis votre espace personnel</p>
-          <p>Gestion des sinistres en ligne</p>
-        </div>
+      <div class="col-xs-12 col-sm-6 col-md-3 symbols">
+        <h2>Sans engagement</h2>
+        <p>Partez à tout moment</p>
+        <%= image_tag("liberte.png") %>
       </div>
     </div>
   </div>
-</div>
 
-  <!--     <div class="col-xs-12 col-sm-6 value-proposition-content whatwedo">
-        <div class="row">
-          <div class="col-xs-12 col-sm-4">
-            <h3>Souscription en ligne</h3>
-            <%= image_tag("register-online.png") %>
-          </div>
-          <div class="col-xs-12 col-sm-8">
-            <p style="font-size: 14px">Toutes vos démarches de souscription ou de migration depuis une autre assurance se font sur notre plateforme: </p>
-            <ol>
-              <li> Rentrez les information sur votre logement et vos besoins</li>
-              <li> Nous vous imprimons un devis </li>
-              <li> Vous signez le contrat Pdf directement sur la plateform </li>
-              <li> Vous êtes assuré! </li>
-            </ol>
+  <div class="navbar-size" id="price"></div>
+
+  <div class="wrapper-home">
+    <div class="container">
+      <div class="row">
+        <div class="title text-center"> <h1> Le meilleur rapport qualité/prix du marché</h1>
+        </div>
+        <div class="col-xs-12 col-sm-3 col-sm-offset-3">
+          <div class="card card-grey text-center">
+            <h2>Locataire</h2>
+            <p>A partir de</p>
+            <h1>5€/mois</h1>
           </div>
         </div>
-        <div class="row">
-          <div class="col-xs-12 col-sm-4">
-            <h3>Declaration de sinistre en ligne</h3>
-            <%= image_tag("declaration.png") %>
-          </div>
-          <div class="col-xs-12 col-sm-8">
-            <p style="font-size: 14px">Déclarez vos sinistres en quelques clics: </p>
-            <ol>
-              <li> Rentrez les information sur votre logement et vos besoins</li>
-              <li> Nous vous imprimons un devis </li>
-              <li> Vous signez le contrat Pdf directement sur la plateform </li>
-              <li> Vous êtes assuré! </li>
-            </ol>
+        <div class="col-xs-12 col-sm-3">
+          <div class="card card-grey text-center">
+            <h2>Propriétaire</h2>
+            <p>A partir de</p>
+            <h1>15€/mois</h1>
           </div>
         </div>
-        <div class="row">
-          <div class="col-xs-12 col-sm-4">
-            <h3>Service post sinistre en ligne</h3>
-            <%= image_tag("chat.png") %>
+      </div>
+      <div class="button text-center"> <%= link_to "J'obtiens mon devis", new_user_registration_path, class: "btn-homega btn" %>
+      </div>
+      <div class="text-center"> <p> Déjà assuré ? Nous nous occupons de résilier votre assurance pour vous.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="navbar-size" id="digital"></div>
+
+  <div class="wrapper-home">
+    <div class="container">
+      <div class="row">
+        <div class="title text-center"> <h1> L'assurance habitation 100% en ligne</h1>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+          <div class="card card-grey text-center">
+            <h2>Dites adieu à la paperasse</h2>
+            <p>Souscription en ligne</p>
+            <p>Toutes les démarches se font depuis votre espace personnel</p>
+            <p>Gestion des sinistres en ligne</p>
           </div>
-          <div class="col-xs-12 col-sm-8">
-            <p style="font-size: 14px">Toutes vos démarches sur notre plateforme: </p>
-            <ol>
-              <li> L'évaluation des remboursements se fait en ligne</li>
-              <li> Pas d'envoi de chèque, des virements instantanés avec notification</li>
-              <li> Un service client disponible sur notre chat à tout moment </li>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!--     <div class="col-xs-12 col-sm-6 value-proposition-content whatwedo">
+          <div class="row">
+            <div class="col-xs-12 col-sm-4">
+              <h3>Souscription en ligne</h3>
+              <%= image_tag("register-online.png") %>
+            </div>
+            <div class="col-xs-12 col-sm-8">
+              <p style="font-size: 14px">Toutes vos démarches de souscription ou de migration depuis une autre assurance se font sur notre plateforme: </p>
+              <ol>
+                <li> Rentrez les information sur votre logement et vos besoins</li>
+                <li> Nous vous imprimons un devis </li>
+                <li> Vous signez le contrat Pdf directement sur la plateform </li>
+                <li> Vous êtes assuré! </li>
               </ol>
+            </div>
           </div>
-        </div>
-      </div>
-    </div> -->
-
-
-<div class="wrapper-home">
-  <div class="container-home">
-    <div class="row">
-      <div class="col-xs-12 col-sm-6 value-proposition text-center whatwedo">
-        <h2>100% intégré</h2>
-        <%= image_tag("digital-icon.png") %>
-      </div>
-      <div class="col-xs-12 col-sm-6 value-proposition-content whatwedo">
-        <div class="row">
-          <div class="col-xs-12 col-sm-4">
-            <h3>La recherche et prise de RDV avec prestataire</h3>
-            <%= image_tag("booking-online.png") %>
-          </div>
-          <div class="col-xs-12 col-sm-8">
-            <p style="font-size: 14px">Une fois votre sinistre déclaré, nous gérons la réparation: </p>
-            <ol>
-              <li> Choississez sur notre plateforme parmis une liste de prestataires agrées</li>
-              <li> Choississez la date et l'heure du rendez-vous </li>
-              <li> Notre prestataire intervient puis nous notifie lorsque votre problème est résolu </li>
-            </ol>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-12 col-sm-4">
-            <h3>Pas d'avance de frais: tout est gratuit pour vous</h3>
-            <%= image_tag("gratuit (1).gif") %>
-          </div>
-          <div class="col-xs-12 col-sm-8">
-            <p style="font-size: 14px">Nos prestataires interviennent gratuitement.</p>
-            <ol>
-              <li> Vous avancez 0 euros</li>
-              <li> Vous n'avez aucune démarche de dossier à nous faire parvenir </li>
-            </ol>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-12 col-sm-4">
-            <h3>Des partenaires agrées et évaluez par nos clients</h3>
-            <%= image_tag("partenaires.jpg") %>
-          </div>
-          <div class="col-xs-12 col-sm-8">
-            <p style="font-size: 14px">Nos prestataires font l'objet d'un suivi précis: </p>
-            <ol>
-              <li> Au prélable nous sélectionnons des intervenants de confiance</li>
-              <li> Chaque intervention est notée par les clients. Nous ne gardons que les meilleurs intervenants!</li>
+          <div class="row">
+            <div class="col-xs-12 col-sm-4">
+              <h3>Declaration de sinistre en ligne</h3>
+              <%= image_tag("declaration.png") %>
+            </div>
+            <div class="col-xs-12 col-sm-8">
+              <p style="font-size: 14px">Déclarez vos sinistres en quelques clics: </p>
+              <ol>
+                <li> Rentrez les information sur votre logement et vos besoins</li>
+                <li> Nous vous imprimons un devis </li>
+                <li> Vous signez le contrat Pdf directement sur la plateform </li>
+                <li> Vous êtes assuré! </li>
               </ol>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 col-sm-4">
+              <h3>Service post sinistre en ligne</h3>
+              <%= image_tag("chat.png") %>
+            </div>
+            <div class="col-xs-12 col-sm-8">
+              <p style="font-size: 14px">Toutes vos démarches sur notre plateforme: </p>
+              <ol>
+                <li> L'évaluation des remboursements se fait en ligne</li>
+                <li> Pas d'envoi de chèque, des virements instantanés avec notification</li>
+                <li> Un service client disponible sur notre chat à tout moment </li>
+                </ol>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
+      </div> -->
 
-<div class="wrapper-home">
-  <div class="container-home">
-    <div class="row">
-      <div class="col-xs-12 col-sm-6 value-proposition text-center whatwedo">
-        <h2>Sans Engagement</h2>
-        <%= image_tag("digital-icon.png") %>
-      </div>
-      <div class="col-xs-12 col-sm-6 value-proposition-content whatwedo">
-        <div class="row">
-          <div class="col-xs-12 col-sm-4">
-            <h3>A tout moment, vous pouvez résilier votre assurance</h3>
-            <%= image_tag("break-free.png") %>
+
+  <div class="wrapper-home">
+    <div class="container-home">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 value-proposition text-center whatwedo">
+          <h2>100% intégré</h2>
+          <%= image_tag("digital-icon.png") %>
+        </div>
+        <div class="col-xs-12 col-sm-6 value-proposition-content whatwedo">
+          <div class="row">
+            <div class="col-xs-12 col-sm-4">
+              <h3>La recherche et prise de RDV avec prestataire</h3>
+              <%= image_tag("booking-online.png") %>
+            </div>
+            <div class="col-xs-12 col-sm-8">
+              <p style="font-size: 14px">Une fois votre sinistre déclaré, nous gérons la réparation: </p>
+              <ol>
+                <li> Choississez sur notre plateforme parmis une liste de prestataires agrées</li>
+                <li> Choississez la date et l'heure du rendez-vous </li>
+                <li> Notre prestataire intervient puis nous notifie lorsque votre problème est résolu </li>
+              </ol>
+            </div>
           </div>
-          <div class="col-xs-12 col-sm-8">
-            <p style="font-size: 14px">Connectez vos sur la plateforme et en quelque clics vous pouvez vous désengager. Vous ne payer que la fin du mois en cours. </p>
+          <div class="row">
+            <div class="col-xs-12 col-sm-4">
+              <h3>Pas d'avance de frais: tout est gratuit pour vous</h3>
+              <%= image_tag("gratuit (1).gif") %>
+            </div>
+            <div class="col-xs-12 col-sm-8">
+              <p style="font-size: 14px">Nos prestataires interviennent gratuitement.</p>
+              <ol>
+                <li> Vous avancez 0 euros</li>
+                <li> Vous n'avez aucune démarche de dossier à nous faire parvenir </li>
+              </ol>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 col-sm-4">
+              <h3>Des partenaires agrées et évaluez par nos clients</h3>
+              <%= image_tag("partenaires.jpg") %>
+            </div>
+            <div class="col-xs-12 col-sm-8">
+              <p style="font-size: 14px">Nos prestataires font l'objet d'un suivi précis: </p>
+              <ol>
+                <li> Au prélable nous sélectionnons des intervenants de confiance</li>
+                <li> Chaque intervention est notée par les clients. Nous ne gardons que les meilleurs intervenants!</li>
+                </ol>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+
+  <div class="wrapper-home">
+    <div class="container-home">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 value-proposition text-center whatwedo">
+          <h2>Sans Engagement</h2>
+          <%= image_tag("digital-icon.png") %>
+        </div>
+        <div class="col-xs-12 col-sm-6 value-proposition-content whatwedo">
+          <div class="row">
+            <div class="col-xs-12 col-sm-4">
+              <h3>A tout moment, vous pouvez résilier votre assurance</h3>
+              <%= image_tag("break-free.png") %>
+            </div>
+            <div class="col-xs-12 col-sm-8">
+              <p style="font-size: 14px">Connectez vos sur la plateforme et en quelque clics vous pouvez vous désengager. Vous ne payer que la fin du mois en cours. </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 <% end %>
