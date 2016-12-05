@@ -16,16 +16,16 @@
     </div> -->
 
     <!-- Step 2 - Date de début -->
-    <div class="nb-global-step active" data-target="#step-1-logement">
-      <div class="step"><p>Mes logements</p></div>
+    <div class="nb-global-step text-center active" data-target="#step-1-logement">
+      <p>Mes logements</p>
     </div>
     <!-- Step 3 - info pratiques -->
-    <div class="nb-global-step" data-target="#step-2-sinistre">
-      <div class="step"><p>Mes sinistres</p></div>
+    <div class="nb-global-step text-center" data-target="#step-2-sinistre">
+      <p>Mes sinistres</p>
     </div>
     <!-- Step 4 - bank -->
-    <div class="nb-global-step" data-target="#step-3-info-perso">
-      <div class="step"><p>Mes informations personnelles</p></div>
+    <div class="nb-global-step text-center" data-target="#step-3-info-perso">
+      <p>Mes informations personnelles</p>
     </div>
   </div>
 
@@ -40,15 +40,19 @@
               <%= simple_form_for(current_user) do |f| %>
                 <%= f.error_notification %>
 
-                <h3><%= current_user.email %></h3>
-
                 <div class="form-inputs">
                   <%= f.input :first_name, required: true, autofocus: true, label: "Prénom:", placeholder: 'Indiquez votre prénom' %>
                   <%= f.input :last_name, required: true, label: "Nom de famille:", placeholder: 'Indiquez votre nom de famille'  %>
                   <%= f.input :sex, as: :radio_buttons, collection: ["Homme", "Femme"], required: true, label: "Sexe:", item_label_class: "radio-inline", item_wrapper_tag: false %>
-                  <%= f.input :situation, collection: ["Célibataire", "Marié(e)", "Pacsé(e)", "Veuf(ve)"], required: true, label: "Situation matrimoniale:" %>
+                  <div class="select-input">
+                    <%= f.input :situation, collection: ["Célibataire", "Marié(e)", "Pacsé(e)", "Veuf(ve)"], required: true, label: "Situation matrimoniale:" %>
+                    <i class="fa fa-caret-down"></i>
+                  </div>
                   <%= f.input :birth_date, required: true, label: "Date de naissance" , as: :string, input_html: { class: "datepicker", value: Time.now.strftime('%d-%m-%Y') } %>
-                  <%= f.input :nb_children, collection: ["0", "1", "2", "3", "4+"], required: true, label: "Nombre d'enfant(s):" %>
+                  <div class="select-input">
+                    <%= f.input :nb_children, collection: ["0", "1", "2", "3", "4+"], required: true, label: "Nombre d'enfant(s):" %>
+                    <i class="fa fa-caret-down"></i>
+                  </div>
                   <%= f.input :job, collection: User::JOBS, required: true, label: "Profession:" %>
                 </div>
 
