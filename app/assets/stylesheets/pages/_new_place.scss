@@ -1,0 +1,55 @@
+.conversational-form {
+  box-shadow: 1px 1px 3px #FFB766;
+  border-radius: 5px;
+  width: 600px !important;
+  height: 500px !important;
+  bottom: 160px !important;
+  left: 500px !important;
+}
+
+text {
+  color: black; //#9C9C9C;
+  background-color: yellow;
+}
+
+f-input input {
+  color: black;
+}
+
+.form-place {
+  opacity: 0;
+}
+
+.place-form-designation {
+  display: flex;
+  min-height: 450px;
+  border-right: 1px solid #CCCCCC;
+  align-items: center;
+}
+
+.place-form-designation h2 {
+  flex: 0 0 1;
+  color: $orange;
+  font-family: Museo;
+  font-weight: lighter;
+}
+
+cf-chat-response.show text[value-added] {
+  background-color: #ffb766;
+}
+
+cf-chat-response:nth-of-type(2n+2) text {
+  background: #F1F1F1 !important; //#66ffc4
+}
+
+cf-input.animate-in input {
+  color: black;
+}
+
+.sign-doc {
+  margin-top: 60px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
