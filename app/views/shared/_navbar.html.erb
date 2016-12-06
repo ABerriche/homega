@@ -24,10 +24,14 @@
 
       <div class="navbar-wagon-item">
         <div class="dropdown">
+        <% if current_user.facebook_picture_url? %>
+          <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
+          <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+        <% else %>
           <% if current_user.sex == "Femme" %>
-          <%= image_tag "user-icon2.png", class:"avatar dropdown-toggle", id:"navbar-wagon-menu", "data-toggle" => "dropdown" %>
-          <% else %>
-          <%= image_tag "user-icon.png", class:"avatar dropdown-toggle", id:"navbar-wagon-menu", "data-toggle" => "dropdown" %>
+            <%= image_tag "user-icon2.png", class:"avatar dropdown-toggle", id:"navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <% elsif current_user.sex == "Homme" %>
+            <%= image_tag "user-icon.png", class:"avatar dropdown-toggle", id:"navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <% end %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
@@ -46,6 +50,7 @@
               <% end %>
             </li>
           </ul>
+          <% end %>
         </div>
       </div>
 

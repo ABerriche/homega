@@ -8,6 +8,7 @@ gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'devise'
 gem 'redis'
+gem 'omniauth-facebook'
 gem "geocoder"
 gem 'bootstrap-slider-rails'
 gem "cloudinary", "1.1.0"
