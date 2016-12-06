@@ -1,8 +1,28 @@
-<% @providers.each do |provider| %>
-  <%= provider.address %>
-  <%= provider.category %>
-  <%= provider.speciality %><br>
-<% end %>
+<%= @date %> | <%= @am_pm %><br>
 
-<%= @damage.id %>
+<div class="row">
+  <% @available_providers.each do |provider| %>
+    <div class="col-xs-12 col-sm-4">
+      <div class="presta-card">
+        <div class="presta-photo")">
 
+        </div>
+        <div class="presta-desc">
+          <h3><%= provider.first_name %> <%= provider.last_name %></h3>
+          <p><%= provider.address %></p>
+          <%= provider.category %> |
+          <%= provider.speciality %>
+        </div>
+        <div class="presta-rdv text-center">
+          <%= simple_form_for [@damage, @booking], remote: true do |f| %>
+            <%= f.hidden_field :damage_id, value: @damage.id %>
+            <%= f.hidden_field :provider_id, value: provider.id %>
+            <%= f.hidden_field :date, value: @date %>
+            <%= f.hidden_field :am_pm, value: @am_pm %>
+            <%= f.button :submit, "Prendre rendez-vous" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
