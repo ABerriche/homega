@@ -5,34 +5,46 @@
 <div class="wrapper-page-new-quote">
   <div class="container">
     <div class="row new-quote-right">
-
-      <form cf-form-element action="/places/<%= @place.id %>/quotes" method="post">
-
       <div class="col-xs-12 col-sm-5">
-            <p class="text-center">Etape 2 sur 3</p>
-          <div class="row place-form-designation">
-            <h2 class="text-center">... pour nous permettre de vous proposer un devis...</h2>
-          </div>
+        <h2 class="text-center">Et voilà votre devis</h2>
+        <div class="row place-form-designation">
+          <h2 class="text-center">On vous avez bien dit qu'on était<br>une assurance simple et pratique</h2>
+        </div>
       </div>
 
-      <div class="col-xs-12 col-sm-6 form-place">
-
-          <%= form_for([@place, @quote]) do |f| %>
-
-            <%= f.label :home_insurance, "Avez-vous déja une assurance habitation?" %>
-            <%= f.select :home_insurance, ["Oui", "Non"] %>
-
-            <%= f.label :start_date, "A quelle date souhaitez-vous débuter le contrat? (YYYY-MM-DD)" %>
-            <%= f.date_field :start_date %>
-
-            <%= f.label :rib, "Merci de nous fournir votre RIB (FRxx xxxx xxxx xxxx xxxx xxxx xxx" %>
-            <%= f.text_field :rib %>
-
-            <%= f.submit :submit %>
-
-          <% end %>
+      <div class="row">
+        <div class="col-xs-12 col-sm-7 right">
+          <h2 class="text-center">Devis d'assurance pour <%= @place.name %></h2>
         </div>
+      </div>
+      <div class="col-xs-12 col-sm-7 right">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6">
+            <h3>Adresse : <%= @place.address %></h3>
+            <h3>Date de début :
+              <%= simple_form_for @place do |f| %>
+              <%= f.input :start_date, label: 'Date de début', as: :string, input_html: { class: "datepicker", value: Time.now.strftime('%d-%m-%Y') } %>
+              <%end%>
+            </h3>
+            <table>
+              <thead>Formule Zen</thead>
+              <tbody>
+                <tr>Plafond d'indémnistration</tr>
+                  <td><%= @quote.covered_amount %></td>
+                <tr>Responsabilité civile</tr>
+                  <td>20 millions €</td>
+                <tr>Défense pénale</tr>
+                  <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                <tr>Assistance</tr>
+                  <td><i class="fa fa-check" aria-hidden="true"></i></td>
+              </tbody>
+            </table>
+           </div>
+          <div class="col-xs-12 col-sm-6">
+            <button type="button" class="btn default-button btn-lg active devis-button"><%= @quote.price %><br>par mois</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-

@@ -1,6 +1,6 @@
 class QuotesController < ApplicationController
 
-  before_action :set_place, only: [:new, :create]
+  before_action :set_place, only: [:new, :create, :devis]
   before_action :set_quote, only: [:show, :insure, :update]
 
   def new
@@ -38,6 +38,9 @@ class QuotesController < ApplicationController
     @quote = Quote.find(params[:quote_id])
   end
 
+  def devis
+  end
+
   private
 
   def set_place
@@ -49,7 +52,7 @@ class QuotesController < ApplicationController
   end
 
   def quote_params
-    params.require(:quote).permit(:place_id, :price, :covered_amount, :start_date, :rib, :home_insurance, :contract)
+    params.require(:quote).permit(:place_id, :price, :covered_amount, :start_date, :rib, :home_insurance)
   end
 
   def set_price_and_covered_amount(superficy)

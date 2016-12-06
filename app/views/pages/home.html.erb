@@ -41,19 +41,19 @@
                 <%= f.error_notification %>
 
                 <div class="form-inputs">
-                  <%= f.input :first_name, required: true, autofocus: true, label: "Prénom:", placeholder: 'Indiquez votre prénom' %>
-                  <%= f.input :last_name, required: true, label: "Nom de famille:", placeholder: 'Indiquez votre nom de famille'  %>
+                  <%= f.input :first_name, required: true, autofocus: true, label: "Prénom:", placeholder: 'Steve' %>
+                  <%= f.input :last_name, required: true, label: "Nom de famille:", placeholder: 'Jobs'  %>
                   <%= f.input :sex, as: :radio_buttons, collection: ["Homme", "Femme"], required: true, label: "Sexe:", item_label_class: "radio-inline", item_wrapper_tag: false %>
                   <div class="select-input">
-                    <%= f.input :situation, collection: ["Célibataire", "Marié(e)", "Pacsé(e)", "Veuf(ve)"], required: true, label: "Situation matrimoniale:" %>
+                    <%= f.input :situation, collection: ["Célibataire", "Marié(e)", "Pacsé(e)", "Veuf(ve)"], required: true, label: "Situation matrimoniale:", placeholder: 'Marié(e)' %>
                     <i class="fa fa-caret-down"></i>
                   </div>
-                  <%= f.input :birth_date, required: true, label: "Date de naissance" , as: :string, input_html: { class: "datepicker", value: current_user.birth_date.strftime('%d-%m-%Y') } %>
+                  <%= f.input :birth_date, required: true, label: "Date de naissance" , as: :string, input_html: { class: "datepicker", value: current_user.birth_date.strftime('%d-%m-%Y') }, placeholder: '25-12-1985' %>
                   <div class="select-input">
-                    <%= f.input :nb_children, collection: ["0", "1", "2", "3", "4+"], required: true, label: "Nombre d'enfant(s):" %>
+                    <%= f.input :nb_children, collection: ["0", "1", "2", "3", "4+"], required: true, label: "Nombre d'enfant(s):", placeholder: '1' %>
                     <i class="fa fa-caret-down"></i>
                   </div>
-                  <%= f.input :job, collection: User::JOBS, required: true, label: "Profession:" %>
+                  <%= f.input :job, collection: User::JOBS, required: true, label: "Profession:", placeholder: 'Employé' %>
                 </div>
 
                 <div class="form-actions">
@@ -141,7 +141,7 @@
 
   <div class="banner" style="background: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path('banner.jpg') %>');">
     <div class="banner-content">
-      <h1><span class="homega-orange">H</span>OMEGA</h1>
+      <h1>HOMEGA</h1>
       <p>L'assurance habitation <span class="homega-orange"><strong>Simple</strong></span> et <span class="homega-orange"><strong>Pratique</strong></span>.</p>
       <%= link_to "M'inscrire", new_user_registration_path, class: "default-button btn" %>
     </div>

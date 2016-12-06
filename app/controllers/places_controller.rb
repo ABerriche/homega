@@ -1,6 +1,6 @@
 class PlacesController < ApplicationController
 
-  before_action :set_place, only: [:show, :edit, :update, :destroy]
+  before_action :set_place, only: [:show, :edit, :update, :destroy, :insured]
 
   def new
     @place = Place.new
@@ -43,7 +43,11 @@ class PlacesController < ApplicationController
 
   def update
     @place.update(place_params)
-    redirect_to place_path(@place)
+    #redirect_to place_path(@place)
+    redirect_to new_place_quote_path(@place)
+  end
+
+  def insured
   end
 
 
@@ -55,7 +59,7 @@ class PlacesController < ApplicationController
   end
 
   def place_params
-    params.require(:place).permit(:name, :category, :address, :superficy, :heating_type, :building_type, :kitchen_type, :water_room, :floor, :status, :chimney, :trustee_reference)
+    params.require(:place).permit(:name, :category, :address, :superficy, :heating_type, :building_type, :kitchen_type, :water_room, :floor, :status, :chimney, :trustee_reference, :contrat)
   end
 end
 
