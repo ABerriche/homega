@@ -16,14 +16,12 @@ class PlacesController < ApplicationController
     @place.user = current_user
     if @place.save
       if @place.latitude.nil?
-        raise
         flash[:alert] = "Merci de saisir une adresse proposée dans les..."
         render :new
       else
         redirect_to new_place_quote_path(@place)
       end
     else
-      raise
       render :new
     end
   end
