@@ -41,8 +41,8 @@
                 <%= f.error_notification %>
 
                 <div class="form-inputs">
-                  <%= f.input :first_name, required: true, autofocus: true, label: "Prénom:", placeholder: 'Indiquez votre prénom' %>
-                  <%= f.input :last_name, required: true, label: "Nom de famille:", placeholder: 'Indiquez votre nom de famille'  %>
+                  <%= f.input :first_name, required: true, autofocus: true, label: "Prénom:", placeholder: 'Steve' %>
+                  <%= f.input :last_name, required: true, label: "Nom de famille:", placeholder: 'Jobs'  %>
                   <%= f.input :sex, as: :radio_buttons, collection: ["Homme", "Femme"], required: true, label: "Sexe:", item_label_class: "radio-inline", item_wrapper_tag: false %>
                   <div class="select-input">
                     <%= f.input :situation, collection: ["Célibataire", "Marié(e)", "Pacsé(e)", "Veuf(ve)"], required: true, label: "Situation matrimoniale:" %>
