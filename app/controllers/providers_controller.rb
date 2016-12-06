@@ -8,8 +8,12 @@ class ProvidersController < ApplicationController
 
 
   def index
-    raise
-    @providers = Provider.all
+    #raise
+    #providers_with_booking_ids = Provider.all.map do |provider|
+
+    #end
+    #@available_providers = providers.booki
+
   end
 
 

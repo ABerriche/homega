@@ -1,0 +1,14 @@
+
+
+  var date = $('#search_date').val();
+  var am_pm = $('#search_am_pm').val();
+
+  var text = "Noooooo";
+  //$('#liste-presta').html("");
+  //$('#liste-presta').append(text);
+  //$('#liste-presta').append(date);
+  //$('#liste-presta').append(am_pm);
+
+  $('#liste-presta').html("<%= j render 'available_providers' %>");
+
+  $('#liste-presta').append(<%= @am_pm %>)
