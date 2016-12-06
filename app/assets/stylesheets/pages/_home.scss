@@ -4,7 +4,11 @@
  * ------------------------------------- */
 .wrapper-home-connected {
   background-color: $brand-color;
-  //height: 100vh;
+  h4 {
+    color: white;
+  }
+  height: 150px;
+  padding-top: 40px;
 }
 
 h2 {

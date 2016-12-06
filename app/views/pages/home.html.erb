@@ -1,13 +1,8 @@
 <% if signed_in? %>
 
 <div class="wrapper-home-connected">
-    <div class="container padded-top">
-      <div class="row">
-        <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-        </div>
-      </div>
-    </div><br><br><br>
-  </div>
+  <h4 class="text-center">Bienvenue, <%= @current_user.first_name.capitalize %> ! </h4>
+</div>
 
   <div class="steps">
     <!-- STEP 1 - Déja une assurance habitation? -->
@@ -48,12 +43,18 @@
                     <%= f.input :situation, collection: ["Célibataire", "Marié(e)", "Pacsé(e)", "Veuf(ve)"], required: true, label: "Situation matrimoniale:", placeholder: 'Marié(e)' %>
                     <i class="fa fa-caret-down"></i>
                   </div>
-                  <%= f.input :birth_date, required: true, label: "Date de naissance" , as: :string, input_html: { class: "datepicker", value: current_user.birth_date.strftime('%d-%m-%Y') }, placeholder: '25-12-1985' %>
+                   <div class="select-input">
+                    <%= f.input :birth_date, required: true, label: "Date de naissance" , as: :string, input_html: { class: "datepicker", value: current_user.birth_date.strftime('%d-%m-%Y') }, placeholder: '25-12-1985' %>
+                    <i class="fa fa-caret-down"></i>
+                    </div>
                   <div class="select-input">
                     <%= f.input :nb_children, collection: ["0", "1", "2", "3", "4+"], required: true, label: "Nombre d'enfant(s):", placeholder: '1' %>
                     <i class="fa fa-caret-down"></i>
                   </div>
-                  <%= f.input :job, collection: User::JOBS, required: true, label: "Profession:", placeholder: 'Employé' %>
+                   <div class="select-input">
+                    <%= f.input :job, collection: User::JOBS, required: true, label: "Profession:", placeholder: 'Employé' %>
+                    <i class="fa fa-caret-down"></i>
+                  </div>
                 </div>
 
                 <div class="form-actions">
