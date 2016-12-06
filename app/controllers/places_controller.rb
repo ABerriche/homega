@@ -8,10 +8,15 @@ class PlacesController < ApplicationController
 
   def create
     @place = Place.new(place_params)
-    if params['place']['chimney'] == "Oui"
+    if params[:place][:chimney] == "Oui"
       @place.chimney = true
-    elsif params['place']['chimney'] == "Non"
+    elsif params[:place][:chimney] == "Non"
       @place.chimney = false
+    end
+    if params[:place][:already_insured] == "Oui"
+      @place.already_insured = true
+    elsif params[:place][:already_insured] == "Non"
+      @place.already_insured = false
     end
     @place.user = current_user
     if @place.save
