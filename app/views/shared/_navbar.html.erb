@@ -20,13 +20,13 @@
       <div class="navbar-wagon-item">
         <div class="dropdown">
           <% if current_user.sex == "Femme" %>
-          <%= image_tag "user-icon2", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <%= image_tag "user-icon2.png", class:"avatar dropdown-toggle", id:"navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <% else %>
-          <%= image_tag "user-icon", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <%= image_tag "user-icon.png", class:"avatar dropdown-toggle", id:"navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <% end %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
-              <%= link_to "#" do %>
+              <%= link_to root_path do %>
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Mon compte") %>
               <% end %>
             </li>
@@ -45,6 +45,7 @@
       </div>
 
     <% else %>
+
       <!-- Login text link -->
       <%= link_to t(".sign_in", default: "M'inscrire"), new_user_registration_path, class: "navbar-wagon-item default-button btn display-none", id:"navbar-sign-up" %>
 
@@ -59,9 +60,9 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Some mobile link</a></li>
-        <li><a href="#">Other one</a></li>
-        <li><a href="#">Other one</a></li>
+        <li><a href="#">Mon Compte</a></li>
+        <li><a href="#">Ajouter un logement</a></li>
+        <li><a href="#">Se déconnecter</a></li>
       </ul>
     </div>
   </div>
@@ -69,42 +70,44 @@
 
 
 <% content_for(:after_js) do %>
- <script>
-   $(document).ready(function() {
-     var navbar = $('.navbar-wagon');
-     var navbarHeight = $('.navbar-wagon').height();
-     var titleOmega = $('.title-omega');
-     var navSignIn = $("#navbar-sign-in");
-     var navSignUp = $("#navbar-sign-up");
 
-     <% if signed_in? %>
-       $(window).on("scroll", function(e) {
-         var scroll = $(window).scrollTop();
-         if (scroll > navbarHeight) {
-           navbar.addClass("navbar-wagon-fixed");
-         } else {
-           navbar.removeClass("navbar-wagon-fixed");
-         }
-       });
-     <% else %>
-       $(window).on("scroll", function(e) {
+  <script>
+    $(document).ready(function() {
+      var navbar = $('.navbar-wagon');
+      var navbarHeight = $('.navbar-wagon').height();
+      var titleOmega = $('.title-omega');
+      var navSignIn = $("#navbar-sign-in");
+      var navSignUp = $("#navbar-sign-up");
 
-         var scroll = $(window).scrollTop();
-         if (scroll > navbarHeight + 220) {
-           navbar.addClass("navbar-wagon-fixed");
-           titleOmega.removeClass("display-none");
-           navSignUp.removeClass("display-none");
-           navSignIn.addClass("display-none");
-         //} else if (scroll > navbarHeight) {
-         //  navbar.addClass("navbar-wagon-fixed");
-         } else {
-           navbar.removeClass("navbar-wagon-fixed");
-           titleOmega.addClass("display-none");
-           navSignUp.addClass("display-none");
-           navSignIn.removeClass("display-none");
-         }
-       });
-     <% end %>
-   });
- </script>
+      <% if signed_in? %>
+        $(window).on("scroll", function(e) {
+          var scroll = $(window).scrollTop();
+          if (scroll > navbarHeight) {
+            navbar.addClass("navbar-wagon-fixed");
+          } else {
+            navbar.removeClass("navbar-wagon-fixed");
+          }
+        });
+      <% else %>
+        $(window).on("scroll", function(e) {
+
+          var scroll = $(window).scrollTop();
+          if (scroll > navbarHeight + 220) {
+            navbar.addClass("navbar-wagon-fixed");
+            titleOmega.removeClass("display-none");
+            navSignUp.removeClass("display-none");
+            navSignIn.addClass("display-none");
+          //} else if (scroll > navbarHeight) {
+          //  navbar.addClass("navbar-wagon-fixed");
+          } else {
+            navbar.removeClass("navbar-wagon-fixed");
+            titleOmega.addClass("display-none");
+            navSignUp.addClass("display-none");
+            navSignIn.removeClass("display-none");
+          }
+        });
+      <% end %>
+    });
+  </script>
+
 <% end %>

@@ -10,23 +10,19 @@
 
       <div class="row">
         <div class="col-xs-12 col-sm-7 right">
-          <h2 class="text-center">Devis d'assurance pour <%= @place.name %></h2>
+          <h2 class="text-center">Devis d'assurance pour <%= @quote.place.name %></h2>
         </div>
       </div>
       <div class="col-xs-12 col-sm-7 right">
         <div class="row">
           <div class="col-xs-12 col-sm-6">
-            <h3>Adresse : <%= @place.address %></h3>
-            <h3>Date de début :
-              <%= simple_form_for @place do |f| %>
-              <%= f.input :start_date, label: 'Date de début', as: :string, input_html: { class: "datepicker", value: Time.now.strftime('%d-%m-%Y') } %>
-              <%end%>
-            </h3>
+            <h3>Adresse : <%= @quote.place.address %></h3>
+            <h3>Date de début : <%= f.input :start_date, label: 'Date de début', as: :string, input_html: { class: "datepicker", value: Time.now.strftime('%d-%m-%Y') } %></h3>
             <table>
               <thead>Formule Zen</thead>
               <tbody>
                 <tr>Plafond d'indémnistration</tr>
-                  <td><%= @quote.covered_amount %></td>
+                  <td>27 000€</td>
                 <tr>Responsabilité civile</tr>
                   <td>20 millions €</td>
                 <tr>Défense pénale</tr>
@@ -37,7 +33,7 @@
             </table>
            </div>
           <div class="col-xs-12 col-sm-6">
-            <button type="button" class="btn default-button btn-lg active devis-button"><%= @quote.price %><br>par mois</button>
+            <button type="button" class="btn default-button btn-lg active devis-button">5€ <br>par mois</button>
           </div>
         </div>
       </div>

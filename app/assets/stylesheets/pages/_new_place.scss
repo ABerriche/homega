@@ -2,9 +2,10 @@
   box-shadow: 1px 1px 3px #FFB766;
   border-radius: 5px;
   width: 600px !important;
-  height: 500px !important;
+  height: 400px !important;
   bottom: 160px !important;
   left: 500px !important;
+  top: 50px !important;
 }
 
 text {
@@ -20,6 +21,11 @@ f-input input {
   opacity: 0;
 }
 
+.damage-form-designation {
+  min-height: 450px;
+  border-right: 1px solid #CCCCCC;
+}
+
 .place-form-designation {
   display: flex;
   min-height: 450px;
@@ -30,8 +36,9 @@ f-input input {
 .place-form-designation h2 {
   flex: 0 0 1;
   color: $orange;
-  font-family: Museo;
   font-weight: lighter;
+  font-size: 25px;
+  margin-top: -20px;
 }
 
 cf-chat-response.show text[value-added] {

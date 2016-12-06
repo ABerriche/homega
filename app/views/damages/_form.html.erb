@@ -1,37 +1,69 @@
 <div class="wrapper-page-new-quote">
   <div class="container">
-    <div class="row">
-      <div class="col-sm-6 col-sm-offset-3 background-form">
+    <div class="row new-quote-right">
 
-        <h2>Déclarez un sinistre</h2>
+      <form cf-form-element action="/damages" method="post">
 
-          <%= simple_form_for @damage do |f| %>
-            <% if @place_id %>
-              <%= f.input :place_id, collection: @places, selected: @place.name, label: "Bien concerné" %>
-            <% else %>
-              <%= f.input :place_id, collection: @places, label: "Bien concerné" %>
+      <div class="col-xs-12 col-sm-5">
+          <div class="row damage-form-designation text-center">
+            <h2 class="text-center">Déclarez un sinistre</h2><br><br><br>
+            <%= link_to "Dégâts des eaux", new_damage_path(type: "degats"), class: "damage-button" %>
+            <%= link_to "Vol", new_damage_path(type: "vol"), class: "damage-button" %><br><br><br>
+            <%= link_to "Incendie", new_damage_path(type: "incendie"), class: "damage-button" %>
+            <%= link_to "Catastrophe naturelle", new_damage_path(type: "catastrophe"), class: "damage-button" %>
+          </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-6 form-place">
+        <% if params[:type] %>
+          <%= form_for @damage do |f| %>
+
+            <% if params[:type] == "incendie" %>
+              <%= f.label :place_id, "Quel est le bien concerné par cet incendie?" %>
+              <%= f.select :place_id, @places %>
+
+              <%= f.hidden_field :category, value: "Incendie" %>
+            <% elsif params[:type] == "catastrophe" %>
+              <%= f.label :place_id, "Quel est le bien concerné par cette catastrophe?" %>
+              <%= f.select :place_id, @places %>
+
+              <%= f.hidden_field :category, value: "Catastrophe naturelle" %>
+            <% elsif params[:type] == "degats" %>
+              <%= f.label :place_id, "Quel est le bien concerné par ce dégâts des eaux?" %>
+              <%= f.select :place_id, @places %>
+
+              <%= f.hidden_field :category, value: "Dégâts des eaux" %>
+
+              <%= f.label :civil_responsability, "Responsabilité civile?" %>
+              <%= f.select :civil_responsability, ["Oui", "Non"] %>
+
+              <%= f.label :responsability, "D'où provient le sinistre?" %>
+              <%= f.select :responsability, ["L'origine du sinistre provient de chez moi", "L'origine du sinistre ne provient pas de chez moi", "Je ne sais pas"] %>
+            <% elsif params[:type] == "vol" %>
+              <%= f.label :place_id, "Quel est le bien concerné par ce vol?" %>
+              <%= f.select :place_id, @places %>
+
+              <%= f.hidden_field :category, value: "Vol" %>
+
+              <%= f.label :breaking, "Y a-t-il eu effraction?" %>
+              <%= f.select :breaking, ["Oui", "Non"] %>
+
+              <%= f.label :value_thief, "Quelle est la valeur des biens volés?" %>
+              <%= f.text_field :value_thief %>
             <% end %>
-            <%= f.input :category, label: "Catégorie", :collection => ["Dégâts des eaux", "Vol", "Incendie", "Catastrophe naturelle"] %>
 
-            <div class="hidden" id="responsabilite_civile">
-              <%= f.input :civil_responsability, label: "Responsabilité civile" %>
-            </div>
-            <div class="hidden" id="responsabilite">
-              <%= f.input :responsability, label: "Responsabilité", :collection => ["L'origine du sinistre provient de chez moi", "L'origine du sinistre ne provient pas de chez moi", "Je ne sais pas"] %>
-            </div>
-            <div class="hidden" id="effraction">
-              <%= f.input :breaking, label: "Effraction" %>
-            </div>
-            <div class="hidden" id="valeur_bien">
-              <%= f.input :value_thief, label: "Valeur des biens volés" %>
-            </div>
-            <%= f.input :comment, label: "Commentaires" %>
-            <%= f.input :photos, as: :attachinary %>
-            <div>
-            <%= f.button :submit, "Continuer", class: 'btn default-button' %>
-            </div>
+              <%= f.label :comment, "Ajoutez des commentaires si vous le souhaitez..." %>
+              <%= f.text_field :comment %>
+
+            <%= f.submit :submit %>
+
+            <% end %>
+        <% else %>
+          <%= form_for @damage do |f| %>
+            <%= f.hidden_field :place_id, value: current_user.places.first['name'] %>
+            <%= f.submit :submit %>
           <% end %>
-
+        <% end %>
       </div>
     </div>
   </div>

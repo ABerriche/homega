@@ -14,9 +14,11 @@
 @import "layout/index";
 @import "components/index";
 @import "pages/index";
+@import "quotes/index";
 @import "vendor/index";
 @import "devise/index";
 
 .global-wrapper {
   min-height: calc(100vh - 70px - 154px);
 }
+

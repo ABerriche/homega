@@ -8,7 +8,6 @@
   padding: 0px 30px;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 0.8px solid $gray;
 }
 
 /* Optional class to fix the navbar on top */
@@ -16,13 +15,13 @@
   position: fixed;
   left: 0px;
   top: 0px;
-  z-index: 1;
+  z-index: 999999999999999999999;
   width: 100%;
 }
 
 /* Navbar logo */
 .navbar-wagon-brand img {
-  width: 100px;
+  width: 150px;
 }
 
 /* Navbar right section (with form, links, button) */
@@ -53,6 +52,13 @@
 }
 
 /* Navbar right button */
+
+.navbar-wagon-button {
+  color: white;
+  background: $hover-color;
+  border-color: white;
+  padding-right: 10px
+}
 
 .navbar-wagon-button:hover {
   color: white;

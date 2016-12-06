@@ -1,12 +1,36 @@
 .default-button {
   margin-left: 10px;
-  padding: 15px 15px;
+  padding: 10px 15px;
   border-radius: 10px;
   background-color: $brand-color;
   color: white;
-  font-size: 15px;
+  display: inline-block;
 
  &:hover {
   box-shadow: 0 5px 13px 0 rgba(0, 0, 0, 0.25)
  }
 }
+
+.default-button-sm {
+  margin-left: 10px;
+  padding: 10px 10px;
+  border-radius: 7px;
+  background-color: $brand-color;
+  color: white;
+  font-size: 15px;
+}
+
+.damage-button {
+  padding: 10px;
+  border-radius: 15px;
+  border: 1px solid #ffb766;
+  text-decoration: none !important;
+  color: #b7b7b7;
+
+  &:hover {
+    background-color: #ffdfbf;
+    color: #b7b7b7;
+    text-decoration: none !important;
+   }
+}
+
