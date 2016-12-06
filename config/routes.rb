@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { registrations: "registrations" }
   root to: 'pages#home'
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   resources :users, only: [ :show, :edit, :update ]
   resources :places, only: [ :new, :create, :edit, :update, :show ] do
     resources :quotes, only: [ :new, :create ]
@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   resources :quotes, only: [ :show, :update ] do
     get '/insured' => "quotes#insured"
     get '/payment' => "quotes#payment"
-    get '/devis' => "quotes#devis"
 
   end
   resources :damages, only: [ :new, :create, :show ] do
@@ -18,6 +17,7 @@ Rails.application.routes.draw do
   get '/users/:id/infos' => 'users#infos', as: 'user_info'
   get '/quotes/:id/insure' => 'quotes#insure', as: 'insure'
   get '/places/:id/insured' => 'places#insured', as: 'insured'
+  get '/places/:id/devis' => "places#devis", as: 'devis'
   mount Attachinary::Engine => "/attachinary"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

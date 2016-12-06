@@ -1,13 +1,8 @@
 <% if signed_in? %>
 
 <div class="wrapper-home-connected">
-    <div class="container padded-top">
-      <div class="row">
-        <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-        </div>
-      </div>
-    </div><br><br><br>
-  </div>
+  <h4 class="text-center">Bienvenue, <%= @current_user.first_name.capitalize %> ! </h4>
+</div>
 
   <div class="steps">
     <!-- STEP 1 - Déja une assurance habitation? -->
@@ -48,12 +43,18 @@
                     <%= f.input :situation, collection: ["Célibataire", "Marié(e)", "Pacsé(e)", "Veuf(ve)"], required: true, label: "Situation matrimoniale:", placeholder: 'Marié(e)' %>
                     <i class="fa fa-caret-down"></i>
                   </div>
-                  <%= f.input :birth_date, required: true, label: "Date de naissance" , as: :string, input_html: { class: "datepicker", value: current_user.birth_date.strftime('%d-%m-%Y') }, placeholder: '25-12-1985' %>
+                   <div class="select-input">
+                    <%= f.input :birth_date, required: true, label: "Date de naissance" , as: :string, input_html: { class: "datepicker", value: current_user.birth_date }, placeholder: '25-12-1985' %>
+                    <i class="fa fa-caret-down"></i>
+                    </div>
                   <div class="select-input">
                     <%= f.input :nb_children, collection: ["0", "1", "2", "3", "4+"], required: true, label: "Nombre d'enfant(s):", placeholder: '1' %>
                     <i class="fa fa-caret-down"></i>
                   </div>
-                  <%= f.input :job, collection: User::JOBS, required: true, label: "Profession:", placeholder: 'Employé' %>
+                   <div class="select-input">
+                    <%= f.input :job, collection: User::JOBS, required: true, label: "Profession:", placeholder: 'Employé' %>
+                    <i class="fa fa-caret-down"></i>
+                  </div>
                 </div>
 
                 <div class="form-actions">
@@ -63,20 +64,39 @@
             </div>
 
             <div class="sub-new-quote-content" id="step-1-logement">
-              <div class="nb-title-sub-content"><h2 class="text-center">Logements</h2></div>
               <div class="nb-sub-content">
-                <div class="col-xs-12 col-sm-6">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-4">
+                      <div class="nb-title-sub-content"><h2 class="text-center">Logements</h2></div>
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                      <div class="nb-title-sub-content"><h2 class="text-center">Contrats</h2></div>
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                      <div class="nb-title-sub-content"><h2 class="text-center">Carte</h2></div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-8">
                   <% current_user.places.each do |place| %>
-                    <%= link_to place_path(place) do %>
-                      <div class="row-place">
-                        <h4><%= place.name %></h4>
-                        <p><small><%= place.address %> <%= place.postal_code %> <%= place.city %></small></p> <br>
-                      </div>
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-6">
+                      <%= link_to place_path(place) do %>
+                      <h4><%= place.name %></h4>
+                      <p><small><%= place.address %> <%= place.postal_code %> <%= place.city %></small></p> <br>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                      <% place.quotes.each do |quote| %>
+                      <h4> <%= quote.start_date %> </h4>
+                      <% end %>
+                    </div>
                     <% end %>
+                  </div>
                   <% end %>
                 </div>
+                <div class="col-xs-12 col-sm-4">
+                </div>
 
-                <div class="col-xs-12 col-sm-6">
+                <div class="col-xs-12 col-sm-4">
                   <div id="map" style="width: 100%; height: 600px;"></div>
                 </div>
               </div>
