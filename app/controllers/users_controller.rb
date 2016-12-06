@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     end
     #@user.birth_date = params[:user][:birth_date].strftime('%Y-%m-%d')
     @user.update(user_params)
-    redirect_to root_path
+    redirect_to new_place_path
   end
 
   def infos
