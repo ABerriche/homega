@@ -24,7 +24,7 @@ class PlacesController < ApplicationController
         flash[:alert] = "Merci de saisir une adresse proposée dans les..."
         render :new
       else
-        redirect_to new_place_quote_path(@place)
+        redirect_to new_place_quote_path(@place) #obsolete
       end
     else
       render :new
