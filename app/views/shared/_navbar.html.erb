@@ -8,7 +8,11 @@
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <!-- Different navigation if login or not -->
-    <% if user_signed_in? %>
+    <% if current_page?(new_place_path) %>
+        <%= link_to "Annuler", root_path, class: "default-button btn" %>
+    <% elsif current_page?(new_damage_path) %>
+        <%= link_to "Annuler", root_path, class: "default-button btn" %>
+    <% elsif user_signed_in? %>
       <!-- Profile picture and dropdown -->
       <div class="col-xs-12 col-sm-6 text-center">
             <%= link_to "Déclarer un sinistre", new_damage_path, class: "default-button btn" %>
