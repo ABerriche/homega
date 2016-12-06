@@ -9,14 +9,19 @@
 
     <!-- Different navigation if login or not -->
     <% if current_page?(new_place_path) %>
+    <div class="col-xs-12 col-sm-6 text-center">
         <%= link_to "Annuler", root_path, class: "default-button btn" %>
+    </div>
     <% elsif current_page?(new_damage_path) %>
+    <div class="col-xs-12 col-sm-6 text-center">
         <%= link_to "Annuler", root_path, class: "default-button btn" %>
+    </div>
     <% elsif user_signed_in? %>
       <!-- Profile picture and dropdown -->
       <div class="col-xs-12 col-sm-6 text-center">
             <%= link_to "Déclarer un sinistre", new_damage_path, class: "default-button btn" %>
       </div>
+
       <div class="navbar-wagon-item">
         <div class="dropdown">
           <% if current_user.sex == "Femme" %>
