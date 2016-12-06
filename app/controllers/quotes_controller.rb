@@ -31,7 +31,6 @@ class QuotesController < ApplicationController
   end
 
   def insure
-
   end
 
   def insured
@@ -39,6 +38,9 @@ class QuotesController < ApplicationController
   end
 
   def devis
+  end
+
+  def payment
   end
 
   private
