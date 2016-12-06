@@ -8,6 +8,7 @@ class ProvidersController < ApplicationController
 
 
   def index
+    raise
     @providers = Provider.all
   end
 

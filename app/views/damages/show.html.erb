@@ -1,18 +1,49 @@
 <div class="wrapper-page-new-quote">
-  <h1><%= @damage.place.name %> | <%= @damage.place.address %> | <%= @damage.category %></h1>
-  <%if @damage.category == "Vol" %>
-    <% if @damage.value_thief.to_i <= 1000 %>
-      <h2>You will get a payment of <%= @damage.value_thief %> euros in the coming days...</h2>
-    <% else %>
-      <h2>...</h2>
+  <div class="container">
+
+    <div class="row new-quote-right">
+      <h1><%= @damage.place.name %> | <%= @damage.place.address %> | <%= @damage.category %></h1>
+      <%if @damage.category == "Vol" %>
+        <% if @damage.value_thief.to_i <= 1000 %>
+          <h2>You will get a payment of <%= @damage.value_thief %> euros in the coming days...</h2>
+        <% else %>
+          <h2>...</h2>
+        <% end %>
+      <% elsif @damage.category == "Dégâts des eaux" %>
+        <h3>Nos prestataires</h3>
+        <% @providers.each do |provider| %>
+          <%= provider.first_name %> | <%= provider.last_name %> | <%= provider.speciality %> <br>
+        <% end %>
+      <% end %>
+      <% @damage.photos.each do |photo| %>
+        <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+      <% end %>
+
+    <h4>Je suis disponible pour une intervention le :</h4>
+
+
+
+
+
+    <%= simple_form_for :search, url: providers_path, :html => { :method => "get", :class => "form form-inline" }, remote: true do |f| %>
+      <div class="form-group">
+        <%= f.input :date, :input_html => { :class => 'form-control datepicker' }, placeholder: "Date souhaitée", label: false %>
+      </div>
+      <div class="form-group">
+        <%= f.input :am_pm, collection: ["matin", "après-midi"], :input_html => { :class => 'form-control' }, placeholder: "matin ou après-midi", label: false %>
+      </div>
+      <div class="form-group">
+        <%= f.button :submit, "Search", class: "btn btn-default" %>
+      </div>
     <% end %>
-  <% elsif @damage.category == "Dégâts des eaux" %>
-    <h3>Nos prestataires</h3>
-    <% @providers.each do |provider| %>
-      <%= provider.first_name %> | <%= provider.last_name %> | <%= provider.speciality %> <br>
-    <% end %>
-  <% end %>
-  <% @damage.photos.each do |photo| %>
-    <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
-  <% end %>
+
+
+
+
+
+    </div>
+
+
+  </div>
 </div>
+

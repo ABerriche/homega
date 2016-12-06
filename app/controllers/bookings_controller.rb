@@ -13,8 +13,8 @@ class BookingsController < ApplicationController
   end
 
   def create
+    raise
     @booking = Booking.new(booking_params)
-    @booking.status = "pending"
     @booking.damage_id = params[:damage_id]
     @booking.provider_id = params[:place_id]
     @booking.save
@@ -22,23 +22,9 @@ class BookingsController < ApplicationController
     redirect_to place_path(Place.find(params[:place_id]))
   end
 
-  def accepted
-    @booking = Booking.find(params[:id])
-    @booking.status = "accepted"
-    @booking.save
-    redirect_to dashboard_path
-  end
-
-  def rejected
-    @booking = Booking.find(params[:id])
-    @booking.status = "rejected"
-    @booking.save
-    redirect_to dashboard_path
-  end
-
   private
 
   def booking_params
-    params.require(:booking).permit(:date)
+    params.require(:booking).permit(:date, :am_pm, :comment)
   end
 end
