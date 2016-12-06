@@ -1,6 +1,7 @@
 class Place < ApplicationRecord
   geocoded_by :address
   belongs_to :user
+  has_attachment :contrat
   after_validation :geocode, if: :address_changed?
   has_many :damages, dependent: :destroy
   has_many :quotes, dependent: :destroy
