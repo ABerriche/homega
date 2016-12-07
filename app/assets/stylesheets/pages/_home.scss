@@ -186,3 +186,46 @@ a.nav-link:link
   width: 70px;
 }
 
+.place a {
+  color: grey;
+  text-decoration: none;
+}
+
+.place {
+  background: #F4F4F4;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  transition: 0.3s ease;
+  position: relative;
+  padding-left: 10px;
+}
+
+.place:hover {
+  background: rgba(10,10,10,0.15);
+  }
+
+.fa-home {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 30px;
+  color: #E87E00;
+}
+
+.fa-building-o {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 30px;
+  color: #E87E00;
+}
+
+
+
+
+
+
+
+
