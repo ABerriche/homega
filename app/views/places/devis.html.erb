@@ -2,9 +2,9 @@
   <div class="container">
     <div class="row new-quote-right">
       <div class="col-xs-12 col-sm-5">
-        <h2 class="text-center">Et voilà votre devis</h2>
+        <h2 class="text-center">Devis</h2>
         <div class="row place-form-designation">
-          <h2 class="text-center">Vous êtes presque assurés,<br> cliquez sur la vignette pour souscrire</h2>
+          <h2 class="text-center">Et voilà votre devis,<br> cliquez sur la vignette pour souscrire</h2>
         </div>
       </div>
 
@@ -43,7 +43,6 @@
                   <div class="date-debut">
                   <%= f.input :start_date, required: true, label: false , as: :string, input_html: { class: "datepicker format-date" }, placeholder: 'JJ-MM-YYYY' %>
                   </div>
-                  <div> <%= f.button :submit, "Mettre à jour", class: 'default-button-sm-date' %> </div>
                   </div>
                   <% end %>
                   <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center devis-button-placement">

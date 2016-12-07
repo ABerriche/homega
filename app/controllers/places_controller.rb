@@ -1,6 +1,6 @@
 class PlacesController < ApplicationController
 
-  before_action :set_place, only: [:show, :edit, :update, :destroy, :insured]
+  before_action :set_place, only: [:show, :edit, :update, :destroy, :insured, :finalization]
 
   def new
     @place = Place.new
@@ -53,6 +53,9 @@ class PlacesController < ApplicationController
   end
 
   def insured
+  end
+
+  def finalization
   end
 
   def devis
