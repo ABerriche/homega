@@ -39,15 +39,16 @@ class BookingsController < ApplicationController
   end
 
   def create
+    @damage = Damage.find(params[:booking][:damage_id])
     @booking = Booking.new(booking_params)
     @booking.damage_id = params[:booking][:damage_id]
     @booking.provider_id = params[:booking][:provider_id]
     @booking.date = params[:booking][:date]
     @booking.am_pm = params[:booking][:am_pm]
-    @booking.save
-
-    respond_to do |format|
-      format.js
+    if @booking.save
+      respond_to do |format|
+        format.js
+      end
     end
   end
 
