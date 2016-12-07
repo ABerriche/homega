@@ -84,7 +84,7 @@
                       <% place.quotes.each do |quote| %>
                       <p> Date Contrat: <%= quote.start_date %> </p>
                       <% end %>
-                      <p> Nombre de Sinistres:  <% place.damages.count %> </p>
+                      <p> Nombre de Sinistres:  <%= place.damages.count %> </p>
                       <% if place.category == "Maison" %>
                       <div class="fa fa-home"></div>
                       <% else %>
@@ -97,6 +97,7 @@
                   </div>
                   <% end %>
                 </div>
+
                 <div class="col-xs-12 col-sm-4">
                 </div>
 
