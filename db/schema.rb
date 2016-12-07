@@ -89,7 +89,6 @@ ActiveRecord::Schema.define(version: 20161207110417) do
     t.string   "speciality"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "speciality"
     t.string   "zip_code"
     t.string   "city"
   end
