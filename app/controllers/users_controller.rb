@@ -16,7 +16,7 @@ class UsersController < ApplicationController
       redirect_to new_place_path
     # else 
     #   redirect_to root_path
-    end
+    # end
   end
 
   def infos
