@@ -1,7 +1,11 @@
 <% if signed_in? %>
 
 <div class="wrapper-home-connected">
-  <h4 class="text-center">Bienvenue, <%= @current_user.first_name.capitalize %> ! </h4>
+  <% if @current_user.first_name =! nil %>
+    <h4 class="text-center">Bienvenue, <%= @current_user.first_name.capitalize %> ! </h4>
+  <% else %>
+    <h4 class="text-center">Bienvenue! </h4>
+  <% end %> 
 </div>
 
   <div class="steps">
