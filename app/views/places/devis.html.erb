@@ -2,9 +2,9 @@
   <div class="container">
     <div class="row new-quote-right">
       <div class="col-xs-12 col-sm-5">
-        <h2 class="text-center">Et voilà votre devis</h2>
+        <h2 class="text-center">Devis</h2>
         <div class="row place-form-designation">
-          <h2 class="text-center">On vous avait bien dit qu'on était<br>une assurance simple et pratique</h2>
+          <h2 class="text-center">Et voilà votre devis,<br> cliquez sur la vignette pour souscrire</h2>
         </div>
       </div>
 
@@ -13,43 +13,43 @@
           <h2 class="text-center">Devis d'assurance pour <%= @place.name %></h2>
         </div>
         <div class="col-xs-12 col-sm-7 right devis">
-          <div class="row">
-            <div class="col-xs-12 col-sm-6">
               <div class="row">
-                <div class="col-xs-9 lighter">Adresse :</div>
-                <div class="col-xs-3 lighter"><%= @place.address %></div>
+                <div class="col-xs-4 lighter">Adresse :</div>
+                <div class="col-xs-8 lighter"><%= @place.address %></div>
               </div>
               <div class="row">
-                <div class="col-xs-9 lighter">Date de début :</div>
-                <div class="col-xs-3 lighter"><%= @place.address %></div>
+                <div class="col-xs-4 zen">Formule Zen</div>
               </div>
               <div class="row">
-                <div class="col-xs-9 zen">Formule Zen</div>
+                <div class="col-xs-4 lighter">Plafond d'indémnisation :</div>
+                <div class="col-xs-8 lighter"><%= @quote.covered_amount %>€</div>
               </div>
               <div class="row">
-                <div class="col-xs-9 lighter">Plafond d'indémnisation :</div>
-                <div class="col-xs-3 lighter"><%= @quote.covered_amount %>€</div>
+                <div class="col-xs-4 lighter">Responsabilité civile :</div>
+                <div class="col-xs-8 lighter">20M€</div>
               </div>
               <div class="row">
-                <div class="col-xs-9 lighter">Responsabilité civile :</div>
-                <div class="col-xs-3 lighter">20M€</div>
+                <div class="col-xs-4 lighter">Défense pénale :</div>
+                <div class="col-xs-8 lighter"><i class="fa fa-check" aria-hidden="true"></i></div>
               </div>
               <div class="row">
-                <div class="col-xs-9 lighter">Défense pénale :</div>
-                <div class="col-xs-3 lighter"><i class="fa fa-check" aria-hidden="true"></i></div>
+                <div class="col-xs-4 lighter">Assistance :</div>
+                <div class="col-xs-8 lighter"><i class="fa fa-check" aria-hidden="true"></i></div>
               </div>
               <div class="row">
-                <div class="col-xs-9 lighter">Assistance :</div>
-                <div class="col-xs-3 lighter"><i class="fa fa-check" aria-hidden="true"></i></div>
+                <div class="col-xs-4 lighter">Date de début :</div>
+                <div class="col-xs-8 lighter">
+                  <%= simple_form_for [@place, @quote] do |f| %>
+                  <div class="date-debut">
+                  <%= f.input :start_date, required: true, label: false , as: :string, input_html: { class: "datepicker format-date" }, placeholder: 'JJ-MM-YYYY' %>
+                  </div>
+                  </div>
+                  <% end %>
+                  <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center devis-button-placement">
+                   <button type="button" class="btn default-button btn-lg active devis-button"><%= @quote.price %>€<br>par mois</button>
+                   </div>
+                </div>
               </div>
-            </div>
-            <%#= link_to quote_payment_path(@quote) do %>
-              <div class="col-xs-12 col-sm-6 text-center">
-                <button type="button" class="btn default-button btn-lg active devis-button"><%= @quote.price %>€<br>par mois</button>
-              </div>
-            <!-- <#% end %> -->
-
-          </div>
         </div>
     </div>
   </div>

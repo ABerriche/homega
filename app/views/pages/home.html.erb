@@ -1,7 +1,9 @@
 <% if signed_in? %>
 
 <div class="wrapper-home-connected">
-  <% unless @current_user.first_name.nil? %>
+  <% if @current_user.first_name.nil? %>
+    <h4 class="text-center">Bienvenue! </h4>
+  <% else %>
     <h4 class="text-center">Bienvenue, <%= @current_user.first_name.capitalize %> ! </h4>
   <% end %>
 </div>
@@ -68,30 +70,30 @@
             <div class="sub-new-quote-content" id="step-1-logement">
               <div class="nb-sub-content">
                 <div class="row">
-                    <div class="col-xs-12 col-sm-4">
-                      <div class="nb-title-sub-content"><h2 class="text-center">Logements</h2></div>
-                    </div>
-                    <div class="col-xs-12 col-sm-4">
-                      <div class="nb-title-sub-content"><h2 class="text-center">Contrats</h2></div>
-                    </div>
-                    <div class="col-xs-12 col-sm-4">
-                      <div class="nb-title-sub-content"><h2 class="text-center">Carte</h2></div>
-                    </div>
+                  <div class="nb-title-sub-content"><h2 class="text-center">Vos Logements et Contrats</h2></div>
                 </div>
+                <div class="row">
                 <div class="col-xs-12 col-sm-8">
                   <% current_user.places.each do |place| %>
                   <div class="row">
-                    <div class="col-xs-12 col-sm-6">
+
+                    <div class="place">
                       <%= link_to place_path(place) do %>
                       <h4><%= place.name %></h4>
-                      <p><small><%= place.address %> <%= place.postal_code %> <%= place.city %></small></p> <br>
-                    </div>
-                    <div class="col-xs-12 col-sm-6">
+                      <p><small> Adresse : <%= place.address %> <%= place.postal_code %> <%= place.city %></small></p> <br>
                       <% place.quotes.each do |quote| %>
-                      <h4> <%= quote.start_date %> </h4>
+                      <p> Date Contrat: <%= quote.start_date %> </p>
                       <% end %>
-                    </div>
+                      <p> Nombre de Sinistres:  <% place.damages.count %> </p>
+                      <% if place.category == "Maison" %>
+                      <div class="fa fa-home"></div>
+                      <% else %>
+                      <div class="fa fa-building-o"></div>
+                      <% end %>
                     <% end %>
+                    </div>
+
+
                   </div>
                   <% end %>
                 </div>
