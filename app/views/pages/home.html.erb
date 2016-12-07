@@ -73,36 +73,34 @@
                   <div class="nb-title-sub-content"><h2 class="text-center">Vos Logements et Contrats</h2></div>
                 </div>
                 <div class="row">
-                <div class="col-xs-12 col-sm-8">
-                  <% current_user.places.each do |place| %>
-                  <div class="row">
-
-                    <div class="place">
-                      <%= link_to place_path(place) do %>
-                      <h4><%= place.name %></h4>
-                      <p><small> Adresse : <%= place.address %> <%= place.postal_code %> <%= place.city %></small></p> <br>
-                      <% place.quotes.each do |quote| %>
-                      <p> Date Contrat: <%= quote.start_date %> </p>
-                      <% end %>
-                      <p> Nombre de Sinistres:  <%= place.damages.count %> </p>
-                      <% if place.category == "Maison" %>
-                      <div class="fa fa-home"></div>
-                      <% else %>
-                      <div class="fa fa-building-o"></div>
-                      <% end %>
+                  <div class="col-xs-12 col-sm-8">
+                    <% current_user.places.each do |place| %>
+                      <div class="row">
+                        <div class="place">
+                          <%= link_to place_path(place) do %>
+                            <h4><%= place.name %></h4>
+                            <p><small> Adresse : <%= place.address %> <%= place.postal_code %> <%= place.city %></small></p> <br>
+                            <% place.quotes.each do |quote| %>
+                            <p> Date Contrat: <%= quote.start_date %> </p>
+                            <% end %>
+                            <p> Nombre de Sinistres:  <%= place.damages.count %> </p>
+                            <% if place.category == "Maison" %>
+                              <div class="fa fa-home"></div>
+                            <% else %>
+                              <div class="fa fa-building-o"></div>
+                            <% end %>
+                          <% end %>
+                        </div>
+                      </div>
                     <% end %>
-                    </div>
-
-
                   </div>
-                  <% end %>
-                </div>
 
-                <div class="col-xs-12 col-sm-4">
-                </div>
+                  <div class="col-xs-12 col-sm-4">
+                  </div>
 
-                <div class="col-xs-12 col-sm-4">
-                  <div id="map" style="width: 100%; height: 600px;"></div>
+                  <div class="col-xs-12 col-sm-4">
+                    <div id="map" style="width: 100%; height: 600px;"></div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -136,17 +134,7 @@
               <% end %>
             </div>
 
-            <!-- <div class="sub-new-quote-content" id="step-1-contrat">
-              <div class="nb-title-sub-content">
-                <h2 class="text-center">Contrats souscrits</h2>
-              </div>
-              <% @quotes.each do |quote| %>
-                <div class="row-quote">
-                  <i class="fa fa-file-o" aria-hidden="true"></i>
-                  <%= quote.place.name %> | Prix mensuel: <%= quote.price %> | Montant couvert: <%= quote.covered_amount %> <br>
-                </div>
-              <% end %>
-            </div> -->
+
 
           </div>
         </div>
