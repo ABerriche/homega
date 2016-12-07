@@ -72,13 +72,24 @@
                 <div class="col-xs-12 col-sm-8">
                   <% current_user.places.each do |place| %>
                   <div class="row">
+
+                    <div class="place">
                       <%= link_to place_path(place) do %>
                       <h4><%= place.name %></h4>
-                      <p><small><%= place.address %> <%= place.postal_code %> <%= place.city %></small></p> <br>
+                      <p><small> Adresse : <%= place.address %> <%= place.postal_code %> <%= place.city %></small></p> <br>
                       <% place.quotes.each do |quote| %>
-                      <p> Date Contrat: <%= quote.start_date %> </h4>
+                      <p> Date Contrat: <%= quote.start_date %> </p>
+                      <% end %>
+                      <p> Nombre de Sinistres:  <% place.damages.count %> </p>
+                      <% if place.category == "Maison" %>
+                      <div class="fa fa-home"></div>
+                      <% else %>
+                      <div class="fa fa-building-o"></div>
                       <% end %>
                     <% end %>
+                    </div>
+
+
                   </div>
                   <% end %>
                 </div>
