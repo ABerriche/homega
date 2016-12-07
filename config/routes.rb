@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get '/users/:id/infos' => 'users#infos', as: 'user_info'
   get '/quotes/:id/insure' => 'quotes#insure', as: 'insure'
   get '/places/:id/insured' => 'places#insured', as: 'insured'
+  get '/places/:id/finalization' => 'places#finalization', as: 'finalization'
   get '/places/:id/devis' => "places#devis", as: 'devis'
   mount Attachinary::Engine => "/attachinary"
 
