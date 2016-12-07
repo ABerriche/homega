@@ -64,7 +64,7 @@ class PlacesController < ApplicationController
   end
 
   def place_params
-    params.require(:place).permit(:name, :category, :address, :superficy, :heating_type, :building_type, :kitchen_type, :water_room, :floor, :status, :chimney, :trustee_reference, :contrat)
+    params.require(:place).permit(:name, :category, :address, :superficy, :heating_type, :building_type, :kitchen_type, :water_room, :floor, :status, :chimney, :trustee_reference, :contrat, :already_insured)
   end
 
   def set_price_and_covered_amount(superficy)
