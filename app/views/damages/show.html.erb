@@ -11,6 +11,10 @@
             <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
           <% end %>
 
+          <div class="msg-confirmation">
+
+          </div>
+
           <div class="search-presta">
 
             <h2>Planification de votre intervention</h2>
@@ -21,15 +25,16 @@
             <%= simple_form_for :search, url: damage_bookings_path(@damage), :html => { :method => "get", :class => "form-inline" }, remote: true do |f| %>
               <div class="form-group">
                 <%= f.label :date, "Date" %>
-                <%= f.input :date, :input_html => { :class => 'form-control datepicker' }, label: false %>
+                <%= f.input :date, :input_html => { :class => 'form-control-presta datepicker' }, label: false %>
               </div>
               <div class="form-group">
                 <%= f.label :am_pm, "Quand?" %>
-                <%= f.input :am_pm, collection: ["matin", "après-midi"], :input_html => { :class => 'form-control' }, label: false %>
+                <%= f.input :am_pm, collection: ["matin", "après-midi"], :input_html => { :class => 'form-control-presta' }, label: false %>
               </div>
               <div class="form-group">
                 <%= f.button :submit, "Search", class: "default-button btn" %>
               </div>
+
             <% end %>
 
           </div>

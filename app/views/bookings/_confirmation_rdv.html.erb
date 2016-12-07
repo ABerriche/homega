@@ -4,10 +4,12 @@
       <i class="fa fa-calendar" aria-hidden="true"></i>
     </div>
     <div class="col-sm-10">
-      <h5>Le <%= @booking.date.strftime('%d-%m-%Y') %> (<%= @booking.am_pm %>)</h5>
-      Société <%= @booking.provider.company %> (<%= @booking.provider.speciality %>)<br>
-      <%= @booking.provider.first_name %> <%= @booking.provider.last_name %><br>
-      <%= @booking.provider.address %> <%= @booking.provider.zip_code %> <%= @booking.provider.city %>
+      <div id="rdv-date">Le <%= @booking.date.strftime('%d-%m-%Y') %> (<%= @booking.am_pm %>)</div><br>
+      <div id="rdv-infos">
+        Société <%= @booking.provider.company %> (<%= @booking.provider.speciality %>)<br>
+        <%= @booking.provider.first_name %> <%= @booking.provider.last_name %><br>
+        <%= @booking.provider.address %> <%= @booking.provider.zip_code %> <%= @booking.provider.city %>
+      </div>
     </div>
   </div>
 </div>
