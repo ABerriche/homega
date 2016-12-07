@@ -9,14 +9,15 @@
 
     <!-- Different navigation if login or not -->
     <% if current_page?(new_place_path) %>
-    <div class="col-xs-12 col-sm-6 text-center">
-        <%= link_to "Annuler", root_path, class: "default-button btn" %>
-    </div>
-    <% elsif current_page?(new_damage_path) %>
-    <div class="col-xs-12 col-sm-6 text-center">
-        <%= link_to "Annuler", root_path, class: "default-button btn" %>
-    </div>
-    <% elsif user_signed_in? %>
+      <div class="col-xs-12 col-sm-6 text-center">
+          <%= link_to "Annuler", root_path, class: "default-button btn" %>
+      </div>
+      <% elsif current_page?(new_damage_path) %>
+      <div class="col-xs-12 col-sm-6 text-center">
+          <%= link_to "Annuler", root_path, class: "default-button btn" %>
+      </div>
+    <% end %>
+    <% if user_signed_in? %>
       <!-- Profile picture and dropdown -->
       <div class="col-xs-12 col-sm-6 text-center">
             <%= link_to "Déclarer un sinistre", new_damage_path, class: "default-button btn" %>
@@ -27,13 +28,13 @@
         <% if current_user.facebook_picture_url? %>
           <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
           <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-            <% else %>
-              <% if current_user.sex == "Femme" %>
+        <%# else %>
+              <% elsif current_user.sex == "Femme" %>
                 <%= image_tag "user-icon2.png", class:"avatar dropdown-toggle", id:"navbar-wagon-menu", "data-toggle" => "dropdown" %>
               <% elsif current_user.sex == "Homme" %>
                 <%= image_tag "user-icon.png", class:"avatar dropdown-toggle", id:"navbar-wagon-menu", "data-toggle" => "dropdown" %>
               <% end %>
-          <% end %>
+          <%# end %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <%= link_to root_path do %>

@@ -1,10 +1,10 @@
 <% if signed_in? %>
 
 <div class="wrapper-home-connected">
-  <% if @current_user.first_name =! nil %>
-    <h4 class="text-center">Bienvenue, <%= @current_user.first_name.capitalize %> ! </h4>
-  <% else %>
+  <% if @current_user.first_name.nil? %>
     <h4 class="text-center">Bienvenue! </h4>
+  <% else %>
+    <h4 class="text-center">Bienvenue, <%= @current_user.first_name.capitalize %> ! </h4>
   <% end %> 
 </div>
 
