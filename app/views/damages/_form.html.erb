@@ -6,8 +6,18 @@
 
       <div class="col-xs-12 col-sm-5">
           <div class="row damage-form-designation text-center">
-            <h2 class="text-center">Déclarez un sinistre</h2><br><br><br>
-            <%= link_to "Dégâts des eaux", new_damage_path(type: "degats"), class: "damage-button" %>
+          <% if params[:type] == "incendie" %>
+            <h2 class="text-center">Déclarez un incendie</h2><br><br><br>
+          <% elsif params[:type] == "catastrophe" %>
+            <h2 class="text-center">Déclarez une catastrophe naturelle</h2><br><br><br>
+          <% elsif params[:type] == "degats" %>
+            <h2 class="text-center">Déclarez un dégât des eaux</h2><br><br><br>
+          <% elsif params[:type] == "vol" %>
+            <h2 class="text-center">Déclarez un vol</h2><br><br><br>
+          <% else %>
+            <h2 class="text-center">Déclarez un(e)</h2><br><br><br>
+          <% end %>
+            <%= link_to "Dégât des eaux", new_damage_path(type: "degats"), class: "damage-button" %>
             <%= link_to "Vol", new_damage_path(type: "vol"), class: "damage-button" %><br><br><br>
             <%= link_to "Incendie", new_damage_path(type: "incendie"), class: "damage-button" %>
             <%= link_to "Catastrophe naturelle", new_damage_path(type: "catastrophe"), class: "damage-button" %>

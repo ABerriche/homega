@@ -24,6 +24,7 @@ class DamagesController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
     @providers = Provider.where(category: @damage.category)
   end
 

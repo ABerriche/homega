@@ -1,5 +1,7 @@
-<h1>My bookings</h1>
+<%= @date %> | <%= @am_pm %><br>
 
-<% @bookings.each do |booking| %>
-  <%= booking.id %> | <%= booking.start_date %> | <%= booking.start_date %>
+<% @available_providers.each do |provider| %>
+  <%= provider.address %>
+  <%= provider.category %>
+  <%= provider.speciality %><br>
 <% end %>

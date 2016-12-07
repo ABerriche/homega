@@ -5,5 +5,6 @@ class Booking < ApplicationRecord
   validates :damage_id, presence: true
   validates :provider_id, presence: true
   validates :date, presence: true
+  validates :am_pm, presence: true
 
 end

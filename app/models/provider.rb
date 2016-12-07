@@ -7,4 +7,6 @@ class Provider < ApplicationRecord
   validates :category, presence: true
   validates :company, presence: true
 
+  has_attachment :photo
+
 end

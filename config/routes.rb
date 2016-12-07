@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   end
   resources :damages, only: [ :new, :create, :show ] do
-    resources :bookings, only: [ :new, :create ]
+    resources :bookings, only: [ :new, :create, :index ]
   end
   resources :providers, only: [ :show, :index ]
   get '/users/:id/infos' => 'users#infos', as: 'user_info'

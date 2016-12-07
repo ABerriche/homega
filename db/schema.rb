@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 20161206170713) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "provider_id"
+    t.string   "am_pm"
+    t.text     "comment"
     t.index ["damage_id"], name: "index_bookings_on_damage_id", using: :btree
     t.index ["provider_id"], name: "index_bookings_on_provider_id", using: :btree
   end
@@ -71,9 +73,10 @@ ActiveRecord::Schema.define(version: 20161206170713) do
     t.string   "trustee_reference"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.string   "name"
     t.float    "latitude"
     t.float    "longitude"
-    t.string   "name"
+    t.boolean  "already_insured"
     t.index ["user_id"], name: "index_places_on_user_id", using: :btree
   end
 
@@ -85,6 +88,7 @@ ActiveRecord::Schema.define(version: 20161206170713) do
     t.string   "company"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "speciality"
   end
 
   create_table "quotes", force: :cascade do |t|
@@ -120,7 +124,6 @@ ActiveRecord::Schema.define(version: 20161206170713) do
     t.string   "nb_children"
     t.string   "job"
     t.boolean  "insured",                default: false
-    t.boolean  "already_insured"
     t.string   "provider"
     t.string   "uid"
     t.string   "facebook_picture_url"

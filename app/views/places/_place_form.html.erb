@@ -48,6 +48,9 @@
             <%= f.label :status, "Quel est votre statut?" %>
             <%= f.select :status, ["Locataire", "Co-locataire", "Propriétaire", "Propriétaire Non Occupant"] %>
 
+            <%= f.label :already_insured, "Avez-vous déjà une assurance habitation" %>
+            <%= f.select :already_insured, ["Oui", "Non"] %>
+
             <%= f.submit :submit %>
 
           <% end %>

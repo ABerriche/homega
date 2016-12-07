@@ -8,7 +8,12 @@ class ProvidersController < ApplicationController
 
 
   def index
-    @providers = Provider.all
+    #raise
+    #providers_with_booking_ids = Provider.all.map do |provider|
+
+    #end
+    #@available_providers = providers.booki
+
   end
 
 
@@ -19,7 +24,7 @@ class ProvidersController < ApplicationController
   end
 
   def provider_params
-    params.require(:user).permit(:first_name, :last_name, :address, :category, :company)
+    params.require(:user).permit(:first_name, :last_name, :address, :category, :company, :photo)
   end
 
 end
