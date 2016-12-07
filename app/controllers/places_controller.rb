@@ -24,7 +24,12 @@ class PlacesController < ApplicationController
         flash[:alert] = "Merci de saisir une adresse proposée dans les..."
         render :new
       else
-        redirect_to new_place_quote_path(@place) #obsolete
+        if @place.already_insured
+          redirect_to insured_path(@place)
+        else
+          redirect_to devis_path(@place) #obsolete
+        end
+        #redirect_to new_place_quote_path(@place) #obsolete
       end
     else
       render :new
@@ -44,7 +49,7 @@ class PlacesController < ApplicationController
   def update
     @place.update(place_params)
     #redirect_to place_path(@place)
-    redirect_to new_place_quote_path(@place)
+    redirect_to devis_path(@place)
   end
 
   def insured
