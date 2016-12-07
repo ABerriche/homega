@@ -1,43 +1,73 @@
 <div class="wrapper-page-new-quote">
   <div class="container">
 
-    <div class="row new-quote-right">
-      <h1><%= @damage.place.name %> | <%= @damage.place.address %> | <%= @damage.category %></h1>
-      <% @damage.photos.each do |photo| %>
-        <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
-      <% end %>
 
-    <h4>Je suis disponible pour une intervention le :</h4>
+    <div class="new-quote-right">
+      <div class="row">
+        <div class="col-xs-12 col-sm-8">
+          <h1><%= @damage.place.name %><br><%= @damage.place.address %></h1>
+          <h5>Catégorie : <%= @damage.category %></h5>
+          <% @damage.photos.each do |photo| %>
+            <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+          <% end %>
+
+          <div class="search-presta">
+
+            <h2>Planification de votre intervention</h2>
 
 
-    <div id="confirmation-rdv">
+            <h4>Je suis disponible le :</h4>
 
-    </div>
+            <%= simple_form_for :search, url: damage_bookings_path(@damage), :html => { :method => "get", :class => "form-inline" }, remote: true do |f| %>
+              <div class="form-group">
+                <%= f.label :date, "Date" %>
+                <%= f.input :date, :input_html => { :class => 'form-control datepicker' }, label: false %>
+              </div>
+              <div class="form-group">
+                <%= f.label :am_pm, "Quand?" %>
+                <%= f.input :am_pm, collection: ["matin", "après-midi"], :input_html => { :class => 'form-control' }, label: false %>
+              </div>
+              <div class="form-group">
+                <%= f.button :submit, "Search", class: "default-button btn" %>
+              </div>
+            <% end %>
 
+          </div>
 
+        </div>
 
-    <%= simple_form_for :search, url: damage_bookings_path(@damage), :html => { :method => "get", :class => "form form-inline" }, remote: true do |f| %>
-      <div class="form-group">
-        <%= f.input :date, :input_html => { :class => 'form-control datepicker' }, placeholder: "Date souhaitée", label: false %>
+        <div class="col-xs-12 col-sm-4">
+          <div class="confirmation-box">
+            <h4 class="text-center">Mes rendez-vous en cours</h4>
+            <div class="rdv-list">
+              <% @damage.bookings.each do |booking| %>
+                <div class="rdv">
+                  <div class="row">
+                    <div class="col-sm-2">
+                      <i class="fa fa-calendar" aria-hidden="true"></i>
+                    </div>
+                    <div class="col-sm-10">
+                      <div id="rdv-date">Le <%= booking.date.strftime('%d-%m-%Y') %> (<%= booking.am_pm %>)</div><br>
+                      <div id="rdv-infos">
+                        Société <%= booking.provider.company %> (<%= booking.provider.speciality %>)<br>
+                        <%= booking.provider.first_name %> <%= booking.provider.last_name %><br>
+                        <%= booking.provider.address %> <%= booking.provider.zip_code %> <%= booking.provider.city %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-        <%= f.input :am_pm, collection: ["matin", "après-midi"], :input_html => { :class => 'form-control' }, placeholder: "matin ou après-midi", label: false %>
+
+      <div class="row">
+        <div id="liste-presta">
+
+        </div>
       </div>
-      <div class="form-group">
-        <%= f.button :submit, "Search", class: "btn btn-default" %>
-      </div>
-    <% end %>
-
-    <div id="liste-presta">
-
     </div>
-
-
-
-
-    </div>
-
-
   </div>
 </div>
 
