@@ -206,6 +206,25 @@
   padding-left:0px;
 }
 
+.form-control-presta {
+  border: 1px solid $gray-background;
+  font-size: 15px;
+  font-family: 'Lato', sans-serif;
+  padding-left: 15px;
+  margin-top: 20px;
+
+  &:focus {
+    border-color: $brand-color !important;
+  }
+}
+
+.form-inline .form-group-presta {
+  display: inline-block;
+  vertical-align: middle;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
 
 // STEP 4
 
