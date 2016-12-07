@@ -66,29 +66,18 @@
             <div class="sub-new-quote-content" id="step-1-logement">
               <div class="nb-sub-content">
                 <div class="row">
-                    <div class="col-xs-12 col-sm-4">
-                      <div class="nb-title-sub-content"><h2 class="text-center">Logements</h2></div>
-                    </div>
-                    <div class="col-xs-12 col-sm-4">
-                      <div class="nb-title-sub-content"><h2 class="text-center">Contrats</h2></div>
-                    </div>
-                    <div class="col-xs-12 col-sm-4">
-                      <div class="nb-title-sub-content"><h2 class="text-center">Carte</h2></div>
-                    </div>
+                  <div class="nb-title-sub-content"><h2 class="text-center">Vos Logements et Contrats</h2></div>
                 </div>
+                <div class="row">
                 <div class="col-xs-12 col-sm-8">
                   <% current_user.places.each do |place| %>
                   <div class="row">
-                    <div class="col-xs-12 col-sm-6">
                       <%= link_to place_path(place) do %>
                       <h4><%= place.name %></h4>
                       <p><small><%= place.address %> <%= place.postal_code %> <%= place.city %></small></p> <br>
-                    </div>
-                    <div class="col-xs-12 col-sm-6">
                       <% place.quotes.each do |quote| %>
-                      <h4> <%= quote.start_date %> </h4>
+                      <p> Date Contrat: <%= quote.start_date %> </h4>
                       <% end %>
-                    </div>
                     <% end %>
                   </div>
                   <% end %>
