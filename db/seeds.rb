@@ -23,7 +23,7 @@ provider1 = Provider.create!(first_name: "Nicolas",
                             zip_code: "92400",
                             city: "Courbevoie",
                             company:"SARL TN Chauffage",
-                            category: "Dégâts des eaux",
+                            category: "Dégât des eaux",
                             speciality: "Plomberie")
 provider1.photo_url = url_1
 provider1.save
@@ -34,7 +34,7 @@ provider2 = Provider.create!(first_name: "Gilbert",
                             zip_code: "93130",
                             city: "Rosny sous Bois",
                             company:"AGS Plomberie",
-                            category: "Dégâts des eaux",
+                            category: "Dégât des eaux",
                             speciality: "Plomberie")
 provider2.photo_url = url_2
 provider2.save
@@ -45,7 +45,7 @@ provider3 = Provider.create!(first_name: "André",
                             zip_code: "78100",
                             city: "Saint Germain en Laye",
                             company:"Entreprise André",
-                            category: "Dégâts des eaux",
+                            category: "Dégât des eaux",
                             speciality: "Plomberie")
 provider3.photo_url = url_3
 provider3.save
@@ -56,7 +56,7 @@ provider4 = Provider.create!(first_name: "Mickael",
                             zip_code: "75009",
                             city: "Paris",
                             company:"Etablissement TORTOSA",
-                            category: "Dégâts des eaux",
+                            category: "Dégât des eaux",
                             speciality: "Plomberie")
 provider4.photo_url = url_4
 provider4.save
@@ -67,7 +67,7 @@ provider5 = Provider.create!(first_name: "Adoni",
                             zip_code: "75017",
                             city: "Paris",
                             company:"LOUBI Plombelec",
-                            category: "Dégâts des eaux",
+                            category: "Dégât des eaux",
                             speciality: "Plomberie")
 provider5.photo_url = url_5
 provider5.save
