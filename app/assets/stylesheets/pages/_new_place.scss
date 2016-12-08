@@ -36,6 +36,11 @@
   }
 }
 
+cf-input-control-elements {
+  height: 50px !important;
+  padding-top: 0px !important;
+}
+
 text {
   color: black; //#9C9C9C;
   //background-color: yellow;
@@ -89,6 +94,7 @@ cf-chat-response:nth-of-type(2n+2) text {
 
 cf-input.animate-in input {
   color: black;
+  font-size: 20px;
 }
 
 .cf-button {
