@@ -12,11 +12,15 @@ class UsersController < ApplicationController
   def update
      #@user.birth_date = params[:user][:birth_date].strftime('%Y-%m-%d')
     @user.update(user_params)
-    if @user.situation.nil?
-      redirect_to new_place_path
-    else 
+    if params[:user][:step]
       redirect_to root_path
+    else
+    #if @user.situation.nil?
+      redirect_to new_place_path
     end
+    #else
+    #  redirect_to root_path
+    #end
   end
 
   def infos

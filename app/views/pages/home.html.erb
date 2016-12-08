@@ -59,6 +59,7 @@
                     <%= f.input :job, collection: User::JOBS, required: true, label: "Profession:", placeholder: 'Employé' %>
                     <i class="fa fa-caret-down"></i>
                   </div>
+                  <%= f.hidden_field :step, value: "maj" %>
                 </div>
 
                 <div class="form-actions">

@@ -2,7 +2,7 @@
   <% @available_providers.each do |provider| %>
     <div class="col-xs-12 col-sm-4">
       <div class="presta-card">
-        <div class="presta-photo" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path('plombier8.jpg') %>');">
+        <div class="presta-photo" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= cl_image_path provider.photo.path %>')">
           <img class="presta-avatar" src='<%= image_path('avatar1.jpg') %>'>
           <div class="presta-speciality">
             <%= provider.speciality %>
