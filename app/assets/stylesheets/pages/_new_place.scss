@@ -113,6 +113,16 @@ cf-chat-response text thinking{
   }
 }
 
+cf-chat-response.show thumb {
+  background-image: url('favicon.png') !important;
+  border-radius: 0 !important;
+}
+
+cf-chat-response.peak-thumb thumb {
+  background-image: url('user-icon.png') !important;
+  border-radius: 0 !important;
+}
+
 .cf-input-button {
   background: $brand-color !important;
 }
