@@ -20,6 +20,7 @@
   cf-chat {
     width: 55% !important;
     margin: auto !important;
+    height: calc(100% - 80px) !important;
   }
   cf-chat:before {
     display: none !important;
@@ -37,7 +38,7 @@
 }
 
 cf-input-control-elements {
-  height: 50px !important;
+  height: 90px !important;
   padding-top: 0px !important;
 }
 
