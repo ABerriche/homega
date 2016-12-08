@@ -14,7 +14,7 @@ Provider.destroy_all
                   zip_code: Faker::Address.zip,
                   city: Faker::Address.city,
                   company:Faker::Company.name,
-                  category: "Dégâts des eaux",
+                  category: "Dégât des eaux",
                   speciality: "Plomberie")
   Provider.create!(first_name: Faker::Name.first_name,
                   last_name: Faker::Name.last_name,

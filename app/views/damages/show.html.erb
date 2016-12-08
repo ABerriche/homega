@@ -5,8 +5,9 @@
     <div class="new-quote-right">
       <div class="row">
         <div class="col-xs-12 col-sm-8">
-          <h1><%= @damage.place.name %><br><%= @damage.place.address %></h1>
-          <h5>Catégorie : <%= @damage.category %></h5>
+          <h1><%= @damage.place.name %></h1>
+          <h2><%= @damage.place.address %></h2>
+          <h3>Catégorie : <%= @damage.category %></h3>
           <% @damage.photos.each do |photo| %>
             <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
           <% end %>
