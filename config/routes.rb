@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   resources :quotes, only: [ :show, :update ] do
     get '/insured' => "quotes#insured"
     get '/payment' => "quotes#payment"
-
   end
+
   resources :damages, only: [ :new, :create, :show ] do
     resources :bookings, only: [ :new, :create, :index ]
   end
@@ -19,7 +19,9 @@ Rails.application.routes.draw do
   get '/places/:id/insured' => 'places#insured', as: 'insured'
   get '/places/:id/finalization' => 'places#finalization', as: 'finalization'
   get '/places/:id/devis' => "places#devis", as: 'devis'
+  post '/places/:id/devis' => "payments#create", as: 'payment'
   mount Attachinary::Engine => "/attachinary"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
+

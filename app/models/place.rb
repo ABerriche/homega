@@ -1,4 +1,5 @@
 class Place < ApplicationRecord
+  # monetize :price_cents
   geocoded_by :address
   belongs_to :user
   has_attachment :contrat

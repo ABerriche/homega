@@ -53,7 +53,7 @@
       <div class="row place-form-designation2">
 
       <div class="navbar-size"></div>
-      <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center devis-button-placement">
+      <!-- <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center devis-button-placement">
        <button type="button" class="btn default-button btn-lg active devis-button" data-toggle="modal" data-target=".bs-example-modal-sm"">Souscrire<br>pour<br><%= @quote.price %>€/an</button>
        </div>
 
@@ -76,9 +76,27 @@
               </div>
             </form>
           <div class="modal-footer">
-            <!-- <button type="button" class="btn btn default-button"">Souscrire</button> -->
-            <%= link_to "Souscrire", finalization_path(@place), class: "btn btn default-button" %>
-          </div>
+            <! <button type="button" class="btn btn default-button"">Souscrire</button> -->
+            <%#= link_to "Souscrire", finalization_path(@place), class: "btn btn default-button" %>
+          <!-- </div> -->
+          <!-- app/views/payments/new.html.erb -->
+
+        <h2>Souscription à l'assurance Homega</h2>
+        <%= form_tag payment_path(@place) do %>
+          <article>
+            <label class="amount">
+              <span>Montant : <%= @quote.price %></span>
+            </label>
+          </article>
+
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-name="Assurance"
+          data-description="Assurance habitation Homega"
+          data-amount="<%= @quote.price * 100 %>"
+          data-currency="<%= :eur %>"</script>
+        <% end %>
+
 
 
           </div>
