@@ -5,39 +5,40 @@
     <div class="new-quote-right">
       <div class="row">
         <div class="col-xs-12 col-sm-8">
-          <h1><%= @damage.place.name %></h1>
-          <h2><%= @damage.place.address %></h2>
-          <h3>Catégorie : <%= @damage.category %></h3>
+        <div class="damage">
+          <h4><%= @damage.place.name %></h4>
+          <p><%= @damage.place.address %></p>
+          <p>Catégorie : <%= @damage.category %></p>
           <% @damage.photos.each do |photo| %>
             <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
           <% end %>
+          </div>
 
           <div class="msg-confirmation">
 
           </div>
 
           <div class="search-presta">
+            <div class="damage">  
+            <h4>Planification de votre intervention</h4>
 
-            <h2>Planification de votre intervention</h2>
 
-
-            <h4>Je suis disponible le :</h4>
+            <p>Je suis disponible le :</p>
 
             <%= simple_form_for :search, url: damage_bookings_path(@damage), :html => { :method => "get", :class => "form-inline" }, remote: true do |f| %>
-              <div class="form-group">
-                <%= f.label :date, "Date" %>
-                <%= f.input :date, :input_html => { :class => 'form-control-presta datepicker' }, label: false %>
+              <div class="select-input">
+                <%= f.label :date, required: true, label: "Date: " %>
+                <%= f.input :date, :input_html => { :class => 'form-control-presta datepicker' }, label: false, placeholder: '25-12-2016' %>
               </div>
-              <div class="form-group">
-                <%= f.label :am_pm, "Quand?" %>
+              <div class="select-input">
+                <%= f.label :am_pm, required: true, label: "Quand: " %>
                 <%= f.input :am_pm, collection: ["matin", "après-midi"], :input_html => { :class => 'form-control-presta' }, label: false %>
               </div>
               <div class="form-group">
-                <%= f.button :submit, "Search", class: "default-button btn" %>
+                <%= f.button :submit, "Rechercher", class: "default-button btn" %>
               </div>
-
             <% end %>
-
+            </div>
           </div>
 
         </div>
