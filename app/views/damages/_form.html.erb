@@ -29,20 +29,20 @@
           <%= form_for @damage do |f| %>
 
             <% if params[:type] == "incendie" %>
-              <%= f.label :place_id, "Quel est le bien concerné par cet incendie?" %>
+              <%= f.label :place_id, "Quel est le logement concerné par cet incendie?" %>
               <%= f.select :place_id, @places %>
 
               <%= f.hidden_field :category, value: "Incendie" %>
             <% elsif params[:type] == "catastrophe" %>
-              <%= f.label :place_id, "Quel est le bien concerné par cette catastrophe?" %>
+              <%= f.label :place_id, "Quel est le logement concerné par cette catastrophe?" %>
               <%= f.select :place_id, @places %>
 
               <%= f.hidden_field :category, value: "Catastrophe naturelle" %>
             <% elsif params[:type] == "degats" %>
-              <%= f.label :place_id, "Quel est le bien concerné par ce dégâts des eaux?" %>
+              <%= f.label :place_id, "Quel est le logement concerné par ce dégât des eaux?" %>
               <%= f.select :place_id, @places %>
 
-              <%= f.hidden_field :category, value: "Dégâts des eaux" %>
+              <%= f.hidden_field :category, value: "Dégât des eaux" %>
 
               <%= f.label :civil_responsability, "Responsabilité civile?" %>
               <%= f.select :civil_responsability, ["Oui", "Non"] %>
@@ -50,7 +50,7 @@
               <%= f.label :responsability, "D'où provient le sinistre?" %>
               <%= f.select :responsability, ["L'origine du sinistre provient de chez moi", "L'origine du sinistre ne provient pas de chez moi", "Je ne sais pas"] %>
             <% elsif params[:type] == "vol" %>
-              <%= f.label :place_id, "Quel est le bien concerné par ce vol?" %>
+              <%= f.label :place_id, "Quel est le logement concerné par ce vol?" %>
               <%= f.select :place_id, @places %>
 
               <%= f.hidden_field :category, value: "Vol" %>
@@ -88,7 +88,7 @@
           $("#valeur_bien").removeClass('hidden');
           $("#responsabilite").addClass('hidden');
           $("#responsabilite_civile").addClass('hidden');
-        } else if ($('#damage_category').val() == "Dégâts des eaux"){
+        } else if ($('#damage_category').val() == "Dégât des eaux"){
           $("#effraction").addClass('hidden');
           $("#valeur_bien").addClass('hidden');
           $("#responsabilite").removeClass('hidden');
