@@ -1,16 +1,17 @@
 .conversational-form {
+  position: absolute;
   box-shadow: 1px 1px 3px #FFB766;
   border-radius: 5px;
   width: 600px !important;
   height: 400px !important;
-  bottom: 160px !important;
+  bottom: 260px !important;
   left: 500px !important;
   top: 50px !important;
 }
 
 text {
   color: black; //#9C9C9C;
-  background-color: yellow;
+  //background-color: yellow;
 }
 
 f-input input {
