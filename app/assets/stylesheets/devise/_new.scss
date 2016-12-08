@@ -17,3 +17,8 @@
   font-size: $h2-size;
   padding-bottom: 5px;
 }
+
+body { background: #ccc; }
+*,*:before,*:after {
+  box-sizing: border-box;
+}
