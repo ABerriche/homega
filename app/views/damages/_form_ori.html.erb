@@ -11,7 +11,7 @@
             <% else %>
               <%= f.input :place_id, collection: @places, label: "Bien concerné" %>
             <% end %>
-            <%= f.input :category, label: "Catégorie", :collection => ["Dégâts des eaux", "Vol", "Incendie", "Catastrophe naturelle"] %>
+            <%= f.input :category, label: "Catégorie", :collection => ["Dégât des eaux", "Vol", "Incendie", "Catastrophe naturelle"] %>
 
             <div class="hidden" id="responsabilite_civile">
               <%= f.input :civil_responsability, label: "Responsabilité civile" %>
@@ -46,7 +46,7 @@
           $("#valeur_bien").removeClass('hidden');
           $("#responsabilite").addClass('hidden');
           $("#responsabilite_civile").addClass('hidden');
-        } else if ($('#damage_category').val() == "Dégâts des eaux"){
+        } else if ($('#damage_category').val() == "Dégât des eaux"){
           $("#effraction").addClass('hidden');
           $("#valeur_bien").addClass('hidden');
           $("#responsabilite").removeClass('hidden');

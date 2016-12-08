@@ -37,11 +37,11 @@
                 <div class="col-xs-8 lighter"><i class="fa fa-check" aria-hidden="true"></i></div>
               </div>
               <div class="row">
-                <div class="col-xs-4 lighter">Date de début :</div>
                 <div class="col-xs-8 lighter">
                   <%= simple_form_for [@place, @quote] do |f| %>
-                  <div class="date-debut">
-                  <%= f.input :start_date, required: true, label: false , as: :string, input_html: { class: "datepicker format-date" }, placeholder: 'JJ-MM-YYYY' %>
+                  <div class="select-input">
+                  <%= f.input :start_date, required: true, label: "Date de début :", as: :string, input_html: { class: "datepicker" }, placeholder: '01-01-2017' %>
+                  <i class="fa fa-caret-down"></i>
                   </div>
                   </div>
                   <% end %>

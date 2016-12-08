@@ -17,10 +17,10 @@
           <% else %>
             <h2 class="text-center">Déclarez un(e)</h2><br><br><br>
           <% end %>
-            <%= link_to "Dégât des eaux", new_damage_path(type: "degats"), class: "damage-button" %>
-            <%= link_to "Vol", new_damage_path(type: "vol"), class: "damage-button" %><br><br><br>
-            <%= link_to "Incendie", new_damage_path(type: "incendie"), class: "damage-button" %>
-            <%= link_to "Catastrophe naturelle", new_damage_path(type: "catastrophe"), class: "damage-button" %>
+            <%= link_to "Dégât des eaux", new_damage_path(type: "degats"), class: "btn default-button" %>
+            <%= link_to "Vol", new_damage_path(type: "vol"), class: "btn default-button" %><br><br><br>
+            <%= link_to "Incendie", new_damage_path(type: "incendie"), class: "btn default-button" %>
+            <%= link_to "Catastrophe naturelle", new_damage_path(type: "catastrophe"), class: "btn default-button" %>
           </div>
       </div>
 
@@ -29,20 +29,20 @@
           <%= form_for @damage do |f| %>
 
             <% if params[:type] == "incendie" %>
-              <%= f.label :place_id, "Quel est le bien concerné par cet incendie?" %>
+              <%= f.label :place_id, "Quel est le logement concerné par cet incendie?" %>
               <%= f.select :place_id, @places %>
 
               <%= f.hidden_field :category, value: "Incendie" %>
             <% elsif params[:type] == "catastrophe" %>
-              <%= f.label :place_id, "Quel est le bien concerné par cette catastrophe?" %>
+              <%= f.label :place_id, "Quel est le logement concerné par cette catastrophe?" %>
               <%= f.select :place_id, @places %>
 
               <%= f.hidden_field :category, value: "Catastrophe naturelle" %>
             <% elsif params[:type] == "degats" %>
-              <%= f.label :place_id, "Quel est le bien concerné par ce dégâts des eaux?" %>
+              <%= f.label :place_id, "Quel est le logement concerné par ce dégât des eaux?" %>
               <%= f.select :place_id, @places %>
 
-              <%= f.hidden_field :category, value: "Dégâts des eaux" %>
+              <%= f.hidden_field :category, value: "Dégât des eaux" %>
 
               <%= f.label :civil_responsability, "Responsabilité civile?" %>
               <%= f.select :civil_responsability, ["Oui", "Non"] %>
@@ -50,7 +50,7 @@
               <%= f.label :responsability, "D'où provient le sinistre?" %>
               <%= f.select :responsability, ["L'origine du sinistre provient de chez moi", "L'origine du sinistre ne provient pas de chez moi", "Je ne sais pas"] %>
             <% elsif params[:type] == "vol" %>
-              <%= f.label :place_id, "Quel est le bien concerné par ce vol?" %>
+              <%= f.label :place_id, "Quel est le logement concerné par ce vol?" %>
               <%= f.select :place_id, @places %>
 
               <%= f.hidden_field :category, value: "Vol" %>
@@ -80,5 +80,4 @@
 </div>
 
 <% content_for(:after_js) do %>
-
 <% end %>

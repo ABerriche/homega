@@ -7,10 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Provider.destroy_all
 
-
-
-
-
 url_1 = "http://www.tnchauffage.fr/upload/Image/chauffagiste-plombier-caudry-cambrai.JPG"
 url_2 = "http://ags.plomberie.free.fr/logo_AGS_plomberie.jpg"
 url_3 = "http://www.plombier-saintgermainenlaye.com/images/images/bandeau-andre-saint-germain-en-laye.png"
@@ -75,3 +71,4 @@ provider5 = Provider.create!(first_name: "Adoni",
                             speciality: "Plomberie")
 provider5.photo_url = url_5
 provider5.save
+
