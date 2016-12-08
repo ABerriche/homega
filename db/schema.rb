@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(version: 20161207110417) do
     t.string   "address"
     t.string   "category"
     t.string   "company"
+    t.string   "speciality"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "zip_code"
