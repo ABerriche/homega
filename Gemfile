@@ -29,6 +29,7 @@ gem 'autoprefixer-rails'
 gem "coffee-rails"
 gem "gmaps4rails"
 gem "letter_opener", group: :development
+gem 'stripe'
 
 
 source 'https://rails-assets.org' do
