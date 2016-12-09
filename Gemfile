@@ -18,7 +18,10 @@ gem "coffee-rails"
 
 gem 'sass-rails'
 gem 'jquery-rails'
+gem 'coffee-script'
+# gem 'money-rails'
 gem 'uglifier'
+gem 'stripe'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'simple_form'

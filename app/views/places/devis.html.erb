@@ -47,6 +47,26 @@
           </div>
         </div>
       </div>
+
+
+      <div class="navbar-size"></div>
+
+        <h2>Souscription à l'assurance Homega</h2>
+        <%= form_tag payment_path(@place) do %>
+          <article>
+            <label class="amount">
+              <span>Montant : <%= @quote.price %></span>
+            </label>
+          </article>
+
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-name="Assurance"
+          data-description="Assurance habitation Homega"
+          data-amount="<%= @quote.price * 100 %>"
+          data-currency="<%= :eur %>"</script>
+        <% end %>
+
       <div class="col-xs-12 col-sm-3 right">
         <div class="row place-form-designation2">
 
@@ -55,31 +75,6 @@
           </div>
         </div>
 
-        <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-          <div class="modal-dialog modal-sm" role="document">
-            <div class="modal-content">
-              <form>
-                <div class="form-group">
-                  <label for="Numerocarte">N° de carte</label>
-                  <input type="email" class="form-control" id="Numerocarte" placeholder="1234 5678 9123 4567">
-                </div>
-
-                <div class="form-group">
-                  <label for="Date">Date d'expiration</label>
-                  <input type="text" class="form-control" id="Date" placeholder="01/18">
-                </div>
-                <div class="form-group">
-                  <label for="CVC">CVC</label>
-                  <input type="email" class="form-control" id="CVC" placeholder="123">
-                </div>
-              </form>
-              <div class="modal-footer">
-                <!-- <button type="button" class="btn btn default-button"">Souscrire</button> -->
-                <%= link_to "Souscrire", finalization_path(@place), class: "btn btn default-button" %>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
