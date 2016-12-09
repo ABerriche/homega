@@ -116,9 +116,13 @@ a.nav-link:link
 // NEW CSS
 
 .wrapper-home {
-  background-color:white;
+  background-color: white;
 }
 
+.wrapper-home-features {
+  background-color: white; //#F4F4F4;
+  padding-bottom: 70px;
+}
 
 .container-home {
   width: 90%;

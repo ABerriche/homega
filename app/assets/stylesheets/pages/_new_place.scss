@@ -1,12 +1,45 @@
+// .conversational-form {
+//   position: absolute;
+//   box-shadow: 1px 1px 3px #FFB766;
+//   border-radius: 5px;
+//   width: 600px !important;
+//   height: 400px !important;
+//   bottom: 260px !important;
+//   left: 500px !important;
+//   top: 50px !important;
+// }
+
 .conversational-form {
-  position: absolute;
-  box-shadow: 1px 1px 3px #FFB766;
-  border-radius: 5px;
-  width: 600px !important;
-  height: 400px !important;
-  bottom: 260px !important;
-  left: 500px !important;
-  top: 50px !important;
+  position: absolute !important;
+  top: 220px !important;
+  width: 100% !important;
+  height: 55vh !important;
+  margin-top: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  cf-chat {
+    width: 55% !important;
+    margin: auto !important;
+    height: calc(100% - 80px) !important;
+  }
+  cf-chat:before {
+    display: none !important;
+  }
+  cf-input {
+    position: relative !important;
+    width: 55% !important;
+    margin: auto !important;
+    input {
+      box-shadow: none !important;
+      border-bottom: 1px solid $brand-color !important;
+      padding-left: 0 !important;
+    }
+  }
+}
+
+cf-input-control-elements {
+  height: 90px !important;
+  padding-top: 0px !important;
 }
 
 text {
@@ -22,9 +55,17 @@ f-input input {
   opacity: 0;
 }
 
-.damage-form-designation {
-  min-height: 450px;
-  border-right: 1px solid #CCCCCC;
+// .damage-form-designation {
+//   min-height: 450px;
+//   border-right: 1px solid #CCCCCC;
+// }
+
+.damage-designation {
+  a {
+    margin:0  15px;
+  }
+  padding-bottom: 20px;
+  border-bottom: 1px solid $gray-background;
 }
 
 .place-form-designation {
@@ -43,15 +84,55 @@ f-input input {
 }
 
 cf-chat-response.show text[value-added] {
-  background-color: #ffb766;
+  background-color: $brand-color;
+  color: white;
+  font-size: 16px;
 }
 
 cf-chat-response:nth-of-type(2n+2) text {
-  background: #F1F1F1 !important; //#66ffc4
+  background: $gray !important; //#66ffc4@
 }
 
 cf-input.animate-in input {
   color: black;
+  font-size: 20px;
+}
+
+.cf-button {
+  color: $brand-color !important;
+  border: 1px solid $brand-color !important;
+  &:hover {
+    background: $brand-color !important;
+    color: white !important;
+  }
+}
+
+cf-chat-response text thinking{
+  span {
+    color: white;
+  }
+}
+
+cf-chat-response.show thumb {
+  background-image: url('favicon.png') !important;
+  border-radius: 0 !important;
+}
+
+cf-chat-response.peak-thumb thumb {
+  background-image: url('user-icon.png') !important;
+  border-radius: 0 !important;
+}
+
+.cf-input-button {
+  background: $brand-color !important;
+}
+
+cf-input-button.cf-input-button svg.cf-icon-progress polygon {
+  fill: white !important;
+}
+
+cf-input-button.cf-input-button:hover, cf-input-button.cf-input-button:focus {
+  border: none !important;
 }
 
 .sign-doc {

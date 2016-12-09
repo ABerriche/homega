@@ -1,15 +1,17 @@
 <div class="wrapper-page-new-quote">
   <div class="container">
+    <div class="row new-quote-right">
+
       <form cf-form-element action="/places" method="post">
 
-    <div class="row new-quote-right">
-      <div class="col-xs-12">
-        <div class="damage-designation text-center">
-          <h2 class="text-center">Quelques informations concernant votre logement...</h2>
-        </div>
+      <div class="col-xs-12 col-sm-5">
+            <p class="text-center">Mon logement</p>
+          <div class="row place-form-designation">
+            <h2 class="text-center">Quelques informations concernant votre logement...</h2>
+          </div>
       </div>
 
-      <div class="col-xs-12 col-sm-6 col-sm-offest-3 form-place">
+      <div class="col-xs-12 col-sm-6 form-place">
 
           <%= form_for @place do |f| %>
 
@@ -52,7 +54,8 @@
             <%= f.submit :submit %>
 
           <% end %>
-      </div>
-      </div>
+        </div>
+    </div>
   </div>
 </div>
+
