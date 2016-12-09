@@ -18,7 +18,7 @@ h2 {
 .banner {
   color: white;
   text-align: center;
-  height: 80vh;
+  height: calc(100vh - 70px);
   background-size: cover !important;
   display: flex;
   align-items: center;
@@ -28,7 +28,6 @@ h2 {
   font-size: 50px;
   font-weight: bold;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
-  padding-top: 100px;
   padding-bottom: 10px;
 }
 .banner p {
@@ -130,8 +129,12 @@ a.nav-link:link
   padding: 40px 0 40px 0;
 }
 
+.homega-orange-bg {
+  background-color: #ff5900;
+}
+
 .homega-orange {
-  color: $brand-color;
+  color: #ff5900;
 }
 
 .symbols {
