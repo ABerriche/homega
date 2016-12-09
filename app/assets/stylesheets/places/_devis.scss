@@ -1,6 +1,13 @@
 .zen {
   padding-top: 10px;
   padding-bottom: 5px;
+  font-family: Helvetica;
+  font-size: 16px;
+  letter-spacing: 0px;
+  font-weight: bold;
+  line-height: 20px;
+  color: #8C8C8C;
+
 }
 
 .lighter {
@@ -40,6 +47,7 @@
  &:hover {
   box-shadow: 0 5px 13px 0 rgba(0, 0, 0, 0.25);
   background-color: $brand-color !important;
+  color: white;
  }
 }
 
@@ -47,4 +55,37 @@
   display: flex;
   min-height: 450px;
   align-items: center;
+}
+
+.stripe-button-el span {
+  background: $brand-color !important;
+  border: 0.001px solid transparent;
+}
+
+.date-debut {
+  font-size: 16px;
+  font-family: $base-font;
+  padding-left: 15px;
+}
+
+.title-assurance {
+  padding-left: 150px;
+}
+
+.souscription {
+  display: block;
+  padding-top: 200px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.button-center {
+  padding-left: 40px;
+  padding-top: 60px
+}
+
+.amount {
+  padding-bottom: 10px;
 }

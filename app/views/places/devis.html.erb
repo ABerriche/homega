@@ -8,74 +8,79 @@
       </div>
       <div class="col-xs-12 col-sm-6 right">
         <div class="bordered">
-          <h2 class="text-center">Devis d'assurance pour <%= @place.name %></h2>
+          <h2 class="text-center title-assurance bold">Devis d'assurance pour <%= @place.name %></h2>
           <div class="col-xs-12 col-sm-12 right devis">
             <div class="row">
-              <div class="col-xs-4 lighter">Adresse :</div>
-              <div class="col-xs-8 lighter"><%= @place.address %></div>
+              <div class="col-xs-3 lighter">Adresse :</div>
+              <div class="col-xs-9 lighter"><%= @place.address %></div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-xs-5 zen">Formule Zen</div>
             </div>
             <div class="row">
-              <div class="col-xs-4 zen">Formule Zen</div>
+              <div class="col-xs-5 lighter">Plafond d'indémnisation :</div>
+              <div class="col-xs-7 lighter"><%= @quote.covered_amount %>€</div>
             </div>
             <div class="row">
-              <div class="col-xs-4 lighter">Plafond d'indémnisation :</div>
-              <div class="col-xs-8 lighter"><%= @quote.covered_amount %>€</div>
+              <div class="col-xs-5 lighter">Responsabilité civile :</div>
+              <div class="col-xs-7 lighter">20M€</div>
             </div>
             <div class="row">
-              <div class="col-xs-4 lighter">Responsabilité civile :</div>
-              <div class="col-xs-8 lighter">20M€</div>
+              <div class="col-xs-5 lighter">Défense pénale :</div>
+              <div class="col-xs-7 lighter"><i class="fa fa-check" aria-hidden="true"></i></div>
             </div>
             <div class="row">
-              <div class="col-xs-4 lighter">Défense pénale :</div>
-              <div class="col-xs-8 lighter"><i class="fa fa-check" aria-hidden="true"></i></div>
-            </div>
-            <div class="row">
-              <div class="col-xs-4 lighter">Assistance :</div>
-              <div class="col-xs-8 lighter"><i class="fa fa-check" aria-hidden="true"></i></div>
+              <div class="col-xs-5 lighter">Assistance :</div>
+              <div class="col-xs-7 lighter"><i class="fa fa-check" aria-hidden="true"></i></div>
             </div>
             <hr>
             <div class="row">
               <div class="col-xs-8 lighter">
-                <%= simple_form_for [@place, @quote] do |f| %>
-                  <div class="select-input">
-                    <%= f.input :start_date, required: true, label: "Date de début :", as: :string, input_html: { class: "datepicker" }, placeholder: '01-01-2017' %>
-                    <i class="fa fa-caret-down"></i>
+                <form class="form-inline">
+                  <div class="form-group">
+                    <%= simple_form_for [@place, @quote] do |f| %>
+                      <div class="select-input">
+                        <%= f.input :start_date, required: true, label: "Date de début :", as: :string, input_html: { class: "datepicker date-debut" }, placeholder: '01-01-2017' %>
+                        <i class="fa fa-caret-down"></i>
+                      </div>
+                    <% end %>
                   </div>
-                <% end %>
+                </form>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-
-      <div class="navbar-size"></div>
-
-        <h2>Souscription à l'assurance Homega</h2>
+      <div class="col-xs-12 col-sm-3 souscription">
+        <h4>Souscription à Homega</h4>
         <%= form_tag payment_path(@place) do %>
           <article>
             <label class="amount">
-              <span>Montant : <%= @quote.price %></span>
+              <span text-center>Montant à payer : <%= @quote.price %>€ / an</span>
             </label>
           </article>
-
-        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-name="Assurance"
-          data-description="Assurance habitation Homega"
-          data-amount="<%= @quote.price * 100 %>"
-          data-currency="<%= :eur %>"</script>
-        <% end %>
-
-      <div class="col-xs-12 col-sm-3 right">
-        <div class="row place-form-designation2">
-
-          <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center devis-button-placement">
-            <button type="button" class="btn default-button btn-lg active devis-button" data-toggle="modal" data-target=".bs-example-modal-sm"">Souscrire<br>pour<br><%= @quote.price %>€/an</button>
+          <div class="button-center">
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+              data-name="Homega"
+              data-description="Assurance - Formule Zen"
+              data-amount="<%= @quote.price * 100 %>"
+              data-label="Payer en ligne"
+              data-locale="fr"
+              data-currency="<%= :eur %>"
+            </script>
           </div>
-        </div>
-
+        <% end %>
       </div>
+
+        <!-- <div class="col-xs-12 col-sm-3 right">
+          <div class="row place-form-designation2">
+            <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center devis-button-placement">
+              <button type="button" class="btn default-button btn-lg active devis-button" data-toggle="modal" data-target=".bs-example-modal-sm"">Souscrire<br>pour<br><%= @quote.price %>€/an</button>
+            </div>
+          </div>
+        </div> -->
     </div>
   </div>
 </div>
