@@ -1,4 +1,3 @@
 <h2 class="text-center padded-top">
-  Confirmation de votre rendez-vous avec la société <%= @booking.provider.company %>, le <%= @booking.date.strftime('%d-%m-%Y') %> (<%= @booking.am_pm %>)
+  Confirmation de votre rendez-vous avec la société <%= @booking.provider.company %>, le <%= @booking.date.strftime('%d-%m-%Y') %> à <%= @booking.am_pm %>
 </h2>
-<p class="text-center">Notre prestataire prendra contact avec vous prochainement pour planifier l'heure exacte de son intervention.</p>
